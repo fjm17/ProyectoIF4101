@@ -7,11 +7,11 @@ namespace TO
 {
     public class TO_Cliente
     {
-        public string correo { get; set; }
-        public string nombre_completo { get; set; }
-        public string direccion { get; set; }
-        public string contrasena { get; set; }
-        public string tipo { get; set; }
+        public string Correo { get; set; }
+        public string Nombre_Completo { get; set; }
+        public string Direccion { get; set; }
+        public string Contrasena { get; set; }
+        public string Tipo { get; set; }
 
         public TO_Cliente()
         {
@@ -20,11 +20,11 @@ namespace TO
 
         public TO_Cliente(string correo, string nombre_completo, string direccion, string contrasenna, string tipo)
         {
-            this.correo = correo;
-            this.nombre_completo = nombre_completo;
-            this.direccion = direccion;
-            this.contrasena = contrasena;
-            this.tipo = tipo;
+            this.Correo = correo;
+            this.Nombre_Completo = nombre_completo;
+            this.Direccion = direccion;
+            this.Contrasena = Contrasena;
+            this.Tipo = tipo;
         }
     }
 }

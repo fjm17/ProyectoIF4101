@@ -7,10 +7,10 @@ namespace BL
 {
     public class BL_Pedido
     {
-        public string cliente { get; set; }
-        public string plato { get; set; }
-        public DateTime fecha { get; set; }
-        public string estado { get; set; }
+        public string Cliente { get; set; }
+        public string Plato { get; set; }
+        public DateTime Fecha { get; set; }
+        public string Estado { get; set; }
 
         public BL_Pedido()
         {
@@ -19,10 +19,10 @@ namespace BL
 
         public BL_Pedido(string cliente, string plato, DateTime fecha, string estado)
         {
-            this.cliente = cliente;
-            this.plato = plato;
-            this.fecha = fecha;
-            this.estado = estado;
+            this.Cliente = cliente;
+            this.Plato = plato;
+            this.Fecha = fecha;
+            this.Estado = estado;
         }
     }
 }
