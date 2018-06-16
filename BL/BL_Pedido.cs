@@ -24,5 +24,7 @@ namespace BL
             this.Fecha = fecha;
             this.Estado = estado;
         }
+
     }
+}
 }

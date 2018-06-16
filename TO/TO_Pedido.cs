@@ -24,6 +24,7 @@ namespace TO
             this.Fecha = fecha;
             this.Estado = estado;
         }
+
     }
     }
 }
