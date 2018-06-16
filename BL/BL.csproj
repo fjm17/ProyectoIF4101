@@ -38,10 +38,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BL_Cliente.cs" />
+    <Compile Include="BL_Usuario.cs" />
     <Compile Include="BL_Pedido.cs" />
     <Compile Include="BL_Plato.cs" />
-    <Compile Include="Manejador_Cuenta.cs" />
+    <Compile Include="Manejador_Usuario.cs" />
     <Compile Include="Manejador_Pedido.cs" />
     <Compile Include="Manejador_Plato.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
