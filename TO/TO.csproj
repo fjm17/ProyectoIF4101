@@ -39,7 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TO_Cliente.cs" />
+    <Compile Include="TO_Usuario.cs" />
     <Compile Include="TO_Pedido.cs" />
     <Compile Include="TO_Plato.cs" />
   </ItemGroup>
