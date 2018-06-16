@@ -19,11 +19,11 @@ namespace DAO
                 bdConexion.Abrir();
                 SqlCommand comando = bdConexion.GenerarComando();
                 comando.CommandText = "Insert Into Plato Values (@nom, @desc, @prec, @foto, @estado)";
-                comando.Parameters.AddWithValue("@nom", plato.nombre);
-                comando.Parameters.AddWithValue("@desc", plato.descripcion);
-                comando.Parameters.AddWithValue("@prec", plato.precio);
-                comando.Parameters.AddWithValue("@foto", plato.foto);
-                comando.Parameters.AddWithValue("@estado", plato.estado);
+                comando.Parameters.AddWithValue("@nom", plato.Nombre);
+                comando.Parameters.AddWithValue("@desc", plato.Descripcion);
+                comando.Parameters.AddWithValue("@prec", plato.Precio);
+                comando.Parameters.AddWithValue("@foto", plato.Foto);
+                comando.Parameters.AddWithValue("@estado", plato.Estado);
                 comando.ExecuteNonQuery();
                 bdConexion.Cerrar();
             }
