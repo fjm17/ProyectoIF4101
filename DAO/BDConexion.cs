@@ -31,14 +31,6 @@ namespace DAO
             {
                 conexion = new SqlConnection(Properties.Settings.Default.cadenaConexion);
             }
-            catch (SqlException e)
-            {
-                throw;
-            }
-            catch (InvalidOperationException iex)
-            {
-                throw;
-            }
             catch (Exception ex)
             {
                 throw;
@@ -53,14 +45,6 @@ namespace DAO
                 {
                     conexion.Open();
                 }
-            }
-            catch (SqlException e)
-            {
-                throw;
-            }
-            catch (InvalidOperationException iex)
-            {
-                throw;
             }
             catch (Exception ex)
             {
@@ -77,14 +61,6 @@ namespace DAO
                     conexion.Close();
                 }
             }
-            catch (SqlException e)
-            {
-                throw;
-            }
-            catch (InvalidOperationException iex)
-            {
-                throw;
-            }
             catch (Exception ex)
             {
                 throw;
@@ -98,14 +74,6 @@ namespace DAO
                 comando = new SqlCommand();
                 comando.Connection = conexion;
             }
-            catch (SqlException e)
-            {
-                throw;
-            }
-            catch (InvalidOperationException iex)
-            {
-                throw;
-            }
             catch (Exception ex)
             {
                 throw;
@@ -118,14 +86,6 @@ namespace DAO
             {
                 transaccion = conexion.BeginTransaction("Transaccion Activa");
                 comando.Transaction = transaccion;
-            }
-            catch (SqlException e)
-            {
-                throw;
-            }
-            catch (InvalidOperationException iex)
-            {
-                throw;
             }
             catch (Exception ex)
             {
@@ -141,13 +101,17 @@ namespace DAO
                 generarComando();
                 generarTransaccion();
             }
-            catch (SqlException e)
+            catch (Exception ex)
             {
                 throw;
             }
-            catch (InvalidOperationException iex)
-            {
-                throw;
+        }
+
+        public void AsignarParametro(string parametro, object valor)
+        {
+            try
+            { 
+            comando.Parameters.AddWithValue(parametro, valor);
             }
             catch (Exception ex)
             {
@@ -155,23 +119,49 @@ namespace DAO
             }
         }
 
-        public void Finalizar()
+        public void GenerarConsulta(string consulta)
+        {
+            try
+            {
+                comando.CommandText = consulta;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public void RealizarCommit()
         {
             try
             {
                 transaccion.Commit();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public void RealizarRollBack()
+        {
+            try
+            {
+                transaccion.Rollback();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public void Finalizar()
+        {
+            try
+            {
                 cerrar();
                 conexion = null;
                 comando = null;
                 transaccion = null;
-            }
-            catch (SqlException e)
-            {
-                throw;
-            }
-            catch (InvalidOperationException iex)
-            {
-                throw;
             }
             catch (Exception ex)
             {

@@ -13,44 +13,40 @@ namespace DAO
 
         public Boolean Agregar(TO_Plato plato)
         {
+            Boolean completado = true;
             try
             {
                 formatoIngreso("Insert Into Plato Values (@nom, @desc, @prec, @foto, @estado)", plato);
             }
-            catch(SqlException e)
-            {
-                return false;
-            }
-            catch(InvalidOperationException iex)
-            {
-                return false;
-            }
             catch (Exception ex)
             {
-                return false;
+                completado = false;
+                bdConexion.RealizarRollBack();
             }
-            return true;
+            finally
+            {
+                bdConexion.Finalizar();
+            }
+            return completado;
         }
 
         public Boolean Actualizar(TO_Plato plato)
         {
+            Boolean completado = true;
             try
             {
                 formatoIngreso("Update Plato Set Descripcion = @desc, Precio = @prec, Foto = @foto, Estado = @estado Where Nombre = @nom", plato);
             }
-            catch (SqlException e)
+            catch(Exception ex)
             {
-                return false;
+                completado = false;
+                bdConexion.RealizarRollBack();
             }
-            catch (InvalidOperationException iex)
+            finally
             {
-                return false;
+                bdConexion.Finalizar();
             }
-            catch (Exception ex)
-            {
-                return false;
-            }
-            return true;
+            return completado;
         }
 
         private void formatoIngreso(string consulta, TO_Plato plato) // Se utiliza para no repetir el mismo codigo en actualizar y en agregar
@@ -60,32 +56,100 @@ namespace DAO
                 bdConexion.Conectar();
                 bdConexion.Inicializar();
 
-                bdConexion.Comando.CommandText = consulta;
-                bdConexion.Comando.Parameters.AddWithValue("@nom", plato.Nombre);
-                bdConexion.Comando.Parameters.AddWithValue("@desc", plato.Descripcion);
-                bdConexion.Comando.Parameters.AddWithValue("@prec", plato.Precio);
-                bdConexion.Comando.Parameters.AddWithValue("@foto", plato.Foto);
-                bdConexion.Comando.Parameters.AddWithValue("@estado", plato.Estado);
+                bdConexion.GenerarConsulta(consulta);
+                bdConexion.AsignarParametro("@nom", plato.Nombre);
+                bdConexion.AsignarParametro("@desc", plato.Descripcion);
+                bdConexion.AsignarParametro("@prec", plato.Precio);
+                bdConexion.AsignarParametro("@foto", plato.Foto);
+                bdConexion.AsignarParametro("@estado", plato.Estado);
 
                 bdConexion.Comando.ExecuteNonQuery();
-                bdConexion.Finalizar();
-            }
-            catch (SqlException e)
-            {
-                bdConexion.Finalizar();
-                throw;
-            }
-            catch (InvalidOperationException iex)
-            {
-                bdConexion.Finalizar();
-                throw;
+                bdConexion.RealizarCommit();
             }
             catch (Exception ex)
             {
-                bdConexion.Finalizar();
                 throw;
             }
         }
 
+        public Boolean Eliminar(TO_Plato plato)
+        {
+            Boolean completado = true;
+
+            if (!Mostrar(plato))
+            {
+                completado = false;
+            }
+            else
+            { 
+
+            try
+            {
+                bdConexion.Conectar();
+                bdConexion.Inicializar();
+                bdConexion.GenerarConsulta("Delete From Plato Where Nombre = @nom");
+                bdConexion.AsignarParametro("@nom", plato.Nombre);
+                bdConexion.Comando.ExecuteNonQuery();
+                bdConexion.RealizarCommit();
+            }
+            catch (Exception ex)
+            {
+                completado = false;
+                bdConexion.RealizarRollBack();
+            }
+            finally
+            {
+                bdConexion.Finalizar();
+            }
+            }
+            return completado;
+        }
+
+        public Boolean Mostrar(TO_Plato plato)
+        {
+            Boolean encontrado = false;
+            Boolean completado = true;
+            try
+            {
+                bdConexion.Conectar();
+                bdConexion.Inicializar();
+                bdConexion.GenerarConsulta("Select * From Plato Where Nombre = @nom");
+                bdConexion.AsignarParametro("@nom", plato.Nombre);
+
+                SqlDataReader lector =  bdConexion.Comando.ExecuteReader();
+
+                if(lector.HasRows)
+                {
+                    encontrado = true;
+
+                    while (lector.Read())
+                    {
+                        plato.Descripcion = lector["Descripcion"].ToString();
+                        plato.Precio = double.Parse(lector["Precio"].ToString());
+                        plato.Foto = lector["Foto"].ToString();
+                        plato.Estado = lector["Estado"].ToString();
+                    }
+                }
+                
+                lector.Close();
+                bdConexion.RealizarCommit();
+            }
+            catch (Exception ex)
+            {
+                completado = false;
+                bdConexion.RealizarRollBack();
+            }
+            finally
+            {
+                bdConexion.Finalizar();
+            }
+            if(encontrado && completado)
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AgregarPlato.aspx.cs" Inherits="UI.AgregarPlato" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MostrarPlato.aspx.cs" Inherits="UI.MostrarPlato" %>
 
 <!DOCTYPE html>
 
@@ -9,9 +9,13 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <h1>Agregar Plato</h1>
+    
+        <h1>Mostrar Plato</h1>
         Nombre:&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="tbNombre" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <asp:Button ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" Text="Buscar" />
         <br />
         <br />
         Descripción:&nbsp;&nbsp;&nbsp;
@@ -29,8 +33,6 @@
         Estado:&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="tbEstado" runat="server"></asp:TextBox>
         <br />
-        <br />
-        <asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
     
     </div>
     </form>
