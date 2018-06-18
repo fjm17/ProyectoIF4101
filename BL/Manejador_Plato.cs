@@ -43,16 +43,16 @@ namespace BL
             return daoPlato.Eliminar(to_plato);
         }
 
-        public void ActualizarPlato(string nombre, string descripcion, double precio, string foto, string estado)
+        public Boolean ActualizarPlato(string nombre, string descripcion, double precio, string foto, string estado)
         {
+            DAOPlato daoPlato = new DAOPlato();
             TO_Plato to_plato = new TO_Plato();
             to_plato.Nombre = nombre;
             to_plato.Descripcion = descripcion;
             to_plato.Precio = precio;
             to_plato.Foto = foto;
             to_plato.Estado = estado;
-
-            //Se llama al metodo de actualizar en DAO y le mando el TO como parametro
+            return daoPlato.Actualizar(to_plato);
         }
 
         public Boolean InsertarPlato(string nombre, string descripcion, double precio, string foto, string estado)

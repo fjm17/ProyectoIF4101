@@ -53,12 +53,20 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ActualizarPlato.aspx" />
     <Content Include="AgregarPlato.aspx" />
     <Content Include="EliminarPlato.aspx" />
     <Content Include="MostrarPlato.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActualizarPlato.aspx.cs">
+      <DependentUpon>ActualizarPlato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActualizarPlato.aspx.designer.cs">
+      <DependentUpon>ActualizarPlato.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AgregarPlato.aspx.cs">
       <DependentUpon>AgregarPlato.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
