@@ -17,28 +17,30 @@ namespace BL
             Plato = new BL_Plato();
         } 
 
-        public void SeleccionarPlato(string nombre)
+        public Boolean SeleccionarPlato(string nombre)
         {
-            Plato.Nombre = nombre;
 
+            DAOPlato daoPlato = new DAOPlato();
             TO_Plato to_plato = new TO_Plato();
-            to_plato.Nombre = Plato.Nombre;
-
-            //Se llama al metodo seleccionar un unico plato en DAO y le mando el TO como parametro
-
-            Plato.Descripcion = to_plato.Descripcion;
-            Plato.Precio = to_plato.Precio;
-            Plato.Foto = to_plato.Foto;
-            Plato.Estado = to_plato.Estado;
-
+            to_plato.Nombre = nombre;
+            if(daoPlato.Mostrar(to_plato))
+            {
+                Plato.Nombre = to_plato.Nombre;
+                Plato.Descripcion = to_plato.Descripcion;
+                Plato.Precio = to_plato.Precio;
+                Plato.Foto = to_plato.Foto;
+                Plato.Estado = to_plato.Estado;
+                return true;
+            }
+            return false;
         }
 
-        public void EliminarPlato(string nombre)
+        public Boolean EliminarPlato(string nombre)
         {
             TO_Plato to_plato = new TO_Plato();
-            to_plato.Nombre = Plato.Nombre;
-
-            //Se llama al metodo de eliminar en DAO y le mando el TO como parametro
+            DAOPlato daoPlato = new DAOPlato();
+            to_plato.Nombre = nombre;
+            return daoPlato.Eliminar(to_plato);
         }
 
         public void ActualizarPlato(string nombre, string descripcion, double precio, string foto, string estado)
