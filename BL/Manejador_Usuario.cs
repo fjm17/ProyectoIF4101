@@ -10,28 +10,28 @@ namespace BL
 {
     public class Manejador_Usuario
     {
-        public BL_Usuario cliente { get; }
-        public List<BL_Usuario> lista { get; }
+        public BL_Usuario Usuario { get; }
 
         public Manejador_Usuario()
         {
-            cliente = new BL_Usuario();
-            lista = new List<BL_Usuario>();
+            Usuario = new BL_Usuario();
         }
 
-        public void seleccionarCliente(string correo)
+        public Boolean SeleccionarCliente(string correo)
         {
-            cliente.Correo = correo;
-
-            TO_Usuario to_cliente = new TO_Usuario();
-            to_cliente.Correo = cliente.Correo;
-
-            // Aqui se llama al metodo en DAO para selEccionar un cliente 
-
-            cliente.Nombre_Completo = to_cliente.Nombre_Completo;
-            cliente.Direccion = to_cliente.Direccion;
-            cliente.Contrasena = to_cliente.Contrasena;
-            cliente.Tipo = to_cliente.Tipo;
+            DAOUsuario daoUsuario = new DAOUsuario();
+            TO_Usuario to_usuario = new TO_Usuario();
+            to_usuario.Correo = correo;
+            if (daoUsuario.Mostrar(to_usuario))
+            {
+                Usuario.Correo = to_usuario.Correo;
+                Usuario.Nombre_Completo = to_usuario.Nombre_Completo;
+                Usuario.Direccion = to_usuario.Direccion;
+                Usuario.Contrasena = to_usuario.Contrasena;
+                Usuario.Tipo = to_usuario.Tipo;
+                return true;
+            }
+            return false;
         }
     }
 }
