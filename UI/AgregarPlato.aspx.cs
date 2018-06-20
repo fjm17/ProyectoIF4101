@@ -18,7 +18,8 @@ namespace UI
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             Manejador_Plato m = new Manejador_Plato();
-            Boolean resultado =  m.InsertarPlato(tbNombre.Text, tbDescripcion.Text, double.Parse(tbPrecio.Text), tbFoto.Text, tbEstado.Text);
+            Boolean resultado =  m.InsertarPlato(tbNombre.Text, tbDescripcion.Text, double.Parse(tbPrecio.Text), 
+                tbFoto.Text, tbEstado.Text);
             if (resultado)
             {
                 mostrarMensaje("El plato se agregó correctamente");

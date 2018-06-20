@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -33,7 +30,7 @@ namespace DAO
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
@@ -63,7 +60,7 @@ namespace DAO
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
@@ -76,7 +73,7 @@ namespace DAO
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
@@ -89,7 +86,7 @@ namespace DAO
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
@@ -103,7 +100,7 @@ namespace DAO
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
@@ -111,11 +108,11 @@ namespace DAO
         {
             try
             { 
-            comando.Parameters.AddWithValue(parametro, valor);
+                comando.Parameters.AddWithValue(parametro, valor);
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
@@ -127,7 +124,7 @@ namespace DAO
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
@@ -139,11 +136,11 @@ namespace DAO
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
-        public void RealizarRollBack()
+       public void RealizarRollBack()
         {
             try
             {
@@ -151,9 +148,10 @@ namespace DAO
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
+
         public void Finalizar()
         {
             try
@@ -165,7 +163,7 @@ namespace DAO
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
     }

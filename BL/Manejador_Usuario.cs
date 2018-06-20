@@ -17,7 +17,14 @@ namespace BL
             Usuario = new BL_Usuario();
         }
 
-        public Boolean SeleccionarCliente(string correo)
+        public Boolean InsertarUsuario(string correo, string nombre_completo, string direccion, string contrasenna, string tipo)
+        {
+            DAOUsuario daoUsuario = new DAOUsuario();
+            TO_Usuario to_usuario = new TO_Usuario(correo, nombre_completo, direccion, contrasenna, tipo);
+            return daoUsuario.Insertar(to_usuario);
+        }
+
+        public Boolean SeleccionarCliente(string correo, string contrasena)
         {
             DAOUsuario daoUsuario = new DAOUsuario();
             TO_Usuario to_usuario = new TO_Usuario();

@@ -18,12 +18,12 @@ namespace BL
 
         }
 
-        public BL_Usuario(string correo, string nombre_completo, string direccion, string contrasenna, string tipo)
+        public BL_Usuario(string correo, string nombre_completo, string direccion, string contrasena, string tipo)
         {
             this.Correo = correo;
             this.Nombre_Completo = nombre_completo;
             this.Direccion = direccion;
-            this.Contrasena = Contrasena;
+            this.Contrasena = contrasena;
             this.Tipo = tipo;
         }
     }
