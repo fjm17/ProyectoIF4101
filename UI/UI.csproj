@@ -55,8 +55,10 @@
   <ItemGroup>
     <Content Include="ActualizarPlato.aspx" />
     <Content Include="AgregarPlato.aspx" />
+    <Content Include="AgregarUsuario.aspx" />
     <Content Include="EliminarPlato.aspx" />
     <Content Include="MostrarPlato.aspx" />
+    <Content Include="PaginaInicio.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -74,6 +76,13 @@
     <Compile Include="AgregarPlato.aspx.designer.cs">
       <DependentUpon>AgregarPlato.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AgregarUsuario.aspx.cs">
+      <DependentUpon>AgregarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarUsuario.aspx.designer.cs">
+      <DependentUpon>AgregarUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EliminarPlato.aspx.cs">
       <DependentUpon>EliminarPlato.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -87,6 +96,13 @@
     </Compile>
     <Compile Include="MostrarPlato.aspx.designer.cs">
       <DependentUpon>MostrarPlato.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PaginaInicio.aspx.cs">
+      <DependentUpon>PaginaInicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaginaInicio.aspx.designer.cs">
+      <DependentUpon>PaginaInicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

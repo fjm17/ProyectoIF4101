@@ -31,7 +31,10 @@
         <br />
         <br />
         <asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
-    
+        
+        <authentication mode="Forms">   
+            <forms loginUrl="login.aspx" />
+        </authentication>
     </div>
     </form>
 </body>
