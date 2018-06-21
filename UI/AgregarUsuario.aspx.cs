@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Net.Mail;
-using System.Security.Cryptography;
 using System.Text;
 using BL;
 using System.Globalization;
@@ -12,10 +11,7 @@ namespace UI
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["TipoUsuario"] = "Cliente";
-            if (Session["Loggeado"] == null || !(Boolean)Session["Loggeado"])
-            {
-                Response.Redirect("PaginaInicio.aspx");
-            }
+            //Habrá una variable de Sesión que determine el tipo de usuario que será insertado.
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
@@ -57,7 +53,6 @@ namespace UI
             if (valorVacio(tbNombre.Text) || valorVacio(tbCorreo.Text) || valorVacio(tbContrasenaCrear.Text)
                 || valorVacio(tbContrasenaConfirmar.Text) || valorVacio(tbDireccion.Text))
             {
-                //comentario
                 return true;
             }
             else

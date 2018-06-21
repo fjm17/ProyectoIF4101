@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Mail;
+using System.Text;
 using BL;
 
 namespace UI
@@ -8,23 +9,22 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
             if (correoValido() && !camposVacios())
             {
-                Manejador_Usuario m = new Manejador_Usuario();
-                Boolean resultado = m.SeleccionarCliente(tbCorreo.Text, tbContrasena.Text);
+                Manejador_Usuario manejador_usuario = new Manejador_Usuario();
+                Boolean resultado = manejador_usuario.SeleccionarCliente(tbCorreo.Text, encriptar(tbContrasena.Text));
 
                 if (!resultado)
                 {
-                    mostrarMensaje("El usuario no se ha encontrado!");
+                    mostrarMensaje("El usuario indicado no existe.");
                 }
                 else
                 {
-                    string tipo = m.Usuario.Tipo;
+                    string tipo = manejador_usuario.Usuario.Tipo;
                     proximaPagina(tipo);
                     /*Para pruebas*/mostrarMensaje("Usuario Encontrado");
                     Session["Loggeado"] = true;
@@ -73,6 +73,15 @@ namespace UI
             {
                 return false;
             }
+        }
+
+        private string encriptar(string porConvertir)
+        {
+            byte[] bytes = Encoding.Default.GetBytes(porConvertir);
+            var hexadecimal = BitConverter.ToString(bytes);
+            hexadecimal = hexadecimal.Replace("-", "");
+
+            return hexadecimal;
         }
 
         private void mostrarMensaje(string mensaje)
