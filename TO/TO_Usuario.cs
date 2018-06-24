@@ -26,5 +26,14 @@ namespace TO
             this.Contrasena = contrasena;
             this.Tipo = tipo;
         }
+
+        public TO_Usuario(string correo, string nombre_completo, string direccion, string tipo)
+        {
+            this.Correo = correo;
+            this.Nombre_Completo = nombre_completo;
+            this.Direccion = direccion;
+            this.Tipo = tipo;
+        }
+
     }
 }

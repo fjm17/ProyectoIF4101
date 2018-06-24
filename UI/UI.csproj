@@ -57,8 +57,12 @@
     <Content Include="AgregarPlato.aspx" />
     <Content Include="AgregarUsuario.aspx" />
     <Content Include="EliminarPlato.aspx" />
+    <Content Include="images\if_key_309058.png" />
+    <Content Include="MenuCocina.aspx" />
     <Content Include="MostrarPlato.aspx" />
+    <Content Include="MostrarUsuarios.aspx" />
     <Content Include="PaginaInicio.aspx" />
+    <Content Include="styles\generic_style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -90,12 +94,26 @@
     <Compile Include="EliminarPlato.aspx.designer.cs">
       <DependentUpon>EliminarPlato.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MenuCocina.aspx.cs">
+      <DependentUpon>MenuCocina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MenuCocina.aspx.designer.cs">
+      <DependentUpon>MenuCocina.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MostrarPlato.aspx.cs">
       <DependentUpon>MostrarPlato.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MostrarPlato.aspx.designer.cs">
       <DependentUpon>MostrarPlato.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MostrarUsuarios.aspx.cs">
+      <DependentUpon>MostrarUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MostrarUsuarios.aspx.designer.cs">
+      <DependentUpon>MostrarUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="PaginaInicio.aspx.cs">
       <DependentUpon>PaginaInicio.aspx</DependentUpon>

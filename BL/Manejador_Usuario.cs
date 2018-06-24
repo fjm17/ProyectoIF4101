@@ -35,7 +35,7 @@ namespace BL
                 Usuario.Correo = to_usuario.Correo;
                 Usuario.Nombre_Completo = to_usuario.Nombre_Completo;
                 Usuario.Direccion = to_usuario.Direccion;
-                Usuario.Contrasena = to_usuario.Contrasena;
+                Usuario.Contrasena = "";
                 Usuario.Tipo = to_usuario.Tipo;
                 return true;
             }

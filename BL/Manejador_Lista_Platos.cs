@@ -26,7 +26,6 @@ namespace BL
             {
                 Lista.Add(new BL_Plato(platoTO.Nombre, platoTO.Descripcion, platoTO.Precio, platoTO.Foto, platoTO.Estado));
             }
-
         }
     }
 }
