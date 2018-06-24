@@ -7,6 +7,7 @@ namespace UI
 {
     public partial class PaginaInicio : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
         }
@@ -45,7 +46,7 @@ namespace UI
                 //El caso cocina, también caso por defecto.
                 case "Cocina":
                 default:
-
+                    Response.Redirect("MenuCocina.aspx");
                     break;
             }
         }

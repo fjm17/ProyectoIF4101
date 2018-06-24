@@ -54,6 +54,15 @@
         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Este campo es necesario" ControlToValidate="tbDireccion"></asp:RequiredFieldValidator>
         <br />
         <br />
+        Tipo:<br />
+        <br />
+        <asp:DropDownList ID="ddlTipo" runat="server">
+            <asp:ListItem>Administrador</asp:ListItem>
+            <asp:ListItem>Cliente</asp:ListItem>
+            <asp:ListItem>Cocina</asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        <br />
         <asp:Button ID="btnAgregar" runat="server" OnClick="btnAgregar_Click" Text="Agregar" style="width: 67px" />
         <br />
         <br />

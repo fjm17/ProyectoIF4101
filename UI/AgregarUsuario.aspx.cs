@@ -10,13 +10,13 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["TipoUsuario"] = "Cliente";
+            //Session["TipoUsuario"] = "Cliente";
             //Habrá una variable de Sesión que determine el tipo de usuario que será insertado.
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            string tipo = Session["TipoUsuario"].ToString();
+            string tipo = ddlTipo.SelectedValue.ToString();//Session["TipoUsuario"].ToString();
             string contrasena1 = encriptar(tbContrasenaCrear.Text);
             string contrasena2 = encriptar(tbContrasenaConfirmar.Text);
             if (camposVacios())
