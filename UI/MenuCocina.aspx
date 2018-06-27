@@ -18,6 +18,7 @@
       <h1>Pedidos disponibles</h1>
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
+        <!--<spg:SafeScriptManager ID="SafeScriptManager" EnableUpdatePanelSupport = “True”/>-->
         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
@@ -26,24 +27,29 @@
         
         <asp:UpdatePanel ID="upPedidos" runat="server">
             <ContentTemplate>
-       <% for (int i = 0; i < 5; i++)
-       { %>
-                <div class="col-sm-4" style="width:230px">
+       <% if (!IsPostBack)
+        {
+        string[] strs = (string[])Session["Array"];
+        for (int i = 0; i < strs.Length; i++)
+        { %>
+                <div class="col-sm-4" style="width:230px; top: 0px; left: 0px; height: 262px;" id="div1">
                     <div class="panel panel-primary" style="border-color:gold;">
                         <div class="panel-heading" style="background-color:red; border-bottom-color:red">
-                            Pedido <%=(i + 1)%>
+                            Pedido <%=(i + 1) + ", " + strs[i]%>
                         </div>
                         <div class="panel-body">
                 <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"/>
                         </div>
                         <div class="panel-footer">
-                            <asp:Button ID="Button1" runat="server" Height="43px" Text="Finalizar" Width="102px" />
+                            <asp:Button ID="Pedido1" runat="server" Height="43px" Text="Finalizar" 
+                                Width="102px" OnClick="Pedido1_Click" />
                         </div>
                     </div>
                 </div>
-       <% } %>
+       <% } } %>
       
             </ContentTemplate>
+              
         </asp:UpdatePanel>
 
     </div>
