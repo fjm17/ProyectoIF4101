@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Mail;
 using System.Text;
+using System.Web;
 using System.Web.Security;
 using BL;
 
@@ -26,11 +27,11 @@ namespace UI
                 }
                 else
                 {
-                    FormsAuthentication.RedirectFromLoginPage(tbCorreo.Text, true);
+                    FormsAuthentication.RedirectFromLoginPage(tbCorreo.Text, false);
                     string tipo = manejador_usuario.Usuario.Tipo;
+                    Session["Rol"] = tipo;
                     proximaPagina(tipo);
-                    /*Para pruebas*/mostrarMensaje("Usuario Encontrado");
-                    Session["Loggeado"] = true;
+                    /*Para pruebas*/ //mostrarMensaje("Usuario Encontrado");
                 }
 
             }
@@ -43,7 +44,7 @@ namespace UI
             switch (tipo)
             {
                 case "Administrador":
-                    
+                    Response.Redirect("paginas/Administrador/MenuAdministrador.aspx");
                     break;
                 //El caso cocina, también caso por defecto.
                 case "Cocina":

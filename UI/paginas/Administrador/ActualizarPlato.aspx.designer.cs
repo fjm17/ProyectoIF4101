@@ -13,13 +13,13 @@ namespace UI {
     public partial class ActualizarPlato {
         
         /// <summary>
-        /// form1 control.
+        /// lbNombre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Label lbNombre;
         
         /// <summary>
         /// tbNombre control.
@@ -40,6 +40,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Button btnBuscar;
         
         /// <summary>
+        /// lbDescripcion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbDescripcion;
+        
+        /// <summary>
         /// tbDescripcion control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbDescripcion;
+        
+        /// <summary>
+        /// lbPrecio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbPrecio;
         
         /// <summary>
         /// tbPrecio control.
@@ -58,6 +76,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox tbPrecio;
         
         /// <summary>
+        /// lbFoto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbFoto;
+        
+        /// <summary>
         /// tbFoto control.
         /// </summary>
         /// <remarks>
@@ -65,6 +92,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbFoto;
+        
+        /// <summary>
+        /// lbEstado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbEstado;
         
         /// <summary>
         /// tbEstado control.

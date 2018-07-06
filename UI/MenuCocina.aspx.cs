@@ -13,6 +13,10 @@ namespace UI
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Rol"] == null || !Session["Rol"].ToString().Equals("Cocina"))
+            {
+                Response.Redirect("~/InicioSesion.aspx");
+            }
             //string script = "function f(){var button = $find(\'" + Pedido1.ClientID + "\');button.set_enabled(false); Sys.Application.remove_load(f);}Sys.Application.add_load(f);";
             //ScriptManager.RegisterOnSubmitStatement(this, this.GetType(), "Onsubmit1", script);
             Session["Array"] = strs;

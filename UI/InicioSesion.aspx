@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="styles/generic_style.css"/>
 </head>
 <body>
-    <form id="form1" runat="server" style="width= 500px">
+    <form id="form1" runat="server" style="width=500px">
         <div class="imgcontainer">
             <img src="images/if_key_309058.png" alt="Avatar" class="avatar"/>
         </div>

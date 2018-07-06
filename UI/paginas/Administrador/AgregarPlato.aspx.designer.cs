@@ -10,16 +10,7 @@
 namespace UI {
     
     
-    public partial class AgregarUsuario {
-        
-        /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+    public partial class AgregarPlato {
         
         /// <summary>
         /// lbNombre control.
@@ -49,121 +40,112 @@ namespace UI {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNombre;
         
         /// <summary>
-        /// lbCorreo control.
+        /// lbDescripcion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbCorreo;
+        protected global::System.Web.UI.WebControls.Label lbDescripcion;
         
         /// <summary>
-        /// tbCorreo control.
+        /// tbDescripcion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbCorreo;
+        protected global::System.Web.UI.WebControls.TextBox tbDescripcion;
         
         /// <summary>
-        /// rvfCorreo control.
+        /// rfvDescripcion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvfCorreo;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDescripcion;
         
         /// <summary>
-        /// lbContrasenaCrear control.
+        /// lbPrecio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbContrasenaCrear;
+        protected global::System.Web.UI.WebControls.Label lbPrecio;
         
         /// <summary>
-        /// tbContrasenaCrear control.
+        /// tbPrecio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbContrasenaCrear;
+        protected global::System.Web.UI.WebControls.TextBox tbPrecio;
         
         /// <summary>
-        /// rfvContrasena control.
+        /// rfvPrecio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvContrasena;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPrecio;
         
         /// <summary>
-        /// lbContrasenaConfirmar control.
+        /// lbFoto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbContrasenaConfirmar;
+        protected global::System.Web.UI.WebControls.Label lbFoto;
         
         /// <summary>
-        /// tbContrasenaConfirmar control.
+        /// fileFoto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbContrasenaConfirmar;
+        protected global::System.Web.UI.WebControls.FileUpload fileFoto;
         
         /// <summary>
-        /// rfvContrasenaConfirmar control.
+        /// rfvFoto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvContrasenaConfirmar;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFoto;
         
         /// <summary>
-        /// lbDireccion control.
+        /// lbEstado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbDireccion;
+        protected global::System.Web.UI.WebControls.Label lbEstado;
         
         /// <summary>
-        /// tbDireccion control.
+        /// tbEstado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbDireccion;
+        protected global::System.Web.UI.WebControls.TextBox tbEstado;
         
         /// <summary>
-        /// RequiredFieldValidator5 control.
+        /// rfvEstado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
-        
-        /// <summary>
-        /// ddlTipo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipo;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEstado;
         
         /// <summary>
         /// btnAgregar control.
