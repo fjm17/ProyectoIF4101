@@ -16,7 +16,7 @@ namespace DAO
             Boolean completado = true;
             try
             {
-                formatoIngreso("Insert Into Plato Values (@nom, @desc, @prec, @foto, @estado)", plato);
+                formatoIngreso("INSERT INTO Plato VALUES (@nom, @desc, @prec, @foto, @estado)", plato);
             }
             catch (Exception ex)
             {
@@ -28,6 +28,41 @@ namespace DAO
                 bdConexion.Finalizar();
             }
             return completado;
+        }
+
+        public Boolean MostrarPlatos(TO_Manejador_Lista_Platos toPedidos, string nombre)
+        {
+            bdConexion.Conectar();
+            bdConexion.Inicializar();
+            try
+            {
+                string query = "SELECT * FROM Plato" 
+                    + (!String.IsNullOrEmpty(nombre) ? " WHERE Nombre LIKE @nom" : "");
+
+                bdConexion.AsignarParametro("@nom", '%' + nombre + '%');
+                bdConexion.GenerarConsulta(query);
+
+                SqlDataReader lector = bdConexion.Comando.ExecuteReader();
+                llenarLista(lector, toPedidos);
+                lector.Close();
+                return true;
+            }
+
+            catch (Exception e)
+            {
+                throw e;
+                bdConexion.RealizarRollBack();
+                return false;
+            }
+        }
+
+        private void llenarLista(SqlDataReader lector, TO_Manejador_Lista_Platos platos)
+        {
+            while (lector.Read())
+            {
+                platos.AgregarPlato(new TO_Plato(lector["Nombre"].ToString(), lector["Descripcion"].ToString(),
+                    double.Parse(lector["Precio"].ToString()), lector["Foto"].ToString(), lector["Estado_Plato"].ToString()));
+            }
         }
 
         public Boolean Actualizar(TO_Plato plato)

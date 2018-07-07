@@ -7,22 +7,22 @@ namespace TO
 {
     public class TO_Pedido
     {
-        public string Cliente { get; set; }
-        public string Plato { get; set; }
+        public int Numero { get; set; }
+        public string CorreoCliente { get; set; }
         public DateTime Fecha { get; set; }
-        public string Estado { get; set; }
+        public string CodigoEstado { get; set; }
 
         public TO_Pedido()
         {
 
         }
 
-        public TO_Pedido(string cliente, string plato, DateTime fecha, string estado)
+        public TO_Pedido(int numero, string correoCliente, DateTime fecha, string codigoEstado)
         {
-            this.Cliente = cliente;
-            this.Plato = plato;
+            this.Numero = numero;
+            this.CorreoCliente = correoCliente;
             this.Fecha = fecha;
-            this.Estado = estado;
+            this.CodigoEstado = codigoEstado;
         }
 
     }

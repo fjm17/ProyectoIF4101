@@ -19,7 +19,7 @@ namespace UI
             if (correoValido() && !camposVacios())
             {
                 Manejador_Usuario manejador_usuario = new Manejador_Usuario();
-                Boolean resultado = manejador_usuario.SeleccionarCliente(tbCorreo.Text, encriptar(tbContrasena.Text));
+                Boolean resultado = manejador_usuario.SeleccionarUsuario(tbCorreo.Text, encriptar(tbContrasena.Text));
 
                 if (!resultado)
                 {
