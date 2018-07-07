@@ -58,6 +58,7 @@ namespace DAO
                         usuario.Nombre_Completo = lector["Nombre_Completo"].ToString();
                         usuario.Direccion = lector["Direccion"].ToString();
                         usuario.Tipo = lector["Tipo"].ToString();
+                        usuario.EstadoCuenta = lector["Estado_Cuenta"].ToString();
                     }
                 }
 
@@ -90,6 +91,7 @@ namespace DAO
 
                 SqlDataReader lector = bdConexion.Comando.ExecuteReader();
                 llenarLista(lector, usuarios);
+                lector.Close();
                 return true;
             }
 
@@ -107,7 +109,7 @@ namespace DAO
             {
                 usuarios.AgregarUsuario(new TO_Usuario(lector["Correo"].ToString(), 
                     lector["Nombre_Completo"].ToString(), lector["Direccion"].ToString(), 
-                    lector["Tipo"].ToString()));
+                    lector["Tipo"].ToString(), lector["Estado_Cuenta"].ToString()));
             }
         }
 
@@ -116,7 +118,7 @@ namespace DAO
             Boolean completado = true;
             try
             {
-                formatoIngreso("INSERT INTO Usuario VALUES (@correo, @nom, @dir, @contr, @tipo)", usuario);
+                formatoIngreso("INSERT INTO Usuario VALUES (@correo, @nom, @dir, @contr, @tipo, @estado)", usuario);
             }
             catch (Exception ex)
             //Creo que es necesario tener varios catch para los mensajes. Debemos discutirlo.
@@ -137,7 +139,7 @@ namespace DAO
             try
             {
                 formatoIngreso("UPDATE Usuario SET Nombre_Completo = @nom "
-                    + "Direccion = @dir, Contrasena = @contr, Tipo = @tipo "
+                    + "Direccion = @dir, Contrasena = @contr, Tipo = @tipo, Estado_Cuenta = @estado "
                     + "WHERE Correo = @correo", usuario);
                 return true;
             }
@@ -164,6 +166,8 @@ namespace DAO
                 bdConexion.AsignarParametro("@dir", usuario.Direccion);
                 bdConexion.AsignarParametro("@contr", usuario.Contrasena);
                 bdConexion.AsignarParametro("@tipo", usuario.Tipo);
+                bdConexion.AsignarParametro("@estado", usuario.EstadoCuenta);
+
 
                 bdConexion.Comando.ExecuteNonQuery();
                 bdConexion.RealizarCommit();
