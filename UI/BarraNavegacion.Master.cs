@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.Security;
+using System.Web.Security;//Se utiliza este namespace para manejar el control de acceso.
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -21,7 +21,8 @@ namespace UI
 
         protected void linkCerrarSesion_Click(object sender, EventArgs e)
         {
-            FormsAuthentication.SignOut();
+            FormsAuthentication.SignOut();//Para cerrar la sesion
+            Session.Abandon();//Eliminar datos de sesion
             Response.Redirect("InicioSesion.aspx");
         }
     }

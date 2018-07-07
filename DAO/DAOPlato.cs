@@ -127,7 +127,7 @@ namespace DAO
                         plato.Descripcion = lector["Descripcion"].ToString();
                         plato.Precio = double.Parse(lector["Precio"].ToString());
                         plato.Foto = lector["Foto"].ToString();
-                        plato.Estado = lector["Estado"].ToString();
+                        plato.Estado = lector["Estado_Plato"].ToString();
                     }
                 }
                 

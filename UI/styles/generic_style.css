@@ -5,13 +5,33 @@
             text-align: center;
         }
 
-        input[type=text], input[type=password] {
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
+    /**.Label {
+        display: block; 
+        padding: 12px 20px;
+        text-align: center;
+        color: black;
+        font-weight: bold;
+    }
+
+    .LabelInfo {
+        display: block;
+        width: 400px;
+        height: 20px;
+        text-align: left;
+        color: Black;
+        background-color: #EFF3FB;
+    }*/
+
+    /**/
+    /**/
+
+    input[type=text], input[type=password] {
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
 
         input[type=submit] {
             border-style: none;
@@ -21,6 +41,17 @@
             color: white;
             padding: 14px 20px;
             margin: 0px 0;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        input[type=file] {
+            border: medium none black;
+            background-color: dimgray;
+           
+            color: yellow;
+            padding: 14px 20px;
+            margin: 0px 0 0px 81px;
             cursor: pointer;
             text-align: center;
         }

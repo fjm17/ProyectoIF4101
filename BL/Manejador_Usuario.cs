@@ -20,7 +20,7 @@ namespace BL
         public Boolean InsertarUsuario(string correo, string nombre_completo, string direccion, string contrasenna, string tipo)
         {
             DAOUsuario daoUsuario = new DAOUsuario();
-            TO_Usuario to_usuario = new TO_Usuario(correo, nombre_completo, direccion, contrasenna, tipo);
+            TO_Usuario to_usuario = new TO_Usuario(correo, nombre_completo, direccion, contrasenna, tipo, "Habilitado");
             return daoUsuario.Insertar(to_usuario);
         }
 

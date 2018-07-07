@@ -36,7 +36,6 @@ namespace UI
                 Manejador_Usuario manejador_usuario = new Manejador_Usuario();
                 bool resultado = manejador_usuario.InsertarUsuario(tbCorreo.Text, tbNombre.Text, 
                     tbDireccion.Text, contrasena1, tipo);
-                mostrarMensaje(contrasena1 + ", " + contrasena2);
                 if (resultado)
                 {
                     mostrarMensaje("¡Insertado exitosamente!");

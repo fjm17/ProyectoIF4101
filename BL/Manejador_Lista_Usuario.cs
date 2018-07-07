@@ -34,7 +34,7 @@ namespace BL
             foreach (TO_Usuario toUsuario in toUsuarios.Usuarios)
             {
                 AgregarUsuario(new BL_Usuario(toUsuario.Correo, toUsuario.Nombre_Completo, 
-                    toUsuario.Direccion, toUsuario.Tipo));
+                    toUsuario.Direccion, toUsuario.Tipo, toUsuario.EstadoCuenta));
             }
         }
 
