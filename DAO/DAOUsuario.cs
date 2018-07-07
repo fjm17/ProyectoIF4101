@@ -178,6 +178,37 @@ namespace DAO
             }
         }
 
-        
+        public Boolean Eliminar(TO_Usuario toUsuario)
+        {
+            Boolean completado = true;
+
+            if (!Mostrar(toUsuario))
+            {
+                completado = false;
+            }
+            else
+            {
+                try
+                {
+                    bdConexion.Conectar();
+                    bdConexion.Inicializar();
+                    bdConexion.GenerarConsulta("DELETE FROM Usuario WHERE Correo = @correo");
+                    bdConexion.AsignarParametro("@correo", toUsuario.Correo);
+                    bdConexion.Comando.ExecuteNonQuery();
+                    bdConexion.RealizarCommit();
+                }
+                catch (Exception ex)
+                {
+                    completado = false;
+                    bdConexion.RealizarRollBack();
+                }
+                finally
+                {
+                    bdConexion.Finalizar();
+                }
+            }
+            return completado;
+        }
+
     }
 }

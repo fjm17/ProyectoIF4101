@@ -9,23 +9,33 @@ namespace BL
 {
     public class Manejador_Lista_Platos
     {
-        public List<BL_Plato> Lista { get; }
+        public List<BL_Plato> Platos { get; }
 
         public Manejador_Lista_Platos()
         {
-            Lista = new List<BL_Plato>();
+            Platos = new List<BL_Plato>();
         }
 
-        public void listaPlatos()
+        public void AgregarPlato(BL_Plato entrada)
         {
-            List<TO_Plato> lista_TO = new List<TO_Plato>();
+            Platos.Add(entrada);
+        }
 
-            //Se llama al metodo de mostrar todos los platos en DAO y le madno el TO como parametro
+        public void BuscarPlatos(TO_Manejador_Lista_Platos toPedidos, string correo)
+        {
+            DAOPlato daoPedido = new DAOPlato();
+            daoPedido.MostrarPlatos(toPedidos, correo);
+            ConvertirLista(toPedidos);
+        }
 
-            foreach (TO_Plato platoTO in lista_TO)
+        public void ConvertirLista(TO_Manejador_Lista_Platos toPedidos)
+        {
+            foreach (TO_Plato toPlato in toPedidos.Platos)
             {
-                Lista.Add(new BL_Plato(platoTO.Nombre, platoTO.Descripcion, platoTO.Precio, platoTO.Foto, platoTO.Estado));
+                AgregarPlato(new BL_Plato(toPlato.Nombre, toPlato.Descripcion, toPlato.Precio, 
+                    toPlato.Foto, toPlato.Estado));
             }
         }
+
     }
 }

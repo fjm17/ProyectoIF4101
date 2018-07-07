@@ -21,6 +21,7 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <TargetFrameworkProfile />
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,6 +46,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -74,6 +78,7 @@
     <Content Include="paginas\Administrador\MenuAdministrador.aspx" />
     <Content Include="styles\generic_style.css" />
     <Content Include="Web.config" />
+    <Content Include="WS\WSRESTCliente.svc" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="paginas\Administrador\ActualizarPlato.aspx.cs">
@@ -161,6 +166,10 @@
       <DependentUpon>MenuAdministrador.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WS\IWSRESTCliente.cs" />
+    <Compile Include="WS\WSRESTCliente.svc.cs">
+      <DependentUpon>WSRESTCliente.svc</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="BarraNavegacion.Master" />
@@ -178,8 +187,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Aplicacion Cliente\" />
     <Folder Include="paginas\Cocina\" />
-    <Folder Include="WS\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
