@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UI {
+namespace UI.paginas.Administrador {
     
     
     public partial class AgregarPlato {
