@@ -19,7 +19,7 @@ namespace UI
             if (correoValido() && !camposVacios())
             {
                 Manejador_Usuario manejador_usuario = new Manejador_Usuario();
-                Boolean resultado = manejador_usuario.SeleccionarUsuario(tbCorreo.Text, encriptar(tbContrasena.Text));
+                Boolean resultado = manejador_usuario.SeleccionarUsuario(tbCorreo.Text, tbContrasena.Text);
 
                 if (!resultado)
                 {
@@ -79,14 +79,6 @@ namespace UI
             }
         }
 
-        private string encriptar(string porConvertir)
-        {
-            byte[] bytes = Encoding.Default.GetBytes(porConvertir);
-            var hexadecimal = BitConverter.ToString(bytes);
-            hexadecimal = hexadecimal.Replace("-", "");
-
-            return hexadecimal;
-        }
 
         private void mostrarMensaje(string mensaje)
         {

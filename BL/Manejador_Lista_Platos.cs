@@ -21,11 +21,12 @@ namespace BL
             Platos.Add(entrada);
         }
 
-        public void BuscarPlatos(TO_Manejador_Lista_Platos toPedidos, string correo)
+        public void BuscarPlatos(string nombre)
         {
+            TO_Manejador_Lista_Platos toPlatos = new TO_Manejador_Lista_Platos();
             DAOPlato daoPedido = new DAOPlato();
-            daoPedido.MostrarPlatos(toPedidos, correo);
-            ConvertirLista(toPedidos);
+            daoPedido.MostrarPlatos(toPlatos, nombre);
+            ConvertirLista(toPlatos);
         }
 
         public void ConvertirLista(TO_Manejador_Lista_Platos toPedidos)

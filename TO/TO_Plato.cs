@@ -26,5 +26,6 @@ namespace TO
             this.Foto = foto;
             this.Estado = estado;
         }
+
     }
 }

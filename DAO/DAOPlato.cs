@@ -30,7 +30,7 @@ namespace DAO
             return completado;
         }
 
-        public Boolean MostrarPlatos(TO_Manejador_Lista_Platos toPedidos, string nombre)
+        public Boolean MostrarPlatos(TO_Manejador_Lista_Platos toPlatos, string nombre)
         {
             bdConexion.Conectar();
             bdConexion.Inicializar();
@@ -43,7 +43,7 @@ namespace DAO
                 bdConexion.GenerarConsulta(query);
 
                 SqlDataReader lector = bdConexion.Comando.ExecuteReader();
-                llenarLista(lector, toPedidos);
+                llenarLista(lector, toPlatos);
                 lector.Close();
                 return true;
             }
@@ -60,8 +60,12 @@ namespace DAO
         {
             while (lector.Read())
             {
-                platos.AgregarPlato(new TO_Plato(lector["Nombre"].ToString(), lector["Descripcion"].ToString(),
-                    double.Parse(lector["Precio"].ToString()), lector["Foto"].ToString(), lector["Estado_Plato"].ToString()));
+                string estado = lector["Estado_Plato"].ToString();
+                if (estado.Equals("Disponible"))
+                {
+                    platos.AgregarPlato(new TO_Plato(lector["Nombre"].ToString(), lector["Descripcion"].ToString(),
+                    double.Parse(lector["Precio"].ToString()), lector["Foto"].ToString(), estado));
+                }
             }
         }
 

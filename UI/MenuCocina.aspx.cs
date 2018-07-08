@@ -4,19 +4,20 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BL;
 
 namespace UI
 {
     public partial class MenuCocina : System.Web.UI.Page
     {
-        string[] strs = new string[] { "Hello", "World"};
+        string[] strs = new string[] { "Hola", "Mundo"};
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Rol"] == null || !Session["Rol"].ToString().Equals("Cocina"))
+            /*if (Session["Rol"] == null || !Session["Rol"].ToString().Equals("Cocina"))
             {
                 Response.Redirect("~/InicioSesion.aspx");
-            }
+            }*/
             //string script = "function f(){var button = $find(\'" + Pedido1.ClientID + "\');button.set_enabled(false); Sys.Application.remove_load(f);}Sys.Application.add_load(f);";
             //ScriptManager.RegisterOnSubmitStatement(this, this.GetType(), "Onsubmit1", script);
             Session["Array"] = strs;
@@ -24,8 +25,8 @@ namespace UI
 
         protected void Pedido1_Click(object sender, EventArgs e)
         {
-            Response.Write("<script>alert('" + "jadbojBAD" + "');</script>");
-            btnDeshacer.Text = "ASDFOJBADGJ";
+            BL_Plato plato = new BL_Plato();
+            //plato.prueba(lbPedido.Text);
         }
 
         protected void btnDeshacer_Click(object sender, EventArgs e)
@@ -39,6 +40,10 @@ namespace UI
             Response.Write("<script>alert('button');</script>");
 
         }
-       
+
+        protected void btnDeshacer_Click1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

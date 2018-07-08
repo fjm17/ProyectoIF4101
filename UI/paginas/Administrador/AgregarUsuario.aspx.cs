@@ -17,8 +17,8 @@ namespace UI
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             string tipo = ddlTipo.SelectedValue.ToString();//Session["TipoUsuario"].ToString();
-            string contrasena1 = encriptar(tbContrasenaCrear.Text);
-            string contrasena2 = encriptar(tbContrasenaConfirmar.Text);
+            string contrasena1 = tbContrasenaCrear.Text;
+            string contrasena2 = tbContrasenaConfirmar.Text;
             if (camposVacios())
             {
                 mostrarMensaje("Error: No pueden faltar datos.");
@@ -68,15 +68,6 @@ namespace UI
         private Boolean valorVacio(string valor)
         {
             return String.IsNullOrEmpty(valor);
-        }
-
-        private string encriptar(string porConvertir)
-        {
-            byte[] bytes = Encoding.Default.GetBytes(porConvertir);
-            var hexadecimal = BitConverter.ToString(bytes);
-            hexadecimal = hexadecimal.Replace("-", "");
-
-            return hexadecimal;
         }
 
         private Boolean correoValido()
