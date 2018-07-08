@@ -9,4 +9,6 @@
             timeout: 10000,
             dataType: 'jsonp'
         });
+
+    alert("bright");
 }
