@@ -26,5 +26,11 @@ namespace BL
             this.Foto = foto;
             this.Estado = estado;
         }
+
+
+        public void prueba(string name)
+        {
+            throw new Exception("Hello world");
+        }
     }
 }

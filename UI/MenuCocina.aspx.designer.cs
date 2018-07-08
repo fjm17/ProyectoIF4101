@@ -31,13 +31,22 @@ namespace UI {
         protected global::System.Web.UI.UpdatePanel upPedidos;
         
         /// <summary>
-        /// Pedido1 control.
+        /// lbPedido control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Pedido1;
+        protected global::System.Web.UI.WebControls.Label lbPedido;
+        
+        /// <summary>
+        /// btnPedido1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPedido1;
         
         /// <summary>
         /// upParteInferior control.

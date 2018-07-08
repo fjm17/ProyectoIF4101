@@ -19,18 +19,20 @@ namespace BL
 
         public Boolean InsertarUsuario(string correo, string nombre_completo, string direccion, string contrasenna, string tipo)
         {
+            string encContrasena = encriptarContrasena(contrasenna);
             DAOUsuario daoUsuario = new DAOUsuario();
-            TO_Usuario to_usuario = new TO_Usuario(correo, nombre_completo, direccion, contrasenna, 
+            TO_Usuario to_usuario = new TO_Usuario(correo, nombre_completo, direccion, encContrasena, 
                 tipo, (tipo.Equals("Cliente") ? "Habilitado" : "Otro"));
             return daoUsuario.Insertar(to_usuario);
         }
 
         public Boolean SeleccionarUsuario(string correo, string contrasena)
         {
+            string encContrasena = encriptarContrasena(contrasena);
             DAOUsuario daoUsuario = new DAOUsuario();
             TO_Usuario to_usuario = new TO_Usuario();
             to_usuario.Correo = correo;
-            to_usuario.Contrasena = contrasena;
+            to_usuario.Contrasena = encContrasena;
             if (daoUsuario.Mostrar(to_usuario))
             {
                 if (to_usuario.Tipo.Equals("Cliente") && !to_usuario.EstadoCuenta.Equals("Habilitado"))
@@ -64,6 +66,15 @@ namespace BL
             TO_Usuario toUsuario = new TO_Usuario();
             toUsuario.Correo = correo;
             return daoUsuario.Eliminar(toUsuario);
+        }
+
+        private string encriptarContrasena(string contrasena)
+        {
+            byte[] bytes = Encoding.Default.GetBytes(contrasena);
+            var hexadecimal = BitConverter.ToString(bytes);
+            hexadecimal = hexadecimal.Replace("-", "");
+
+            return hexadecimal;
         }
 
     }

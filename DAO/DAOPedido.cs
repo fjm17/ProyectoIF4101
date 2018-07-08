@@ -166,7 +166,31 @@ namespace DAO
 
         //--------------------------- Manejo de Detalle Pedido -----------------------------------------
 
+        public Boolean AgregarDetalle(TO_Detalle_Pedido toDetalle)
+        {
+            Boolean completado = true;
+            try
+            {
+                string consulta = "INSERT INTO Detalle Pedido VALUES (@num, @nom)";
+                bdConexion.GenerarConsulta(consulta);
 
+                bdConexion.AsignarParametro("@num", toDetalle.NumeroPedido);
+                bdConexion.AsignarParametro("@nom", toDetalle.NombrePlato);
+
+                bdConexion.Comando.ExecuteNonQuery();
+                bdConexion.RealizarCommit();
+            }
+            catch (Exception ex)
+            {
+                completado = false;
+                bdConexion.RealizarRollBack();
+            }
+            finally
+            {
+                bdConexion.Finalizar();
+            }
+            return completado;
+        }
 
         //--------------------------- Manejo de Estado Pedido ------------------------------------------
 

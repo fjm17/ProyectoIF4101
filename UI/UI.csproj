@@ -62,7 +62,12 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="images\if_green_curry_3377058.png" />
+    <Content Include="Aplicacion Cliente\images\if_green_curry_3377058.png" />
+    <Content Include="Aplicacion Cliente\images\if_key_309058.png" />
+    <Content Include="Aplicacion Cliente\IniciarSesionCliente.html" />
+    <Content Include="Aplicacion Cliente\PaginaInicio.html" />
+    <Content Include="Aplicacion Cliente\scripts\Cliente.js" />
+    <Content Include="Aplicacion Cliente\styles\generic_style.css" />
     <Content Include="paginas\Administrador\ActualizarPlato.aspx" />
     <Content Include="paginas\Administrador\AdministrarPlatos.aspx" />
     <Content Include="paginas\Administrador\AgregarPlato.aspx" />
@@ -173,6 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BarraNavegacion.Master" />
+    <None Include="Properties\PublishProfiles\Julio.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -187,7 +193,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Aplicacion Cliente\" />
     <Folder Include="paginas\Cocina\" />
   </ItemGroup>
   <PropertyGroup>

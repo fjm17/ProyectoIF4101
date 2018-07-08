@@ -5,31 +5,51 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="container">
+    <!-- 
         <div class="dropdown">
     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" 
-        style="background-color:red;color:white;border-color:yellow">
+        style="background-color:#DD392E;color:white;border-color:white">
       Gestionar Usuarios
     </button>
             <br />
-    <div class="dropdown-menu container">
+    <div class="dropdown-menu container" style="background-color:yellow; color:black">
       <a class="dropdown-it" href="AgregarUsuario.aspx">Agregar Usuario</a>
              <br />
       <a class="dropdown-item" href="#.aspx">Actualizar datos de Usuario</a>
     </div>
   </div>
+  -->
 
-    <br />
-    <div class="dropdown">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" 
-            style="background-color:red;color:white;border-color:yellow">
-          Gestionar Platos
-        </button>
-         <div class="dropdown-menu container">
-          <a class="dropdown-it" href="AgregarPlato.aspx">Agregar Plato</a>
-             <br />
-          <a class="dropdown-item" href="ActualizarPlato.aspx">Actualizar datos de Plato</a>
-        </div>
+   <div class="dropdown btn-group">
+      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" 
+          style="background-color:#DD392E;color:white;border-color:white">
+          Gestionar Usuarios
+        <span class="caret"></span>
+      </button>
+      
+      <ul class="dropdown-menu" style="background-color:yellow; color:black">
+        <li><a class="dropdown-it" href="AgregarUsuario.aspx">Agregar Usuario</a></li>
+        <li><a class="dropdown-it" href="#.aspx">Actualizar datos de Usuario</a></li>
+      </ul>
+
     </div>
+    <br />
+        <br />
+    <br />
+  <div class="dropdown btn-group">
+      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" 
+          style="background-color:#DD392E;color:white;border-color:white">
+          Gestionar Platos
+        <span class="caret"></span>
+      </button>
+
+      <ul class="dropdown-menu" style="background-color:yellow; color:black">
+        <li><a class="dropdown-it" href="AgregarPlato.aspx">Agregar Plato</a></li>
+        <li><a class="dropdown-item" href="ActualizarPlato.aspx">Actualizar datos de Plato</a></li>
+      </ul>
+
+    </div>
+
     </div>
 
     <p>
