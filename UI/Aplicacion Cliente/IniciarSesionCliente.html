@@ -3,7 +3,12 @@
 <head>
     <title></title>
 	<meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="styles/generic_style.css" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0;">
+    <link rel="stylesheet" href="styles/generic_style.css" />
+    <script type="text/javascript" src="scripts/Cliente.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
 </head>
 <body>
     <form id="form1">
@@ -13,20 +18,6 @@
         <div>
 
         </div>
-        <!-- <div class="container">
-              <label for="uname"><b>Username</b></label>
-              <input type="text" placeholder="Enter Username" name="uname" required>
-
-              <label for="psw"><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" name="psw" required>
-
-              <button type="submit">Login</button>
-              <label>
-              <br />
-              <br />
-            <input type="checkbox" checked="checked" name="remember"> Remember me
-          </label>
-        </div> -->
 
         <div class="container">
             <h1>¡Bienvenido!</h1>
@@ -35,22 +26,15 @@
             <br />
             <input type="text" ID="tbCorreo"/>
             <br />
-            <asp:RequiredFieldValidator ID="rfvCorreo" runat="server" ControlToValidate="tbCorreo"
-                                        ErrorMessage="Este campo es necesario"></asp:RequiredFieldValidator>
             <p>
             Contraseña:
             <br/>
             <input type="password" ID="tbContrasena" />
             </p>
-            <asp:TextBox ID="tbContrasena" runat="server" TextMode="Password" Width="356px"></asp:TextBox>
-            <br />
-            <asp:RequiredFieldValidator ID="rfvContrasenna" runat="server" ControlToValidate="tbContrasena"
-                                        ErrorMessage="Este campo es necesario"></asp:RequiredFieldValidator>
             <br />
             <br />
-            <input type="button" ID="btnIngresar" />
-            <!--<asp:Button ID="btnIngresar" runat="server" OnClick="btnIngresar_Click"
-                        Text="Ingresar " Height="42px" Width="96px" />-->
+            <br />
+            <input type="button" ID="btnIngresar" onclick="IniciarSesion();"/>
         </div>
     </form>
 </body>

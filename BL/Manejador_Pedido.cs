@@ -52,6 +52,17 @@ namespace BL
             return false;
         }
 
+        //------------------------- Detalles -----------------------------------
+
+
+        public Boolean AgregarDetallePedido(int numeroPedido, string nombrePlato)
+        {
+            TO_Detalle_Pedido toDetalle = new TO_Detalle_Pedido(numeroPedido, nombrePlato);
+            DAOPedido daoPedido = new DAOPedido();
+            return daoPedido.AgregarDetalle(toDetalle);
+        }
+
+        //------------------------- Estado -------------------------------------
         public Boolean MostrarEstadoPedido(string estado)
         {
             DAOPedido daoPedido = new DAOPedido();
