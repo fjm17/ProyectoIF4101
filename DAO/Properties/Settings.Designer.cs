@@ -26,7 +26,8 @@ namespace DAO.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=ProyectoRestaurante;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SQL5004.site4now.net;Initial Catalog=DB_A3D052_Vehiculos;User Id=DB_A" +
+            "3D052_Vehiculos_admin;Password=b65780123;")]
         public string cadenaConexion {
             get {
                 return ((string)(this["cadenaConexion"]));

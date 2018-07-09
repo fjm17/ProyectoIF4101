@@ -1,15 +1,16 @@
-﻿function MostrarPlatos()
-{
+﻿function MostrarPlatos() {
+    //http://jrvz97-001-site1.dtempurl.com/WS/WSRESTCliente.svc/VerPlatos?nombre=
+    //http://localhost:6347/
     var req = $.ajax(
         {
-            url: "http://localhost:6347/WS/WSRESTCliente.svc/VerPlatos?nombre=",
+            url: "http://jrvz97-001-site1.dtempurl.com/WS/WSRESTCliente.svc/VerPlatos?nombre=",
             timeout: 10000,
             dataType: "jsonp"
         });
 
     req.done(function (datos) {
+        alert("Funcionaaaa");
         ProcesarPlatos(datos);
-        //alert("Funcionaaaa");
     });
 
     req.fail(function () {
@@ -17,14 +18,13 @@
     });
 }
 
-function ProcesarPlatos (datos)
-{
+function ProcesarPlatos(datos) {
     //$('#tablePlatos').empty();
     CrearTableHeader();
     var tbody = document.createElement("tbody");
 
     $.each(datos, function () {
-        
+
         var newTr = document.createElement("tr");
         var newTdNombre = document.createElement("td");
         var newTdDescripcion = document.createElement("td");
@@ -64,8 +64,7 @@ function ProcesarPlatos (datos)
 }
 
 
-function CrearTableHeader ()
-{
+function CrearTableHeader() {
     var thead = document.createElement("thead");
     var tr = document.createElement("tr");
 

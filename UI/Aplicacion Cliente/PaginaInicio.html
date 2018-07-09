@@ -2,8 +2,8 @@
 <html>
 <head>
     <title></title>
-	<meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="styles/generic_style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -30,128 +30,17 @@
                         <!-- <li><a href="#" style="color:white">Page 2</a></li> -->
                         <li><a>asdgasdga</a></li>
                     </ul>
-                    
+
                 </div>
             </nav>
-            <div class="container">
+            <div class="container table-responsive">
                 <h3> Platos disponibles </h3>
-                        <table id="tablePlatos" class="table table-bordered" >
-                        <!--
-                        <thead>
-                            <tr>
-                                <th>Firstname</th>
-                                <th>Lastname</th>
-                                <th>Email</th>
-                                <th>Ver</th>
-                                <th>Carrito</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>John</td>
-                                <td>Doe</td>
-                                <td>john@example.com</td>
-                                <td><input type="submit" value="Ver detalles"></td>
-                                <td><input type="submit" value="Agregar a Carrito" style="background-color:red"></td>
-                            </tr>
-                            <tr>
-                                <td>Mary</td>
-                                <td>Moe</td>
-                                <td>mary@example.com</td>
-                                <td><input type="submit" value="Ver detalles"></td>
-                                <td><input type="submit" value="Agregar a Carrito" style="background-color:red"></td>
+                <table id="tablePlatos" class="table table-bordered table-condensed"></table>
 
-                            </tr>
-                            <tr>
-                                <td>July</td>
-                                <td>Dooley</td>
-                                <td>july@example.com</td>
-                                <td><input type="submit" value="Ver detalles"></td>
-                                <td><input type="submit" value="Agregar a Carrito" style="background-color:red"></td>
-
-                            </tr>
-                        </tbody>
-                            -->
-                    </table>
-
-                    <!--<ul class="list-group" id="platos">
-                        <li class="list-group-item"><a href="Inicio.html" ID="linkInicio" style="color:black">Inicio</a><button>Hola</button></li>
-                        <li class="list-group-item"><a href="Inicio.html" ID="linkInicio" style="color:black">Inicio</a><button>Hola</button></li>
-                        <li class="list-group-item"><a href="Inicio.html" ID="linkInicio" style="color:black">Inicio</a><button>Hola</button></li>
-                    </ul>-->
-                <input type="submit" onclick="MostrarPlatos()" value="Mostrar Platos"/>
+                <input type="submit" onclick="MostrarPlatos()" value="Mostrar Platos" />
             </div>
         </div>
     </form>
-
-    <!--<script type="text/javascript"> 
-        function MostrarPlatos() {
-            var req = $.ajax(
-                {
-                    url: "http://localhost:6347/WS/WSRESTCliente.svc/VerPlatos?nombre=",
-                    timeout: 10000,
-                    dataType: "jsonp"
-                });
-
-            req.done(function (datos) {
-                ProcesarPlatos(datos);
-                alert("Funcionaaaa");
-            });
-
-            req.fail(function () {
-                alert("Ocurrió un problema. Por favor, intente de nuevo más tarde.");
-            });
-        }
-
-        function ProcesarPlatos(datos) {
-            //$('#tablePlatos').empty();
-            CrearTableHeader();
-            var tbody = document.createElement("tbody");
-
-            $.each(datos, function () {
-
-                var newTr = document.createElement("tr");
-                var newTdNombre = document.createElement("td");
-                var newTdDescripcion = document.createElement("td");
-                var newTdPrecio = document.createElement("td");
-
-                newTdNombre.innerHTML = this.Nombre;
-                newTdDescripcion.innerHTML = this.Descripcion;
-                newTdPrecio.innerHTML = this.Precio;
-
-                newTr.appendChild(newTdNombre);
-                newTr.appendChild(newTdDescripcion);
-                newTr.appendChild(newTdPrecio);
-
-                tbody.appendChild(newTr);
-
-            });
-            $('#tablePlatos').append(tbody);
-            return false;
-        }
-
-
-        function CrearTableHeader() {
-            var thead = document.createElement("thead");
-            var tr = document.createElement("tr");
-
-            var thNombre = document.createElement("th");
-            thNombre.innerHTML = "Nombre";
-            var thDescripcion = document.createElement("th");
-            thDescripcion.innerHTML = "Descripcion";
-            var thPrecio = document.createElement("th");
-            thPrecio.innerHTML = "Precio";
-
-            tr.appendChild(thNombre);
-            tr.appendChild(thDescripcion);
-            tr.appendChild(thPrecio);
-
-            thead.appendChild(tr);
-
-            $('#tablePlatos').append(thead);
-        }
-
-    </script>-->
 
 </body>
 </html>
