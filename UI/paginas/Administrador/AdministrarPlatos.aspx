@@ -12,7 +12,7 @@
 </p>
     <h2>Platos Disponibles</h2>
     <div class="container">
-        <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" Height="220px" Width="519px">
+        <asp:GridView ID="grdPlatos" runat="server" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" Height="220px" Width="519px">
             <AlternatingRowStyle BackColor="White" />
             <FooterStyle BackColor="#CCCC99" />
             <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />

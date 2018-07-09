@@ -1,16 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MostrarPlato.aspx.cs" Inherits="UI.MostrarPlato" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/BarraNavegacion.Master" AutoEventWireup="true" CodeBehind="MostrarPlato.aspx.cs" Inherits="UI.MostrarPlato" %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    
-        <h1>Mostrar Plato</h1>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <h1>Mostrar Plato</h1>
         Nombre:&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="tbNombre" runat="server"></asp:TextBox>
         <br />
@@ -33,8 +27,4 @@
         Estado:&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="tbEstado" runat="server"></asp:TextBox>
         <br />
-    
-    </div>
-    </form>
-</body>
-</html>
+</asp:Content>

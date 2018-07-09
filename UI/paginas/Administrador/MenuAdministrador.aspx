@@ -46,6 +46,7 @@
       <ul class="dropdown-menu" style="background-color:yellow; color:black">
         <li><a class="dropdown-it" href="AgregarPlato.aspx">Agregar Plato</a></li>
         <li><a class="dropdown-item" href="ActualizarPlato.aspx">Actualizar datos de Plato</a></li>
+        <li><a class="dropdown-it" href="AdministrarPlatos.aspx">Mostrar Platos</a></li>
       </ul>
 
     </div>

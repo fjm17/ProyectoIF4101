@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BL;
 
 namespace UI
 {
@@ -11,6 +12,10 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Manejador_Lista_Platos lista = new Manejador_Lista_Platos();
+            lista.BuscarPlatos("");
+            grdPlatos.DataSource = lista.Platos;
+            grdPlatos.DataBind();
 
         }
     }
