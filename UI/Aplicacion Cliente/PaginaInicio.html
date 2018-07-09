@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="styles/generic_style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="scripts/Cliente.js"></script>
+    <script type="text/javascript" src="scripts/Platos.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
@@ -35,8 +35,8 @@
             </nav>
             <div class="container">
                 <h3> Platos disponibles </h3>
-                    <table class="table table-bordered">
-                        <!---->
+                    <!--
+                        <table id="tablePlatos" class="table table-bordered" >
                         <thead>
                             <tr>
                                 <th>Firstname</th>
@@ -71,15 +71,14 @@
 
                             </tr>
                         </tbody>
-                        <!---->
-                    </table>
+                    </table>-->
 
                     <!--<ul class="list-group" id="platos">
                         <li class="list-group-item"><a href="Inicio.html" ID="linkInicio" style="color:black">Inicio</a><button>Hola</button></li>
                         <li class="list-group-item"><a href="Inicio.html" ID="linkInicio" style="color:black">Inicio</a><button>Hola</button></li>
                         <li class="list-group-item"><a href="Inicio.html" ID="linkInicio" style="color:black">Inicio</a><button>Hola</button></li>
                     </ul>-->
-                <input type="submit" onclick="Registrar()" />
+                <input type="submit" onclick="MostrarPlatos()" />
             </div>
         </div>
     </form>

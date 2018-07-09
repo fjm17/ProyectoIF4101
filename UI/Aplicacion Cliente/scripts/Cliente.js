@@ -1,25 +1,4 @@
-﻿function MostrarPlatos (){
-    var correo = $('#tbCorreo').val();
-    var contrasena = $('#tbContrasena').val();
-
-    var req = $.ajax(
-        {
-            url: "http://localhost:6347/WS/WSRESTCliente.svc/VerPlatos?nombre=",
-            timeout: 10000,
-            dataType: "jsonp"
-        });
-
-    req.done(function (datos) {
-        localStorage["correo"] = correo;
-        Validar(datos);
-    });
-
-    req.fail(function () {
-        alert(req);
-    });
-}
-
-function Registrar()
+﻿function Registrar()
 {
     var correo = document.createElement("li");
     var a = document.createElement("a");
@@ -51,7 +30,7 @@ function IniciarSesion()
 
     req.fail(function ()
     {
-        alert(req);
+        alert("No se pudo completar la transaccion");
     });
 
 }
