@@ -5,12 +5,17 @@
 	<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="styles/generic_style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles/generic_style.css" />
+    <script type="text/javascript" src="scripts/Platos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+
 </head>
-<body>
-    <form id="form1" runat="server" style="width=500px">
+<body onload="MostrarPlatos()">
+    <form id="form1">
 
         <div>
             <nav class="navbar navbar-default" style="color:white">
@@ -18,15 +23,135 @@
                     <div class="navbar-header" style="color:white">
                         <a class="navbar-brand" style="color:white" href="#">Les Quatre ???</a>
                     </div>
-                    <ul class="nav navbar-nav">
+                    <ul id="navbarElements" class="nav navbar-nav">
                         <li><a href="Inicio.html" ID="linkInicio" style="color:white">Inicio</a></li>
                         <li><a href="#" ID="linkSobre" style="color:white">Sobre Nosotros</a></li>
                         <li><a href="InicioSesion.aspx" ID="linkInicioSesion" style="color:white">Iniciar Sesion</a></li>
                         <!-- <li><a href="#" style="color:white">Page 2</a></li> -->
+                        <li><a>asdgasdga</a></li>
                     </ul>
+                    
                 </div>
             </nav>
+            <div class="container">
+                <h3> Platos disponibles </h3>
+                        <table id="tablePlatos" class="table table-bordered" >
+                        <!--
+                        <thead>
+                            <tr>
+                                <th>Firstname</th>
+                                <th>Lastname</th>
+                                <th>Email</th>
+                                <th>Ver</th>
+                                <th>Carrito</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>john@example.com</td>
+                                <td><input type="submit" value="Ver detalles"></td>
+                                <td><input type="submit" value="Agregar a Carrito" style="background-color:red"></td>
+                            </tr>
+                            <tr>
+                                <td>Mary</td>
+                                <td>Moe</td>
+                                <td>mary@example.com</td>
+                                <td><input type="submit" value="Ver detalles"></td>
+                                <td><input type="submit" value="Agregar a Carrito" style="background-color:red"></td>
+
+                            </tr>
+                            <tr>
+                                <td>July</td>
+                                <td>Dooley</td>
+                                <td>july@example.com</td>
+                                <td><input type="submit" value="Ver detalles"></td>
+                                <td><input type="submit" value="Agregar a Carrito" style="background-color:red"></td>
+
+                            </tr>
+                        </tbody>
+                            -->
+                    </table>
+
+                    <!--<ul class="list-group" id="platos">
+                        <li class="list-group-item"><a href="Inicio.html" ID="linkInicio" style="color:black">Inicio</a><button>Hola</button></li>
+                        <li class="list-group-item"><a href="Inicio.html" ID="linkInicio" style="color:black">Inicio</a><button>Hola</button></li>
+                        <li class="list-group-item"><a href="Inicio.html" ID="linkInicio" style="color:black">Inicio</a><button>Hola</button></li>
+                    </ul>-->
+                <input type="submit" onclick="MostrarPlatos()" value="Mostrar Platos"/>
+            </div>
         </div>
     </form>
+
+    <!--<script type="text/javascript"> 
+        function MostrarPlatos() {
+            var req = $.ajax(
+                {
+                    url: "http://localhost:6347/WS/WSRESTCliente.svc/VerPlatos?nombre=",
+                    timeout: 10000,
+                    dataType: "jsonp"
+                });
+
+            req.done(function (datos) {
+                ProcesarPlatos(datos);
+                alert("Funcionaaaa");
+            });
+
+            req.fail(function () {
+                alert("Ocurrió un problema. Por favor, intente de nuevo más tarde.");
+            });
+        }
+
+        function ProcesarPlatos(datos) {
+            //$('#tablePlatos').empty();
+            CrearTableHeader();
+            var tbody = document.createElement("tbody");
+
+            $.each(datos, function () {
+
+                var newTr = document.createElement("tr");
+                var newTdNombre = document.createElement("td");
+                var newTdDescripcion = document.createElement("td");
+                var newTdPrecio = document.createElement("td");
+
+                newTdNombre.innerHTML = this.Nombre;
+                newTdDescripcion.innerHTML = this.Descripcion;
+                newTdPrecio.innerHTML = this.Precio;
+
+                newTr.appendChild(newTdNombre);
+                newTr.appendChild(newTdDescripcion);
+                newTr.appendChild(newTdPrecio);
+
+                tbody.appendChild(newTr);
+
+            });
+            $('#tablePlatos').append(tbody);
+            return false;
+        }
+
+
+        function CrearTableHeader() {
+            var thead = document.createElement("thead");
+            var tr = document.createElement("tr");
+
+            var thNombre = document.createElement("th");
+            thNombre.innerHTML = "Nombre";
+            var thDescripcion = document.createElement("th");
+            thDescripcion.innerHTML = "Descripcion";
+            var thPrecio = document.createElement("th");
+            thPrecio.innerHTML = "Precio";
+
+            tr.appendChild(thNombre);
+            tr.appendChild(thDescripcion);
+            tr.appendChild(thPrecio);
+
+            thead.appendChild(tr);
+
+            $('#tablePlatos').append(thead);
+        }
+
+    </script>-->
+
 </body>
 </html>
