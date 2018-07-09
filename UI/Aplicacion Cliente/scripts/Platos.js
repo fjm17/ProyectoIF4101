@@ -8,8 +8,8 @@
         });
 
     req.done(function (datos) {
-        alert("Funciona");
         ProcesarPlatos(datos);
+        //alert("Funcionaaaa");
     });
 
     req.fail(function () {
@@ -20,9 +20,8 @@
 function ProcesarPlatos (datos)
 {
     //$('#tablePlatos').empty();
-    var tbody = document.createElement("tbody");
-
     CrearTableHeader();
+    var tbody = document.createElement("tbody");
 
     $.each(datos, function () {
         
@@ -31,6 +30,23 @@ function ProcesarPlatos (datos)
         var newTdDescripcion = document.createElement("td");
         var newTdPrecio = document.createElement("td");
 
+        var newTdVerDetalles = document.createElement("td");
+
+        var newInputDetalles = document.createElement("input");
+        newInputDetalles.setAttribute("type", "submit");
+        newInputDetalles.value = "Ver Detalles";
+
+        newTdVerDetalles.appendChild(newInputDetalles);
+
+        var newTdAgregarCarrito = document.createElement("td");
+
+        var newInputAgregarCarrito = document.createElement("input");
+        newInputAgregarCarrito.setAttribute("type", "submit");
+        newInputAgregarCarrito.style.backgroundColor = 'red';
+        newInputAgregarCarrito.value = "Agregar al Carrito";
+
+        newTdAgregarCarrito.appendChild(newInputAgregarCarrito);
+
         newTdNombre.innerHTML = this.Nombre;
         newTdDescripcion.innerHTML = this.Descripcion;
         newTdPrecio.innerHTML = this.Precio;
@@ -38,6 +54,8 @@ function ProcesarPlatos (datos)
         newTr.appendChild(newTdNombre);
         newTr.appendChild(newTdDescripcion);
         newTr.appendChild(newTdPrecio);
+        newTr.appendChild(newTdVerDetalles);
+        newTr.appendChild(newTdAgregarCarrito);
 
         tbody.appendChild(newTr);
 
@@ -50,16 +68,23 @@ function CrearTableHeader ()
 {
     var thead = document.createElement("thead");
     var tr = document.createElement("tr");
+
     var thNombre = document.createElement("th");
     thNombre.innerHTML = "Nombre";
     var thDescripcion = document.createElement("th");
     thDescripcion.innerHTML = "Descripcion";
     var thPrecio = document.createElement("th");
     thPrecio.innerHTML = "Precio";
+    var thDetalles = document.createElement("th");
+    thDetalles.innerHTML = "Detalles";
+    var thAgregarCarrito = document.createElement("th");
+    thAgregarCarrito.innerHTML = "Carrito";
 
     tr.appendChild(thNombre);
     tr.appendChild(thDescripcion);
     tr.appendChild(thPrecio);
+    tr.appendChild(thDetalles);
+    tr.appendChild(thAgregarCarrito);
 
     thead.appendChild(tr);
 
