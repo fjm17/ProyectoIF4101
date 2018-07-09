@@ -16,10 +16,10 @@ namespace UI.WS
     public class WSRESTCliente : IWSRESTCliente
     { 
 
-        public Boolean IniciarSesion(string correo, string contrasena)
+        public List<Boolean> IniciarSesion(string correo, string contrasena)
         {
             Manejador_Usuario manUsuario = new Manejador_Usuario();
-            return manUsuario.SeleccionarUsuario(correo, contrasena);
+            return new List<Boolean> { manUsuario.SeleccionarUsuario(correo, contrasena) };
         }
 
         public List<BL_Plato> VerPlatos(string nombre)
