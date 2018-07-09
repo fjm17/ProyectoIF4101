@@ -66,7 +66,9 @@
     <Content Include="Aplicacion Cliente\images\if_key_309058.png" />
     <Content Include="Aplicacion Cliente\IniciarSesionCliente.html" />
     <Content Include="Aplicacion Cliente\PaginaInicio.html" />
+    <Content Include="Aplicacion Cliente\RegistrarUsuario.html" />
     <Content Include="Aplicacion Cliente\scripts\Cliente.js" />
+    <Content Include="Aplicacion Cliente\scripts\Platos.js" />
     <Content Include="Aplicacion Cliente\styles\generic_style.css" />
     <Content Include="paginas\Administrador\ActualizarPlato.aspx" />
     <Content Include="paginas\Administrador\AdministrarPlatos.aspx" />

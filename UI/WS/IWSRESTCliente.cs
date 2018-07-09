@@ -13,11 +13,12 @@ namespace UI.WS
     [ServiceContract]
     public interface IWSRESTCliente
     {
-
+        [OperationContract]
         [WebGet(RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json)]
         Boolean IniciarSesion(string correo, string contrasena);
 
+        [OperationContract]
         [WebGet(RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json)]
         List<BL_Plato> VerPlatos(string nombre);
