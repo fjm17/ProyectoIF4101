@@ -2,15 +2,20 @@
 <html>
 <head>
     <title></title>
-	<meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="styles/generic_style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles/generic_style.css" />
+    <script type="text/javascript" src="scripts/Platos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+
 </head>
-<body>
-    <form id="form1" runat="server" style="width=500px">
+<body onload="MostrarPlatos()">
+    <form id="form1">
 
         <div>
             <nav class="navbar navbar-default" style="color:white">
@@ -18,15 +23,24 @@
                     <div class="navbar-header" style="color:white">
                         <a class="navbar-brand" style="color:white" href="#">Les Quatre ???</a>
                     </div>
-                    <ul class="nav navbar-nav">
+                    <ul id="navbarElements" class="nav navbar-nav">
                         <li><a href="Inicio.html" ID="linkInicio" style="color:white">Inicio</a></li>
                         <li><a href="#" ID="linkSobre" style="color:white">Sobre Nosotros</a></li>
                         <li><a href="InicioSesion.aspx" ID="linkInicioSesion" style="color:white">Iniciar Sesion</a></li>
                         <!-- <li><a href="#" style="color:white">Page 2</a></li> -->
+                        <li><a>asdgasdga</a></li>
                     </ul>
+
                 </div>
             </nav>
+            <div class="container table-responsive">
+                <h3> Platos disponibles </h3>
+                <table id="tablePlatos" class="table table-bordered table-condensed"></table>
+
+                <input type="submit" onclick="MostrarPlatos()" value="Mostrar Platos" />
+            </div>
         </div>
     </form>
+
 </body>
 </html>
