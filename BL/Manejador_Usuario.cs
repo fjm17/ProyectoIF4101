@@ -35,7 +35,7 @@ namespace BL
             to_usuario.Contrasena = encContrasena;
             if (daoUsuario.Mostrar(to_usuario))
             {
-                if (to_usuario.Tipo.Equals("Cliente") && !to_usuario.Estado_Cuenta.Equals("Habilitado"))
+                if (to_usuario.Tipo.Equals("Cliente") && !to_usuario.Estado_Cuenta.Equals("Habilitado") && !String.IsNullOrEmpty(contrasena))
                 {
                     return false;
                 }

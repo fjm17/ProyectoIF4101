@@ -139,10 +139,19 @@ namespace DAO
         {
             try
             {
-                formatoIngreso("UPDATE Usuario SET Nombre_Completo = @nom, "
-                    + "Direccion = @dir, Contrasena = @contr, Tipo = @tipo, Estado_Cuenta = @estado "
+                if (usuario.Contrasena.Equals(""))
+                {
+                    formatoIngreso("UPDATE Usuario SET Nombre_Completo = @nom, "
+                    + "Direccion = @dir, Tipo = @tipo, Estado_Cuenta = @estado "
                     + "WHERE Correo = @correo", usuario);
-                return true;
+                    return true;
+                }
+                else {
+                    formatoIngreso("UPDATE Usuario SET Nombre_Completo = @nom, "
+                        + "Direccion = @dir, Contrasena = @contr, Tipo = @tipo, Estado_Cuenta = @estado "
+                        + "WHERE Correo = @correo", usuario);
+                    return true;
+                }
             }
             catch (Exception e)
             {
@@ -166,6 +175,30 @@ namespace DAO
                 bdConexion.AsignarParametro("@nom", usuario.Nombre_Completo);
                 bdConexion.AsignarParametro("@dir", usuario.Direccion);
                 bdConexion.AsignarParametro("@contr", usuario.Contrasena);
+                bdConexion.AsignarParametro("@tipo", usuario.Tipo);
+                bdConexion.AsignarParametro("@estado", usuario.Estado_Cuenta);
+
+
+                bdConexion.Comando.ExecuteNonQuery();
+                bdConexion.RealizarCommit();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void formatoIngresoSinContrasena(string consulta, TO_Usuario usuario)
+        {
+            try
+            {
+                bdConexion.Conectar();
+                bdConexion.Inicializar();
+
+                bdConexion.GenerarConsulta(consulta);
+                bdConexion.AsignarParametro("@correo", usuario.Correo);
+                bdConexion.AsignarParametro("@nom", usuario.Nombre_Completo);
+                bdConexion.AsignarParametro("@dir", usuario.Direccion);
                 bdConexion.AsignarParametro("@tipo", usuario.Tipo);
                 bdConexion.AsignarParametro("@estado", usuario.Estado_Cuenta);
 
