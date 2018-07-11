@@ -69,7 +69,7 @@ function ProcesarPlatos(datos) {
         tbody.appendChild(newTr);
 
     });
-    $('#tablePlatos').append(tbody);
+    //$('#tablePlatos').append(tbody);
     document.getElementById("tablePlatos").appendChild(tbody);
 }
 

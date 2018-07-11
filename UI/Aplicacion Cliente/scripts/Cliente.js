@@ -1,18 +1,9 @@
-﻿/*function VerificarSesion () {
-    if ()
-    {
-
-    }
-}*/
-
-function Registrar() {
+﻿function Registrar() {
     var correo = $('#tbCorreo').val();
     var nombre = $('#tbNombre').val();
     var contrasena = $('#tbContrasenaCrear').val();
     var contrasenaConf = $('#tbContrasenaConfirmar').val();
     var direccion = $('#tbDireccionCasa').val();
-
-    alert(correo + nombre + contrasena + contrasenaConf + direccion);
 
     var req = $.ajax(
         {
@@ -22,9 +13,8 @@ function Registrar() {
         });
 
     req.done(function (datos) {
-        alert("Funciona");
+        alert("Cliente insertado satisfactoriamente.");
         //localStorage["correo"] = correo;
-        //Validar(datos);
     });
 
     req.fail(function () {
@@ -51,22 +41,3 @@ function MostrarCliente() {
         alert("No se pudo completar la transaccion.");
     });
 }
-
-
-
-function imprimir() {
-
-    /*var correo = document.getElementById("tbCorreo").value;
-    var contrasena = document.getElementById("tbContrasena").value;
-
-    alert(correo + contrasena);*/
-}
-
-/*var correo = document.createElement("li");
-    var a = document.createElement("a");
-    a.innerHTML = localStorage["correo"];
-    correo.appendChild(a);
-    //document.getElementById("navbarElements").appendChild(correo);
-    $("#navbarElements").append(correo);
-    //document.body.appendChild(correo);
-    // alert(localStorage["correo"]);*/
