@@ -2,16 +2,21 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
         <script type="text/javascript">
 
-        function showimagepreview(input) {
+            function establecerFoto() {
+                var nombre = '<%=Session["nombreFoto"]%>';
+                document.getElementById("img").src = nombre;
+            }
+            
 
-          if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
+        function actualizarFoto(entrada) {
+
+            if (entrada.files && entrada.files[0]) {
+                var lector = new FileReader();
+                lector.onload = function (e) {
 
                     document.getElementsByTagName("img")[0].setAttribute("src", e.target.result);
                 }
-                reader.readAsDataURL(input.files[0]);
-                
+                lector.readAsDataURL(entrada.files[0]);
             }
         }
 
@@ -54,12 +59,13 @@
         <asp:Label ID="lbFoto" class="Label" runat="server" Text="Foto" Height="22px" Width="47px" Font-Bold="True"></asp:Label>
         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="tbFoto" runat="server" Width="190px"></asp:TextBox>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:FileUpload ID="FileFoto" runat="server" onchange="showimagepreview(this)"/>
         &nbsp;&nbsp;&nbsp;
         <br />
         <img id="img" alt="" style="width:200px; height: 150px;" />
+        <br />
+        <br />
+        <asp:FileUpload ID="FileFoto" runat="server" onchange="actualizarFoto(this)"/>
         <br />
         <br />
         &nbsp;&nbsp;&nbsp;

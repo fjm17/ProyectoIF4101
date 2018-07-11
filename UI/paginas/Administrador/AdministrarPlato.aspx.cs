@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BL;
+using System.Text;
 
 namespace UI.paginas.Administrador
 {
@@ -12,13 +13,31 @@ namespace UI.paginas.Administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
         }
 
         protected void btnActualizar_Click(object sender, EventArgs e)
         {
+
             Manejador_Plato m = new Manejador_Plato();
-            Boolean resultado = m.ActualizarPlato(tbNombre.Text, tbDescripcion.Text, double.Parse(tbPrecio.Text), tbFoto.Text, tbEstado.Text);
+
+            Boolean resultado = m.SeleccionarPlato(tbNombre.Text.Trim());
+
+            string ruta = "";
+
+            if (resultado)
+            {
+                ruta = m.Plato.Foto;
+                string nombreArchivo = "";
+                if (FileFoto.HasFile)
+                {
+                    nombreArchivo = FileFoto.FileName;
+                    ruta = "/images/" + nombreArchivo;
+                    FileFoto.SaveAs(Server.MapPath(ruta));
+                }
+            }
+            m = new Manejador_Plato();
+
+            resultado = m.ActualizarPlato(tbNombre.Text, tbDescripcion.Text, double.Parse(tbPrecio.Text), ruta, tbEstado.Text);
             if (resultado)
             {
                 mostrarMensaje("El plato se actualizó correctamente");
@@ -39,14 +58,15 @@ namespace UI.paginas.Administrador
             {
                 tbDescripcion.Text = m.Plato.Descripcion;
                 tbPrecio.Text = m.Plato.Precio.ToString();
-                tbFoto.Text = m.Plato.Foto;
                 tbEstado.Text = m.Plato.Estado;
-                
+                Session["nombreFoto"] = m.Plato.Foto;
+                ScriptManager.RegisterStartupScript(this, GetType(), "key", "establecerFoto()", true);
             }
             else
             {
                 mostrarMensaje("No se puede mostrar el plato o no existe en el menú");
             }
+
         }
 
 
@@ -81,5 +101,6 @@ namespace UI.paginas.Administrador
             tbPrecio.Text = "";
             
         }
+
     }
 }

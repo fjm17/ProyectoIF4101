@@ -21,7 +21,7 @@ namespace UI.paginas.Administrador
             if (fileFoto.HasFile)
             {
                 string nombreArchivo = fileFoto.FileName;
-                ruta = "~/images/" + nombreArchivo;
+                ruta = "/images/" + nombreArchivo;
                 fileFoto.SaveAs(Server.MapPath(ruta));
             }
 
