@@ -31,9 +31,7 @@ namespace UI
                     string tipo = manejador_usuario.Usuario.Tipo;
                     Session["Rol"] = tipo;
                     proximaPagina(tipo);
-                    /*Para pruebas*/ //mostrarMensaje("Usuario Encontrado");
                 }
-
             }
         }
 
@@ -44,12 +42,12 @@ namespace UI
             switch (tipo)
             {
                 case "Administrador":
-                    Response.Redirect("paginas/Administrador/MenuAdministrador.aspx");
+                    Response.Redirect("/paginas/Administrador/MenuAdministrador.aspx");
                     break;
                 //El caso cocina, también caso por defecto.
                 case "Cocina":
                 default:
-                    Response.Redirect("MenuCocina.aspx");
+                    Response.Redirect("/paginas/Cocina/MenuCocina.aspx");
                     break;
             }
         }
