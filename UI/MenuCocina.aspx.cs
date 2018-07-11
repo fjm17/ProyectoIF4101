@@ -10,7 +10,7 @@ namespace UI
 {
     public partial class MenuCocina : System.Web.UI.Page
     {
-        string[] strs = new string[] { "Hola", "Mundo"};
+        string[] strs = new string[] { "Hola", "Mundo", "Cruel", "es", "Bueno"};
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,6 +21,27 @@ namespace UI
             //string script = "function f(){var button = $find(\'" + Pedido1.ClientID + "\');button.set_enabled(false); Sys.Application.remove_load(f);}Sys.Application.add_load(f);";
             //ScriptManager.RegisterOnSubmitStatement(this, this.GetType(), "Onsubmit1", script);
             Session["Array"] = strs;
+
+            //foreach(string var in strs)
+            //{
+            //    Label l2 = new Label();
+            //    l2.ID = "lblPedido1";
+            //    l2.Text = var;
+
+            //    Button b1 = new Button();
+            //    b1.ID = "btn1";
+            //    b1.Text = var;
+
+            //    PH_NombrePedido.Controls.Add(l2);
+            //    PH_ButtonPedido.Controls.Add(b1);
+
+               
+            //}
+
+            
+
+
+
         }
 
         protected void Pedido1_Click(object sender, EventArgs e)
@@ -37,7 +58,7 @@ namespace UI
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Response.Write("<script>alert('button');</script>");
+            Response.Write("<script>alert('Hola Mundo cruel');</script>");
 
         }
 
