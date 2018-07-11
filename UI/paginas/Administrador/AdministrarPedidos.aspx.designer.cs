@@ -13,12 +13,21 @@ namespace UI {
     public partial class AdministrarPedidos {
         
         /// <summary>
-        /// grdListaPediso control.
+        /// grdListaPedidos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdListaPediso;
+        protected global::System.Web.UI.WebControls.GridView grdListaPedidos;
+        
+        /// <summary>
+        /// btnRegresar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRegresar;
     }
 }

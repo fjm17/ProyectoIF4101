@@ -87,9 +87,12 @@ namespace DAO
         {
             while (lector.Read())
             {
-                pedidos.AgregarPedido(new TO_Pedido(int.Parse(lector["Numero"].ToString()),
+                TO_Pedido nuevoPedido = new TO_Pedido(int.Parse(lector["Numero"].ToString()),
                     lector["Correo_Cliente"].ToString(), (DateTime)lector["Fecha"],
-                    lector["Codigo_Estado"].ToString()));
+                    lector["Codigo_Estado"].ToString());
+                BuscarDetallesPedido(nuevoPedido);
+                pedidos.AgregarPedido(nuevoPedido);
+               
             }
         }
 
@@ -192,7 +195,9 @@ namespace DAO
             Boolean completado = true;
             try
             {
-                string consulta = "INSERT INTO Detalle Pedido VALUES (@num, @nom)";
+                string consulta = "INSERT INTO Detalle_Pedido VALUES (@num, @nom)";
+                bdConexion.Conectar();
+                bdConexion.Inicializar();
                 bdConexion.GenerarConsulta(consulta);
 
                 bdConexion.AsignarParametro("@num", toDetalle.NumeroPedido);
@@ -212,6 +217,46 @@ namespace DAO
             }
             return completado;
         }
+
+
+        public Boolean BuscarDetallesPedido(TO_Pedido toPedido)
+        {
+            Boolean completado = true;
+            try
+            {
+                string consulta = "SELECT * FROM Detalle_Pedido WHERE Numero_Pedido = @num";
+                bdConexion.Conectar();
+                bdConexion.Inicializar();
+                bdConexion.GenerarConsulta(consulta);
+
+                bdConexion.AsignarParametro("@num", toPedido.Numero);
+
+                SqlDataReader lector = bdConexion.Comando.ExecuteReader();
+
+                if (lector.HasRows)
+                {
+                    completado = true;
+
+                    while (lector.Read())
+                    {
+                        toPedido.AgregarDetalle(int.Parse(lector["Numero_Pedido"].ToString()), lector["Nombre_Plato"].ToString());
+                    }
+                }
+                lector.Close();
+                bdConexion.RealizarCommit();
+            }
+            catch (Exception ex){
+
+                completado = false;
+                bdConexion.RealizarRollBack();
+            }
+            finally
+            {
+                bdConexion.Finalizar();
+            }
+            return completado;
+        }
+
 
         //--------------------------- Manejo de Estado Pedido ------------------------------------------
 

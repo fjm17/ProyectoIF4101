@@ -46,21 +46,6 @@ namespace BL
             return daoPedido.Actualizar(toUsuario, estado);
         }*/
 
-        public Boolean EliminarPedido(string correo)
-        {
-            //TODO
-            return false;
-        }
-
-        //------------------------- Detalles -----------------------------------
-
-
-        public Boolean AgregarDetallePedido(int numeroPedido, string nombrePlato)
-        {
-            TO_Detalle_Pedido toDetalle = new TO_Detalle_Pedido(numeroPedido, nombrePlato);
-            DAOPedido daoPedido = new DAOPedido();
-            return daoPedido.AgregarDetalle(toDetalle);
-        }
 
         //------------------------- Estado -------------------------------------
         public Boolean MostrarEstadoPedido(string estado)
