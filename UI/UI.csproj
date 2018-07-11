@@ -66,7 +66,6 @@
     <Content Include="Aplicacion Cliente\images\if_green_curry_3377058.png" />
     <Content Include="Aplicacion Cliente\images\if_key_309058.png" />
     <Content Include="Aplicacion Cliente\IniciarSesionCliente.html" />
-    <Content Include="Aplicacion Cliente\ModificarDatosCliente.html" />
     <Content Include="Aplicacion Cliente\PaginaInicio.html" />
     <Content Include="Aplicacion Cliente\RegistrarUsuario.html" />
     <Content Include="Aplicacion Cliente\scripts\Cliente.js" />
@@ -78,10 +77,7 @@
     <Content Include="images\if_key_309058.png" />
     <Content Include="Inicio.html" />
     <Content Include="MenuCocina.aspx" />
-
-    <Content Include="MostrarPlato.aspx" />
     <Content Include="paginas\Administrador\MostrarListaPlatos.aspx" />
-
     <Content Include="paginas\Administrador\MostrarUsuarios.aspx" />
     <Content Include="InicioSesion.aspx" />
     <Content Include="PaginaInicio.aspx" />
@@ -91,7 +87,6 @@
     <Content Include="WS\WSRESTCliente.svc" />
   </ItemGroup>
   <ItemGroup>
-
     <Compile Include="AdministrarUsuario.aspx.cs">
       <DependentUpon>AdministrarUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -99,10 +94,8 @@
     <Compile Include="AdministrarUsuario.aspx.designer.cs">
       <DependentUpon>AdministrarUsuario.aspx</DependentUpon>
     </Compile>
-
     <Compile Include="paginas\Administrador\AdministrarPlato.aspx.cs">
       <DependentUpon>AdministrarPlato.aspx</DependentUpon>
-
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="paginas\Administrador\AdministrarPlato.aspx.designer.cs">
@@ -136,14 +129,6 @@
     <Compile Include="MenuCocina.aspx.designer.cs">
       <DependentUpon>MenuCocina.aspx</DependentUpon>
     </Compile>
-
-    <Compile Include="MostrarPlato.aspx.cs">
-      <DependentUpon>MostrarPlato.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MostrarPlato.aspx.designer.cs">
-      <DependentUpon>MostrarPlato.aspx</DependentUpon>
-    </Compile>
     <Compile Include="paginas\Administrador\MostrarListaPlatos.aspx.cs">
       <DependentUpon>MostrarListaPlatos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -151,7 +136,6 @@
     <Compile Include="paginas\Administrador\MostrarListaPlatos.aspx.designer.cs">
       <DependentUpon>MostrarListaPlatos.aspx</DependentUpon>
     </Compile>
-
     <Compile Include="paginas\Administrador\MostrarUsuarios.aspx.cs">
       <DependentUpon>MostrarUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
