@@ -22,6 +22,7 @@ namespace UI.paginas.Administrador
             if (resultado)
             {
                 mostrarMensaje("El plato se actualizó correctamente");
+                limpiar();
             }
             else
             {
@@ -53,5 +54,32 @@ namespace UI.paginas.Administrador
             Response.Write("<script>alert('" + mensaje + "');</script>");
         }
 
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Manejador_Plato m = new Manejador_Plato();
+            if(m.EliminarPlato(tbNombre.Text))
+            {
+                mostrarMensaje("El plato se eliminó correctamente");
+                limpiar();
+            } else
+            {
+                mostrarMensaje("El plato no se pudo eliminar");
+            }
+        }
+
+        protected void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MenuAdministrador.aspx");
+        }
+
+        private void limpiar()
+        {
+            tbNombre.Text = "";
+            tbDescripcion.Text = "";
+            tbEstado.Text = "";
+            tbFoto.Text = foto.ImageUrl;
+            tbPrecio.Text = "";
+            
+        }
     }
 }

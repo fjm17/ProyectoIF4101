@@ -18,6 +18,7 @@
         
         <asp:UpdatePanel ID="upPedidos" runat="server">
             <ContentTemplate>
+
                 <%if (!IsPostBack)
                     {
                         Label l2;
@@ -40,6 +41,7 @@
                         <div id="dad" class="panel-heading" style="background-color: red; border-bottom-color: red">
                             <asp:Panel ID="Panel1" runat="server" EnableViewState="False"></asp:Panel>
                             <!--<asp:PlaceHolder ID="PH_NombrePedido" runat="server"></asp:PlaceHolder>-->
+                          
                         </div>
                   
                         <div class="panel-body">

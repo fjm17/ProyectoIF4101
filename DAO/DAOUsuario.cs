@@ -58,7 +58,7 @@ namespace DAO
                         usuario.Nombre_Completo = lector["Nombre_Completo"].ToString();
                         usuario.Direccion = lector["Direccion"].ToString();
                         usuario.Tipo = lector["Tipo"].ToString();
-                        usuario.EstadoCuenta = lector["Estado_Cuenta"].ToString();
+                        usuario.Estado_Cuenta = lector["Estado_Cuenta"].ToString();
                     }
                 }
 
@@ -78,15 +78,15 @@ namespace DAO
             return encontrado && completado;
         }
 
-        public Boolean MostrarUsuarios(TO_Manejador_Lista_Usuario usuarios, string nombre)
+        public Boolean MostrarUsuarios(TO_Manejador_Lista_Usuario usuarios, string correo)
         {
             bdConexion.Conectar();
             bdConexion.Inicializar();
             try
             {
 
-                string query = "SELECT * FROM Usuario WHERE Nombre_Completo LIKE @nom";
-                bdConexion.AsignarParametro("@nom", '%' + nombre + '%');
+                string query = "SELECT * FROM Usuario WHERE Correo LIKE @nom";
+                bdConexion.AsignarParametro("@nom", '%' + correo + '%');
                 bdConexion.GenerarConsulta(query);
 
                 SqlDataReader lector = bdConexion.Comando.ExecuteReader();
@@ -113,6 +113,8 @@ namespace DAO
             }
         }
 
+
+
         public Boolean Insertar(TO_Usuario usuario)
         {
             Boolean completado = true;
@@ -133,12 +135,11 @@ namespace DAO
             return completado;
         }
 
-
         public Boolean Actualizar(TO_Usuario usuario)
         {
             try
             {
-                formatoIngreso("UPDATE Usuario SET Nombre_Completo = @nom "
+                formatoIngreso("UPDATE Usuario SET Nombre_Completo = @nom, "
                     + "Direccion = @dir, Contrasena = @contr, Tipo = @tipo, Estado_Cuenta = @estado "
                     + "WHERE Correo = @correo", usuario);
                 return true;
@@ -166,7 +167,7 @@ namespace DAO
                 bdConexion.AsignarParametro("@dir", usuario.Direccion);
                 bdConexion.AsignarParametro("@contr", usuario.Contrasena);
                 bdConexion.AsignarParametro("@tipo", usuario.Tipo);
-                bdConexion.AsignarParametro("@estado", usuario.EstadoCuenta);
+                bdConexion.AsignarParametro("@estado", usuario.Estado_Cuenta);
 
 
                 bdConexion.Comando.ExecuteNonQuery();

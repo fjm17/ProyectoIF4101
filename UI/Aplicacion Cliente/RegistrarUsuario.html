@@ -3,16 +3,77 @@
 <head>
     <title></title>
     <meta charset="utf-8" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width; initial-scale=1.0;">
-    <link rel="stylesheet" href="styles/generic_style.css" />
-    <script type="text/javascript" src="scripts/Cliente.js"></script>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="styles/generic_style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/Platos.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
 </head>
 <body>
+    <form id="form1">
 
+        <div>
+            <nav class="navbar navbar-default" style="color:white">
+                <div class="container-fluid" style="background-color:black">
+                    <div class="navbar-header" style="color:white">
+                        <a class="navbar-brand" style="color:white" href="#">Les Quatre ???</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+
+                        <li><a href="PaginaInicio.html" style="color:white" CausesValidation="False">Inicio</a></li>
+                        <li><a href="#" style="color:white" CausesValidation="False">Sobre Nosotros</a></li>
+                        <!-- <li><a href="#" style="color:white">Page 2</a></li> -->
+                        <li><a href="#" style="color:white" 
+                               OnClick="linkCerrarSesion_Click" CausesValidation="False">Cerrar Sesion</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <h1>
+                Agregar Usuario
+            </h1>
+            <div class="container">
+                <b>Nombre</b>
+                <br />
+                <input type="text" ID="tbNombre" />
+                <br />
+                <br />
+                <br />
+                <b>Correo</b>
+                <br />
+                <input type="text" ID="tbCorreo" />
+                <br />
+                <br />
+                <br />
+                <b>Crear Contraseña</b>
+                <br />
+                <input type="password" ID="tbContrasenaCrear" />
+                <br />
+                <br />
+                <br />
+                <b>Confirmar Contraseña</b>
+                <br />
+                <input type="password" ID="tbContrasenaConfirmar" />
+                <br />
+                <br />
+                <br />
+                <b>Direccion de casa Completa</b>
+                <br />
+                <br />
+                <textarea rows="5" cols="40" ID="tbDireccionCasa" style="resize:none"></textarea>
+                <br />
+                <br />
+                <input type="submit" ID="btnAgregar" onclick="Registrar()" Text="Registrarse" />
+                <br />
+                <br />
+
+            </div>
+        </div>
+     </form>
 </body>
 </html>
 

@@ -35,7 +35,7 @@ namespace BL
             to_usuario.Contrasena = encContrasena;
             if (daoUsuario.Mostrar(to_usuario))
             {
-                if (to_usuario.Tipo.Equals("Cliente") && !to_usuario.EstadoCuenta.Equals("Habilitado"))
+                if (to_usuario.Tipo.Equals("Cliente") && !to_usuario.Estado_Cuenta.Equals("Habilitado"))
                 {
                     return false;
                 }
@@ -46,6 +46,7 @@ namespace BL
                     Usuario.Direccion = to_usuario.Direccion;
                     Usuario.Contrasena = "";
                     Usuario.Tipo = to_usuario.Tipo;
+                    Usuario.EstadoCuenta = to_usuario.Estado_Cuenta;
                     return true;
                 }
             }
@@ -55,7 +56,7 @@ namespace BL
         public Boolean ActualizarUsuario(string correo, string nombre_completo, string direccion, string contrasenna, string tipo, string estadoCuenta)
         {
             DAOUsuario daoUsuario = new DAOUsuario();
-            TO_Usuario toUsuario = new TO_Usuario(correo, nombre_completo, direccion, tipo, estadoCuenta);
+            TO_Usuario toUsuario = new TO_Usuario(correo, nombre_completo, direccion, contrasenna, tipo, estadoCuenta);
             return daoUsuario.Actualizar(toUsuario);
         }
 

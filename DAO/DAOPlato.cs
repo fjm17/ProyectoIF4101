@@ -61,11 +61,11 @@ namespace DAO
             while (lector.Read())
             {
                 string estado = lector["Estado_Plato"].ToString();
-                if (estado.Equals("Disponible"))
-                {
+                //if (estado.Equals("Disponible"))
+                //{
                     platos.AgregarPlato(new TO_Plato(lector["Nombre"].ToString(), lector["Descripcion"].ToString(),
                     double.Parse(lector["Precio"].ToString()), lector["Foto"].ToString(), estado));
-                }
+                //}
             }
         }
 
@@ -74,7 +74,7 @@ namespace DAO
             Boolean completado = true;
             try
             {
-                formatoIngreso("Update Plato Set Descripcion = @desc, Precio = @prec, Foto = @foto, Estado = @estado Where Nombre = @nom", plato);
+                formatoIngreso("Update Plato Set Descripcion = @desc, Precio = @prec, Foto = @foto, Estado_Plato = @estado Where Nombre = @nom", plato);
             }
             catch(Exception ex)
             {
@@ -107,7 +107,7 @@ namespace DAO
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 

@@ -23,6 +23,7 @@ namespace UI.paginas.Administrador
             if (resultado)
             {
                 mostrarMensaje("El plato se agregó correctamente");
+                limpiar();
             }
             else
             {
@@ -35,5 +36,18 @@ namespace UI.paginas.Administrador
             Response.Write("<script>alert('" + mensaje + "');</script>");
         }
 
+        private void limpiar()
+        {
+            tbNombre.Text = "";
+            tbDescripcion.Text = "";
+            tbEstado.Text = "";
+            fileFoto.Dispose();
+            tbPrecio.Text = "";
+        }
+
+        protected void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MenuAdministrador.aspx");
+        }
     }
 }
