@@ -62,11 +62,12 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-
     <Content Include="Aplicacion Cliente\IniciarSesionVacio.html" />
-
     <Content Include="AdministrarPedidos.aspx" />
-
+    <Content Include="Aplicacion Cliente\scripts\IniciarSesion.js" />
+    <Content Include="Aplicacion Cliente\scripts\MostrarDetallesPlato.js" />
+    <Content Include="Aplicacion Cliente\scripts\MostrarPlatos.js" />
+    <Content Include="Aplicacion Cliente\scripts\Platos.js" />
     <Content Include="paginas\Administrador\AdministrarUsuario.aspx" />
     <Content Include="Aplicacion Cliente\images\if_green_curry_3377058.png" />
     <Content Include="Aplicacion Cliente\images\if_key_309058.png" />
@@ -75,7 +76,6 @@
     <Content Include="Aplicacion Cliente\PaginaInicio.html" />
     <Content Include="Aplicacion Cliente\RegistrarUsuario.html" />
     <Content Include="Aplicacion Cliente\scripts\Cliente.js" />
-    <Content Include="Aplicacion Cliente\scripts\Platos.js" />
     <Content Include="Aplicacion Cliente\styles\generic_style.css" />
     <Content Include="paginas\Administrador\BloquearClientes.aspx" />
     <Content Include="paginas\Administrador\AdministrarPlato.aspx" />

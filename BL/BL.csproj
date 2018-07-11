@@ -52,6 +52,7 @@
     <Compile Include="Manejador_Usuario.cs" />
     <Compile Include="Manejador_Pedido.cs" />
     <Compile Include="Manejador_Plato.cs" />
+    <Compile Include="ObjetoLogico.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -28,7 +28,7 @@
         <ul class="nav navbar-nav">
           
           <li><asp:LinkButton ID="linkInicio" style="color:white" runat="server" OnClick="linkInicio_Click" CausesValidation="False">Inicio</asp:LinkButton></li>
-          <li><asp:LinkButton ID="linkSobre" style="color:white" runat="server" CausesValidation="False">Sobre Nosotros</asp:LinkButton></li>
+          <!--<li><asp:LinkButton ID="linkSobre" style="color:white" runat="server" CausesValidation="False">Sobre Nosotros</asp:LinkButton></li>-->
           <!-- <li><a href="#" style="color:white">Page 2</a></li> -->
           <!--<li><asp:LinkButton ID="linkIniciarSesion" style="color:white" runat="server">Iniciar Sesion</asp:LinkButton></li>-->
           <li><asp:LinkButton ID="linkCerrarSesion" style="color:white" runat="server" OnClick="linkCerrarSesion_Click" CausesValidation="False">Cerrar Sesion</asp:LinkButton></li>
