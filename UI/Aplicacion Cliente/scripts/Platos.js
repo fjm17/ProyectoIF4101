@@ -71,7 +71,7 @@ function ProcesarPlatos(datos) {
                                .find(".nr")     // Gets a descendent with class="nr"
                                .text();         // Retrieves the text within <td>
             alert($item);
-            //$("#resultas").append($item);       // Outputs the answer
+            $("#resultas").append($item);       // Outputs the answer
         });
 
 
@@ -99,7 +99,7 @@ function ProcesarPlatos(datos) {
         tbody.appendChild(newTr);
 
     });
-    //$('#tablePlatos').append(tbody);
+    $('#tablePlatos').append(tbody);
     document.getElementById(tablePlatos).appendChild(tbody);
 }
 

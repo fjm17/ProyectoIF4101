@@ -30,6 +30,13 @@ namespace UI.paginas.Administrador
             {
                 Response.Redirect("~/InicioSesion.aspx");
             }
+
+            if(!IsPostBack)
+            {
+                cbEstado.Items.Add("Habilitado");
+                cbEstado.Items.Add("Deshabilitado");
+                cbEstado.SelectedIndex = 0;
+            }
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
@@ -41,10 +48,12 @@ namespace UI.paginas.Administrador
                 ruta = "/images/" + nombreArchivo;
                 fileFoto.SaveAs(Server.MapPath(ruta));
             }
+       
+            string estado = estado = cbEstado.SelectedValue.ToString();
 
             Manejador_Plato m = new Manejador_Plato();
             Boolean resultado = m.InsertarPlato(tbNombre.Text, tbDescripcion.Text, double.Parse(tbPrecio.Text),
-                ruta, tbEstado.Text);
+                ruta, estado);
             if (resultado)
             {
                 mostrarMensaje("El plato se agregó correctamente");
@@ -54,6 +63,7 @@ namespace UI.paginas.Administrador
             {
                 mostrarMensaje("El plato no se pudo agregar al menú");
             }
+
         }
 
         private void mostrarMensaje(string mensaje)
@@ -65,7 +75,6 @@ namespace UI.paginas.Administrador
         {
             tbNombre.Text = "";
             tbDescripcion.Text = "";
-            tbEstado.Text = "";
             fileFoto.Dispose();
             tbPrecio.Text = "";
         }
