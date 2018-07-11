@@ -1,21 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BarraNavegacion.Master" AutoEventWireup="true" CodeBehind="AdministrarPlato.aspx.cs" Inherits="UI.paginas.Administrador.ActualizarPlato" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
-    <script type="text/javascript">
+        <script type="text/javascript">
 
         function showimagepreview(input) {
 
-            if (input.files && input.files[0]) {
+          if (input.files && input.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function (e) {
 
-                    document.getElementsByTagName("foto")[0].setAttribute("ImageUrl", e.target.result);
+                    document.getElementsByTagName("img")[0].setAttribute("src", e.target.result);
                 }
                 reader.readAsDataURL(input.files[0]);
+                
             }
         }
-    </script>
 
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
@@ -34,6 +34,7 @@
         <br />
         <h2>Datos del Plato</h2>
         <br />
+        
         &nbsp;&nbsp;&nbsp;
         <asp:Label ID="lbDescripcion" class="Label" runat="server" Text="Descripcion" Height="22px" Width="75px" Font-Bold="True"></asp:Label>
         &nbsp;<br />
@@ -56,8 +57,9 @@
         <asp:TextBox ID="tbFoto" runat="server" Width="190px"></asp:TextBox>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:FileUpload ID="FileFoto" runat="server" onchange="showimagepreview(this)"/>
-        &nbsp;&nbsp;
-        <asp:Image ID="foto" runat="server" Height="93px" Width="150px" />
+        &nbsp;&nbsp;&nbsp;
+        <br />
+        <img id="img" alt="" style="width:200px; height: 150px;" />
         <br />
         <br />
         &nbsp;&nbsp;&nbsp;

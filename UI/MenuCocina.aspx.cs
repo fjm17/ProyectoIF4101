@@ -12,59 +12,49 @@ namespace UI
     {
         string[] strs = new string[] { "Hola", "Mundo", "Cruel", "es", "Bueno"};
 
+        private Label l2;
+        private Button b1;
+        private PlaceHolder PH_NombrePedido;
+        private PlaceHolder PH_ButtonPedido;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*if (Session["Rol"] == null || !Session["Rol"].ToString().Equals("Cocina"))
-            {
-                Response.Redirect("~/InicioSesion.aspx");
-            }*/
-            //string script = "function f(){var button = $find(\'" + Pedido1.ClientID + "\');button.set_enabled(false); Sys.Application.remove_load(f);}Sys.Application.add_load(f);";
-            //ScriptManager.RegisterOnSubmitStatement(this, this.GetType(), "Onsubmit1", script);
             Session["Array"] = strs;
-
-            //foreach(string var in strs)
-            //{
-            //    Label l2 = new Label();
-            //    l2.ID = "lblPedido1";
-            //    l2.Text = var;
-
-            //    Button b1 = new Button();
-            //    b1.ID = "btn1";
-            //    b1.Text = var;
-
-            //    PH_NombrePedido.Controls.Add(l2);
-            //    PH_ButtonPedido.Controls.Add(b1);
-
-               
-            //}
-
-            
-
-
-
         }
-
-        protected void Pedido1_Click(object sender, EventArgs e)
+        protected void limpiarPaneles()
         {
-            BL_Plato plato = new BL_Plato();
-            //plato.prueba(lbPedido.Text);
+            PanelNombres.Controls.Remove(PH_NombrePedido);
+            PanelBotones.Controls.Remove(PH_ButtonPedido);
         }
 
-        protected void btnDeshacer_Click(object sender, EventArgs e)
+        protected void crearLabel(string nombre)
         {
-            Response.Write("<script>alert('button');</script>");
-            
+            PH_NombrePedido = new PlaceHolder();
+            l2 = new Label();
+            l2.ID = "lb"+ nombre;
+            l2.Text = nombre;
+            PanelNombres.Controls.Add(PH_NombrePedido);
+            PH_NombrePedido.Controls.Add(l2);
         }
-
+        protected void crearButton(string nombre)
+        {
+            PH_ButtonPedido = new PlaceHolder();
+            b1 = new Button();
+            b1.ID = "btn" + nombre;
+            b1.Text = nombre;
+            b1.Click += new System.EventHandler(Button1_Click);
+            PanelBotones.Controls.Add(PH_ButtonPedido);
+            PH_ButtonPedido.Controls.Add(b1);
+        }
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Response.Write("<script>alert('Hola Mundo cruel');</script>");
-
+            Button bt = (Button)sender;
+            Response.Write("<script>alert('Esto es magia, " + bt.Text + "');</script>");
         }
 
         protected void btnDeshacer_Click1(object sender, EventArgs e)
-        {
-
+        {            
+            Response.Write("<script>alert('Algo paso aqui');</script>");
         }
     }
 }

@@ -29,6 +29,9 @@
         <asp:Button ID="btnActualizar" runat="server" OnClick="btnActualizar_Click" Text="Actualizar" />
         <br />
         <br />
+        <asp:Button ID="btnRegresar" runat="server" Text="Regresar " Style="background-color:black" OnClick="btnRegresar_Click" />
+        <br />
+        <br />
 
     </div>
 

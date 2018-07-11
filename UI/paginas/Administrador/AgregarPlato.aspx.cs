@@ -17,9 +17,17 @@ namespace UI.paginas.Administrador
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
+            string ruta = "";
+            if (fileFoto.HasFile)
+            {
+                string nombreArchivo = fileFoto.FileName;
+                ruta = "~/images/" + nombreArchivo;
+                fileFoto.SaveAs(Server.MapPath(ruta));
+            }
+
             Manejador_Plato m = new Manejador_Plato();
             Boolean resultado = m.InsertarPlato(tbNombre.Text, tbDescripcion.Text, double.Parse(tbPrecio.Text),
-                fileFoto.FileName, tbEstado.Text);
+                ruta, tbEstado.Text);
             if (resultado)
             {
                 mostrarMensaje("El plato se agregó correctamente");
