@@ -12,7 +12,7 @@ namespace UI.paginas.Administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void btnActualizar_Click(object sender, EventArgs e)
@@ -41,6 +41,7 @@ namespace UI.paginas.Administrador
                 tbPrecio.Text = m.Plato.Precio.ToString();
                 tbFoto.Text = m.Plato.Foto;
                 tbEstado.Text = m.Plato.Estado;
+                
             }
             else
             {
@@ -77,7 +78,6 @@ namespace UI.paginas.Administrador
             tbNombre.Text = "";
             tbDescripcion.Text = "";
             tbEstado.Text = "";
-            tbFoto.Text = foto.ImageUrl;
             tbPrecio.Text = "";
             
         }
