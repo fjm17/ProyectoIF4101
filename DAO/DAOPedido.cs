@@ -56,7 +56,28 @@ namespace DAO
 
             catch (Exception e)
             {
-                throw e;
+                bdConexion.RealizarRollBack();
+                return false;
+            }
+        }
+
+        public Boolean MostrarTodosPedidos(TO_Manejador_Lista_Pedidos toPedidos)
+        {
+            bdConexion.Conectar();
+            bdConexion.Inicializar();
+            try
+            {
+                string query = "SELECT * FROM Pedido";
+                bdConexion.GenerarConsulta(query);
+
+                SqlDataReader lector = bdConexion.Comando.ExecuteReader();
+                llenarLista(lector, toPedidos);
+                lector.Close();
+                return true;
+            }
+
+            catch (Exception e)
+            {
                 bdConexion.RealizarRollBack();
                 return false;
             }
