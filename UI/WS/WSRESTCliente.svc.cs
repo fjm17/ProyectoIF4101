@@ -16,10 +16,12 @@ namespace UI.WS
         {
         }
 
-        public List<bool> IniciarSesion(string correo, string contrasena)
+        public ObjetoLogico IniciarSesion(string correo, string contrasena)
         {
             Manejador_Usuario manUsuario = new Manejador_Usuario();
-            return new List<Boolean> { manUsuario.SeleccionarUsuario(correo, contrasena) };
+            ObjetoLogico resultado = new ObjetoLogico();
+            resultado.Valor = manUsuario.SeleccionarUsuario(correo, contrasena);
+            return resultado;
         }
 
         public BL_Usuario MostrarCliente(string correo)

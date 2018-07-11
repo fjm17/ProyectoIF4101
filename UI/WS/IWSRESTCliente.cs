@@ -16,7 +16,7 @@ namespace UI.WS
         [OperationContract]
         [WebGet(RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json)]
-        List<Boolean> IniciarSesion(string correo, string contrasena);
+        ObjetoLogico IniciarSesion(string correo, string contrasena);
 
         [OperationContract]
         [WebGet(RequestFormat = WebMessageFormat.Json,
