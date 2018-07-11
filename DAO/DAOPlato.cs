@@ -61,11 +61,11 @@ namespace DAO
             while (lector.Read())
             {
                 string estado = lector["Estado_Plato"].ToString();
-                if (estado.Equals("Disponible"))
-                {
+                //if (estado.Equals("Disponible"))
+                //{
                     platos.AgregarPlato(new TO_Plato(lector["Nombre"].ToString(), lector["Descripcion"].ToString(),
                     double.Parse(lector["Precio"].ToString()), lector["Foto"].ToString(), estado));
-                }
+                //}
             }
         }
 
