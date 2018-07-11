@@ -135,7 +135,6 @@ namespace DAO
             return completado;
         }
 
-
         public Boolean Actualizar(TO_Usuario usuario)
         {
             try
