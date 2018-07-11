@@ -103,15 +103,6 @@ namespace UI.paginas.Administrador {
         protected global::System.Web.UI.WebControls.FileUpload FileFoto;
         
         /// <summary>
-        /// foto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image foto;
-        
-        /// <summary>
         /// lbEstado control.
         /// </summary>
         /// <remarks>
