@@ -74,7 +74,7 @@ namespace DAO
             Boolean completado = true;
             try
             {
-                formatoIngreso("Update Plato Set Descripcion = @desc, Precio = @prec, Foto = @foto, Estado = @estado Where Nombre = @nom", plato);
+                formatoIngreso("Update Plato Set Descripcion = @desc, Precio = @prec, Foto = @foto, Estado_Plato = @estado Where Nombre = @nom", plato);
             }
             catch(Exception ex)
             {
@@ -107,7 +107,7 @@ namespace DAO
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 

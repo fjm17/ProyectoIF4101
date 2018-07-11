@@ -47,5 +47,9 @@
         <asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
         
         
+    &nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnRegresar" runat="server" Text="Regresar" OnClick="btnRegresar_Click" BackColor="Black" CausesValidation="False"/>
+        
+        
     </div>
 </asp:Content>
