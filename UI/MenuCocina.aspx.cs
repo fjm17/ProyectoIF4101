@@ -19,10 +19,15 @@ namespace UI
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["Array"] = strs;
+        }
+        protected void limpiarPaneles()
+        {
+            PanelNombres.Controls.Remove(PH_NombrePedido);
+            PanelBotones.Controls.Remove(PH_ButtonPedido);
         }
 
-        private void crearLabel(string nombre)
+        protected void crearLabel(string nombre)
         {
             PH_NombrePedido = new PlaceHolder();
             l2 = new Label();
@@ -31,25 +36,25 @@ namespace UI
             PanelNombres.Controls.Add(PH_NombrePedido);
             PH_NombrePedido.Controls.Add(l2);
         }
-
-        protected void btnDeshacer_Click(object sender, EventArgs e)
+        protected void crearButton(string nombre)
         {
-            Response.Write("<script>alert('button');</script>");
-            
+            PH_ButtonPedido = new PlaceHolder();
+            b1 = new Button();
+            b1.ID = "btn" + nombre;
+            b1.Text = nombre;
+            b1.Click += new System.EventHandler(Button1_Click);
+            PanelBotones.Controls.Add(PH_ButtonPedido);
+            PH_ButtonPedido.Controls.Add(b1);
         }
-
         protected void Button1_Click(object sender, EventArgs e)
         {
             Button bt = (Button)sender;
             Response.Write("<script>alert('Esto es magia, " + bt.Text + "');</script>");
-
         }
 
         protected void btnDeshacer_Click1(object sender, EventArgs e)
-        {
-            
-            Response.Write("<script>alert('" + lb.Text + "');</script>");
-
+        {            
+            Response.Write("<script>alert('Algo paso aqui');</script>");
         }
     }
 }
