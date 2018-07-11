@@ -29,6 +29,16 @@ namespace BL
             ConvertirLista(toPedidos);
         }
 
+        public void MostrarTodosPedidos()
+        {
+            TO_Manejador_Lista_Pedidos toPedidos = new TO_Manejador_Lista_Pedidos();
+
+
+            DAOPedido daoPedido = new DAOPedido();
+            daoPedido.MostrarTodosPedidos(toPedidos);
+            ConvertirLista(toPedidos);
+        }
+
         public void ConvertirLista(TO_Manejador_Lista_Pedidos toPedidos)
         {
             foreach (TO_Pedido toPedido in toPedidos.Pedidos)
