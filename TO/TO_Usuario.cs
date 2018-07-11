@@ -12,7 +12,7 @@ namespace TO
         public string Direccion { get; set; }
         public string Contrasena { get; set; }
         public string Tipo { get; set; }
-        public string EstadoCuenta { get; set; }
+        public string Estado_Cuenta { get; set; }
 
         public TO_Usuario()
         {
@@ -26,7 +26,7 @@ namespace TO
             this.Direccion = direccion;
             this.Contrasena = contrasena;
             this.Tipo = tipo;
-            this.EstadoCuenta = estadoCuenta;
+            this.Estado_Cuenta = estadoCuenta;
         }
 
         public TO_Usuario(string correo, string nombre_completo, string direccion, string tipo, string estadoCuenta)
@@ -35,7 +35,7 @@ namespace TO
             this.Nombre_Completo = nombre_completo;
             this.Direccion = direccion;
             this.Tipo = tipo;
-            this.EstadoCuenta = estadoCuenta;
+            this.Estado_Cuenta = estadoCuenta;
         }
 
     }
