@@ -2,24 +2,22 @@
 <html>
 <head>
     <title></title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0;">
-    <link rel="stylesheet" href="styles/generic_style.css" />
-    <script type="text/javascript" src="scripts/Cliente.js"></script>
+	<meta charset="utf-8" />
+    <script type="text/javascript" src="scripts/IniciarSesion.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
 </head>
 <body>
     <form id="form1">
-        <div class="imgcontainer">
+        <div>
             <img src="images/if_key_309058.png" alt="Avatar" class="avatar" />
         </div>
         <div>
 
         </div>
 
-        <div class="container">
+        <div>
             <h1>¡Bienvenido!</h1>
             <br />
             <h3>Ingresar al Sistema</h3>
@@ -30,13 +28,13 @@
             <input type="text" ID="tbCorreo" />
             <br />
             <p>
-            Contraseña:
-            <br />
-            <input type="password" ID="tbContrasena" />
+                Contraseña:
+                <br />
+                <input type="password" ID="tbContrasena" />
             </p>
             <br />
             <br />
-            <input type="submit" onclick="IniciarSesion()" />
+            <button onclick="IniciarSesion()" />
             <br />
             <br />
             <br />
@@ -45,4 +43,3 @@
     </form>
 </body>
 </html>
-

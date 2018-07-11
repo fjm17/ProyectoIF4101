@@ -2,16 +2,21 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
         <script type="text/javascript">
 
-        function showimagepreview(input) {
+            function establecerFoto() {
+                var nombre = '<%=Session["nombreFoto"]%>';
+                document.getElementById("img").src = nombre;
+            }
+            
 
-          if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
+        function actualizarFoto(entrada) {
+
+            if (entrada.files && entrada.files[0]) {
+                var lector = new FileReader();
+                lector.onload = function (e) {
 
                     document.getElementsByTagName("img")[0].setAttribute("src", e.target.result);
                 }
-                reader.readAsDataURL(input.files[0]);
-                
+                lector.readAsDataURL(entrada.files[0]);
             }
         }
 
@@ -33,6 +38,7 @@
         <br />
         <br />
         <h2>Datos del Plato</h2>
+        <p>
         <br />
         
         &nbsp;&nbsp;&nbsp;
@@ -54,20 +60,23 @@
         <asp:Label ID="lbFoto" class="Label" runat="server" Text="Foto" Height="22px" Width="47px" Font-Bold="True"></asp:Label>
         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="tbFoto" runat="server" Width="190px"></asp:TextBox>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:FileUpload ID="FileFoto" runat="server" onchange="showimagepreview(this)"/>
         &nbsp;&nbsp;&nbsp;
         <br />
-        <img id="img" alt="" style="width:200px; height: 150px;" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<img id="img" alt="" style="width:200px; height: 150px;" /><br />
         <br />
+        </p>
+        <asp:FileUpload ID="FileFoto" runat="server" onchange="actualizarFoto(this)"/>
         <br />
         &nbsp;&nbsp;&nbsp;
         <asp:Label ID="lbEstado" class="Label" runat="server" Text="Estado" Height="22px" Width="65px" Font-Bold="True"></asp:Label>
         &nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;<br />
+        <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="tbEstado" runat="server" Width="188px"></asp:TextBox>
+        <asp:DropDownList ID="cbEstado" runat="server" Height="35px" Width="193px">
+        </asp:DropDownList>
+        <br />
         <br />
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

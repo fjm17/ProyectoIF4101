@@ -130,22 +130,13 @@ namespace UI.paginas.Administrador {
         protected global::System.Web.UI.WebControls.Label lbEstado;
         
         /// <summary>
-        /// tbEstado control.
+        /// cbEstado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbEstado;
-        
-        /// <summary>
-        /// rfvEstado control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEstado;
+        protected global::System.Web.UI.WebControls.DropDownList cbEstado;
         
         /// <summary>
         /// btnAgregar control.
