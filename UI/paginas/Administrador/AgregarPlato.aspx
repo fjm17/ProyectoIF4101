@@ -45,8 +45,7 @@
         <br />
         <asp:Label ID="lbFoto" runat="server" Text="Foto" Font-Bold="True"></asp:Label>
         <br />
-        <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
         <img id="img" alt="" style="width:200px; height: 150px;" />
         <br />
@@ -58,9 +57,9 @@
         <asp:Label ID="lbEstado" runat="server" Text="Estado" Font-Bold="True"></asp:Label>
         <br />
 &nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="tbEstado" runat="server" Height="16px" Width="180px"></asp:TextBox>
+        <asp:DropDownList ID="cbEstado" runat="server" Height="59px" Width="169px">
+        </asp:DropDownList>
         <br />
-        <asp:RequiredFieldValidator ID="rfvEstado" runat="server" ControlToValidate="tbEstado" Display="Dynamic" ErrorMessage="Este campo no puede faltar"></asp:RequiredFieldValidator>
         &nbsp;&nbsp;&nbsp;<br />
         <br />
         <asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />

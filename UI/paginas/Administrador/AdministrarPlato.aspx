@@ -38,6 +38,7 @@
         <br />
         <br />
         <h2>Datos del Plato</h2>
+        <p>
         <br />
         
         &nbsp;&nbsp;&nbsp;
@@ -62,18 +63,20 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;
         <br />
-        <img id="img" alt="" style="width:200px; height: 150px;" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<img id="img" alt="" style="width:200px; height: 150px;" /><br />
         <br />
-        <br />
+        </p>
         <asp:FileUpload ID="FileFoto" runat="server" onchange="actualizarFoto(this)"/>
-        <br />
         <br />
         &nbsp;&nbsp;&nbsp;
         <asp:Label ID="lbEstado" class="Label" runat="server" Text="Estado" Height="22px" Width="65px" Font-Bold="True"></asp:Label>
         &nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;<br />
+        <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="tbEstado" runat="server" Width="188px"></asp:TextBox>
+        <asp:DropDownList ID="cbEstado" runat="server" Height="35px" Width="193px">
+        </asp:DropDownList>
+        <br />
         <br />
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
