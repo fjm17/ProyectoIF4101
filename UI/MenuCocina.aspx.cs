@@ -12,26 +12,24 @@ namespace UI
     {
         string[] strs = new string[] { "Hola", "Mundo", "Cruel", "es", "Bueno"};
 
+        private Label l2;
+        private Button b1;
+        private PlaceHolder PH_NombrePedido;
+        private PlaceHolder PH_ButtonPedido;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*if (Session["Rol"] == null || !Session["Rol"].ToString().Equals("Cocina"))
-            {
-                Response.Redirect("~/InicioSesion.aspx");
-            }*/
-            //string script = "function f(){var button = $find(\'" + Pedido1.ClientID + "\');button.set_enabled(false); Sys.Application.remove_load(f);}Sys.Application.add_load(f);";
-            //ScriptManager.RegisterOnSubmitStatement(this, this.GetType(), "Onsubmit1", script);
-            Session["Array"] = strs;
-
-            
-
-
 
         }
 
-        protected void Pedido1_Click(object sender, EventArgs e)
+        private void crearLabel(string nombre)
         {
-            BL_Plato plato = new BL_Plato();
-            //plato.prueba(lbPedido.Text);
+            PH_NombrePedido = new PlaceHolder();
+            l2 = new Label();
+            l2.ID = "lb"+ nombre;
+            l2.Text = nombre;
+            PanelNombres.Controls.Add(PH_NombrePedido);
+            PH_NombrePedido.Controls.Add(l2);
         }
 
         protected void btnDeshacer_Click(object sender, EventArgs e)

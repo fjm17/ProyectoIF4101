@@ -65,6 +65,8 @@
         <br />
         <br />
         <asp:Button ID="btnAgregar" runat="server" OnClick="btnAgregar_Click" Text="Agregar" Height="45px" Width="93px" />
+        &nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnRegresar" runat="server" Text="Regresar" Height="45px" Width="93px" BackColor="Black" OnClick="btnRegresar_Click"/>
         <br />
         <br />
 

@@ -87,5 +87,10 @@ namespace UI
         {
             Response.Write("<script>alert('" + mensaje + "');</script>");
         }
+
+        protected void btnRegresar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
