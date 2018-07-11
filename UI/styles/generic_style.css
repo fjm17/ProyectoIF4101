@@ -52,10 +52,12 @@
             background-color: #ffd800;
             color: white;
             padding: 14px 20px;
-            margin: 0px 0;
             cursor: pointer;
             text-align: center;
-        }
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0px;
+}
 
         input[type=file] {
             border: medium none black;

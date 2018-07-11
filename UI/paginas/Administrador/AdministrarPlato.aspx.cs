@@ -13,6 +13,12 @@ namespace UI.paginas.Administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(!IsPostBack)
+            {
+                cbEstado.Items.Add("Habilitado");
+                cbEstado.Items.Add("Deshabilitado");
+                cbEstado.SelectedIndex = 0;
+            }
         }
 
         protected void btnActualizar_Click(object sender, EventArgs e)
@@ -36,8 +42,8 @@ namespace UI.paginas.Administrador
                 }
             }
             m = new Manejador_Plato();
-
-            resultado = m.ActualizarPlato(tbNombre.Text, tbDescripcion.Text, double.Parse(tbPrecio.Text), ruta, tbEstado.Text);
+            string estado = estado = cbEstado.SelectedValue.ToString();
+            resultado = m.ActualizarPlato(tbNombre.Text, tbDescripcion.Text, double.Parse(tbPrecio.Text), ruta, estado);
             if (resultado)
             {
                 mostrarMensaje("El plato se actualizó correctamente");
@@ -56,9 +62,17 @@ namespace UI.paginas.Administrador
 
             if (resultado)
             {
+                string estado = m.Plato.Estado;
+                if(estado.Equals("Habilitado"))
+                {
+                    cbEstado.SelectedIndex = 0;
+                } else
+                {
+                    cbEstado.SelectedIndex = 1;
+                }
                 tbDescripcion.Text = m.Plato.Descripcion;
                 tbPrecio.Text = m.Plato.Precio.ToString();
-                tbEstado.Text = m.Plato.Estado;
+                
                 Session["nombreFoto"] = m.Plato.Foto;
                 ScriptManager.RegisterStartupScript(this, GetType(), "key", "establecerFoto()", true);
             }
@@ -97,10 +111,8 @@ namespace UI.paginas.Administrador
         {
             tbNombre.Text = "";
             tbDescripcion.Text = "";
-            tbEstado.Text = "";
             tbPrecio.Text = "";
             
         }
-
     }
 }
