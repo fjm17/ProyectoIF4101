@@ -12,10 +12,17 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Manejador_Lista_Pedidos manejador = new Manejador_Lista_Pedidos();
-            manejador.MostrarTodosPedidos();
-            grdListaPediso.DataSource = manejador.Pedidos;
-            grdListaPediso.DataBind();
+
+        }
+
+        private void mostrarMensaje(string mensaje)
+        {
+            Response.Write("<script>alert('" + mensaje + "');</script>");
+        }
+
+        protected void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MenuAdministrador.aspx");
         }
     }
 }
