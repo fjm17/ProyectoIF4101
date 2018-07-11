@@ -21,11 +21,11 @@ namespace BL
             Usuarios.Add(entrada);
         }
 
-        public void BuscarUsuarios(string nombre)
+        public void BuscarUsuarios(string correo)
         {
             TO_Manejador_Lista_Usuario toUsuarios = new TO_Manejador_Lista_Usuario();
             DAOUsuario daoUsuario = new DAOUsuario();
-            daoUsuario.MostrarUsuarios(toUsuarios, nombre);
+            daoUsuario.MostrarUsuarios(toUsuarios, correo);
             ConvertirLista(toUsuarios);
         }
 
@@ -34,7 +34,7 @@ namespace BL
             foreach (TO_Usuario toUsuario in toUsuarios.Usuarios)
             {
                 AgregarUsuario(new BL_Usuario(toUsuario.Correo, toUsuario.Nombre_Completo, 
-                    toUsuario.Direccion, toUsuario.Tipo, toUsuario.EstadoCuenta));
+                    toUsuario.Direccion, toUsuario.Tipo, toUsuario.Estado_Cuenta));
             }
         }
 
