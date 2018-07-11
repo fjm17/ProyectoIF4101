@@ -9,7 +9,6 @@
         });
 
     req.done(function (datos) {
-        alert("Funcionaaaa");
         ProcesarPlatos(datos);
     });
 

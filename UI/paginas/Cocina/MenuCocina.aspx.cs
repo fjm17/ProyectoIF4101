@@ -19,6 +19,26 @@ namespace UI
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Rol"] != null)
+            {
+                string rol = Session["Rol"].ToString();
+                if (!String.IsNullOrEmpty(rol))
+                {
+                    if (!rol.Equals("Cocina"))
+                    {
+                        string pagina = rol.Equals("Administrador") ?
+                            "~/paginas/Administrador/MenuAdministrador.aspx" : "~/Aplicacion Cliente/PaginaInicio.html";
+
+                        mostrarMensaje("Get Out.");
+                        Response.Redirect(pagina);
+                    }
+                }
+            }
+            else
+            {
+                Response.Redirect("~/InicioSesion.aspx");
+            }
+            
             Session["Array"] = strs;
         }
         protected void limpiarPaneles()
@@ -55,6 +75,11 @@ namespace UI
         protected void btnDeshacer_Click1(object sender, EventArgs e)
         {            
             Response.Write("<script>alert('Algo paso aqui');</script>");
+        }
+
+        private void mostrarMensaje(string mensaje)
+        {
+            Response.Write("<script>alert('" + mensaje + "');</script>");
         }
     }
 }
