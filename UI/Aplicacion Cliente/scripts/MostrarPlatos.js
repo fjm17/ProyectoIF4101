@@ -17,37 +17,6 @@
     });
 }
 
-function prepareForShowing() {
-    localStorage["nombre"] = "Curry";
-    window.location.href = "MostrarDetalles.html";
-}
-
-function MostrarDetalles() {
-    localStorage["nombre"] = "Curry";
-    var nombre = localStorage["nombre"];
-        var req = $.ajax(
-            {
-                url: "http://localhost:6347/WS/WSRESTCliente.svc/MostrarDetallePlato?nombre=" + nombre,
-                timeout: 10000,
-                dataType: "jsonp"
-            });
-
-        req.done(function (datos) {
-            //alert("Funcionaaaa");
-            MuestraPlato(datos);
-        });
-
-        req.fail(function () {
-            alert("Ocurrió un problema. Por favor, intente de nuevo más tarde.");
-        });
-}
-
-function MuestraPlato(datos) {
-    var h1 = document.createElement("h1");
-    h1.innerHTML = datos.Descripcion;
-    document.getElementById("form1").appendChild(h1);
-}
-
 function ProcesarPlatos(datos) {
     //$('#tablePlatos').empty();
     CrearTableHeader();
@@ -65,13 +34,14 @@ function ProcesarPlatos(datos) {
         var newInputDetalles = document.createElement("input");
         newInputDetalles.setAttribute("type", "submit");
         newInputDetalles.value = "Ver Detalles";
+
         newInputDetalles.click(function () {
             alert("bkhvjv");
-            var $item = $(this).closest("tr")   // Finds the closest row <tr> 
-                               .find(".nr")     // Gets a descendent with class="nr"
-                               .text();         // Retrieves the text within <td>
+            var $item = $(this).closest("tr")
+                               .find(".nr")
+                               .text();
             alert($item);
-            //$("#resultas").append($item);       // Outputs the answer
+            //$("#resultas").append($item);     
         });
 
 
@@ -99,8 +69,8 @@ function ProcesarPlatos(datos) {
         tbody.appendChild(newTr);
 
     });
-    //$('#tablePlatos').append(tbody);
-    document.getElementById(tablePlatos).appendChild(tbody);
+    $('#tablePlatos').append(tbody);
+    document.getElementById("tablePlatos").appendChild(tbody);
 }
 
 

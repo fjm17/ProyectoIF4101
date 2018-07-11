@@ -1,4 +1,11 @@
-﻿function Registrar() {
+﻿/*function VerificarSesion () {
+    if ()
+    {
+
+    }
+}*/
+
+function Registrar() {
     var correo = $('#tbCorreo').val();
     var nombre = $('#tbNombre').val();
     var contrasena = $('#tbContrasenaCrear').val();
@@ -45,47 +52,15 @@ function MostrarCliente() {
     });
 }
 
-/*"http://jrvz97-001-site1.dtempurl.com/WS/WSRESTCliente.svc/IniciarSesion?correo=" + correo + "&contrasena=" + contrasena,*/
-/*"http://localhost:6347/WS/WSRESTCliente.svc/IniciarSesion?correo=" + correo + "&contrasena=" + contrasena,*/
 
-function IniciarSesion() {
-    var correo = $('#tbCorreo').val();
-    var contrasena = $('#tbContrasena').val();
 
-    var req = $.ajax(
-        {
-            url: "http://localhost:6347/WS/WSRESTCliente.svc/IniciarSesion?correo=" + correo + "&contrasena=" + contrasena,
-            timeout: 10000,
-            dataType: "jsonp"
-        });
+function imprimir() {
 
-    req.done(function (datos) {
-        alert("Funciona");
-        localStorage["correo"] = correo;
-        Validar(datos);
-    });
+    /*var correo = document.getElementById("tbCorreo").value;
+    var contrasena = document.getElementById("tbContrasena").value;
 
-    req.fail(function (jqXHR, textStatus, errorThrown) {
-        alert(jqXHR);
-        alert(textStatus);
-        alert(errorThrown);
-    });
-
+    alert(correo + contrasena);*/
 }
-
-function Validar(datos) {
-
-    $.each(datos, function () {
-        alert(this);
-        if (this) {
-            window.location.href = "PaginaInicio.html";
-        }
-        else {
-            alert("Los datos son invalidos. Por favor, intente de nuevo.");
-        }
-    });
-}
-
 
 /*var correo = document.createElement("li");
     var a = document.createElement("a");
