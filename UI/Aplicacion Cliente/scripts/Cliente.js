@@ -5,6 +5,7 @@
     var contrasenaConf = $('#tbContrasenaConfirmar').val();
     var direccion = $('#tbDireccionCasa').val();
 
+    alert(correo + nombre + contrasena + contrasenaConf + direccion);
 
     var req = $.ajax(
         {

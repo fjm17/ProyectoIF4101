@@ -48,5 +48,13 @@ namespace UI.WS
             listaPlatos.BuscarPlatos(nombre);
             return listaPlatos.Platos;
         }
+
+        public BL_Plato MostrarDetallePlato(string nombre)
+        {
+            Manejador_Plato manPlato = new Manejador_Plato();
+            manPlato.SeleccionarPlato(nombre);
+            return manPlato.Plato;
+        }
+
     }
 }

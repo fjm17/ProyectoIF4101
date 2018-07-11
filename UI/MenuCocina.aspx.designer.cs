@@ -40,6 +40,7 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Panel PanelNombres;
         
         /// <summary>
+
         /// PanelBotones control.
         /// </summary>
         /// <remarks>
