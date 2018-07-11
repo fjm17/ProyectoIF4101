@@ -58,12 +58,15 @@ namespace UI
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Response.Write("<script>alert('Hola Mundo cruel');</script>");
+            Button bt = (Button)sender;
+            Response.Write("<script>alert('Esto es magia, " + bt.Text + "');</script>");
 
         }
 
         protected void btnDeshacer_Click1(object sender, EventArgs e)
         {
+            
+            Response.Write("<script>alert('" + lb.Text + "');</script>");
 
         }
     }
