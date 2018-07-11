@@ -70,8 +70,7 @@
     <Content Include="Aplicacion Cliente\scripts\Cliente.js" />
     <Content Include="Aplicacion Cliente\scripts\Platos.js" />
     <Content Include="Aplicacion Cliente\styles\generic_style.css" />
-    <Content Include="paginas\Administrador\ActualizarPlato.aspx" />
-    <Content Include="paginas\Administrador\AdministrarPlatos.aspx" />
+    <Content Include="paginas\Administrador\AdministrarPlato.aspx" />
     <Content Include="paginas\Administrador\AgregarPlato.aspx" />
     <Content Include="paginas\Administrador\AgregarUsuario.aspx" />
     <Content Include="EliminarPlato.aspx" />
@@ -79,6 +78,7 @@
     <Content Include="Inicio.html" />
     <Content Include="MenuCocina.aspx" />
     <Content Include="MostrarPlato.aspx" />
+    <Content Include="paginas\Administrador\MostrarListaPlatos.aspx" />
     <Content Include="paginas\Administrador\MostrarUsuarios.aspx" />
     <Content Include="InicioSesion.aspx" />
     <Content Include="PaginaInicio.aspx" />
@@ -88,19 +88,12 @@
     <Content Include="WS\WSRESTCliente.svc" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="paginas\Administrador\ActualizarPlato.aspx.cs">
-      <DependentUpon>ActualizarPlato.aspx</DependentUpon>
+    <Compile Include="paginas\Administrador\AdministrarPlato.aspx.cs">
+      <DependentUpon>AdministrarPlato.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="paginas\Administrador\ActualizarPlato.aspx.designer.cs">
-      <DependentUpon>ActualizarPlato.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="paginas\Administrador\AdministrarPlatos.aspx.cs">
-      <DependentUpon>AdministrarPlatos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="paginas\Administrador\AdministrarPlatos.aspx.designer.cs">
-      <DependentUpon>AdministrarPlatos.aspx</DependentUpon>
+    <Compile Include="paginas\Administrador\AdministrarPlato.aspx.designer.cs">
+      <DependentUpon>AdministrarPlato.aspx</DependentUpon>
     </Compile>
     <Compile Include="paginas\Administrador\AgregarPlato.aspx.cs">
       <DependentUpon>AgregarPlato.aspx</DependentUpon>
@@ -143,6 +136,13 @@
     </Compile>
     <Compile Include="MostrarPlato.aspx.designer.cs">
       <DependentUpon>MostrarPlato.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="paginas\Administrador\MostrarListaPlatos.aspx.cs">
+      <DependentUpon>MostrarListaPlatos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paginas\Administrador\MostrarListaPlatos.aspx.designer.cs">
+      <DependentUpon>MostrarListaPlatos.aspx</DependentUpon>
     </Compile>
     <Compile Include="paginas\Administrador\MostrarUsuarios.aspx.cs">
       <DependentUpon>MostrarUsuarios.aspx</DependentUpon>
