@@ -49,26 +49,24 @@ function MostrarCliente() {
 /*"http://localhost:6347/WS/WSRESTCliente.svc/IniciarSesion?correo=" + correo + "&contrasena=" + contrasena,*/
 
 function IniciarSesion() {
-    var correo = $('#tbCorreo').val();
-    var contrasena = $('#tbContrasena').val();
+    var correo = document.getElementById("tbCorreo").value;
+    var contrasena = document.getElementById("tbContrasena").value;
 
     var req = $.ajax(
         {
-            url: "http://localhost:6347/WS/WSRESTCliente.svc/IniciarSesion?correo=" + correo + "&contrasena=" + contrasena,
-            timeout: 10000,
+            url: "http://localhost:6347/WS/WSRESTCliente.svc/IniciarSesion?correo=rbm@mail.com&contrasena=123",
+            timeout: 100000,
             dataType: "jsonp"
         });
 
     req.done(function (datos) {
-        alert("Funciona");
+        alert(datos);
         localStorage["correo"] = correo;
         Validar(datos);
     });
 
-    req.fail(function (jqXHR, textStatus, errorThrown) {
-        alert(jqXHR);
-        alert(textStatus);
-        alert(errorThrown);
+    req.fail(function () {
+        alert("No quiere funcionar");
     });
 
 }
