@@ -31,49 +31,31 @@ namespace UI {
         protected global::System.Web.UI.UpdatePanel upPedidos;
         
         /// <summary>
-        /// Panel1 control.
+        /// PanelNombres control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.Panel PanelNombres;
         
         /// <summary>
-        /// PH_NombrePedido control.
+        /// PanelBotones control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder PH_NombrePedido;
+        protected global::System.Web.UI.WebControls.Panel PanelBotones;
         
         /// <summary>
-        /// PH_ButtonPedido control.
+        /// lb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder PH_ButtonPedido;
-        
-        /// <summary>
-        /// btnPedido1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPedido1;
-        
-        /// <summary>
-        /// upParteInferior control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upParteInferior;
+        protected global::System.Web.UI.WebControls.Label lb;
         
         /// <summary>
         /// btnDeshacer control.
@@ -83,5 +65,14 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDeshacer;
+        
+        /// <summary>
+        /// upParteInferior control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upParteInferior;
     }
 }
