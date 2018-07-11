@@ -22,22 +22,6 @@ namespace UI
             //ScriptManager.RegisterOnSubmitStatement(this, this.GetType(), "Onsubmit1", script);
             Session["Array"] = strs;
 
-            //foreach(string var in strs)
-            //{
-            //    Label l2 = new Label();
-            //    l2.ID = "lblPedido1";
-            //    l2.Text = var;
-
-            //    Button b1 = new Button();
-            //    b1.ID = "btn1";
-            //    b1.Text = var;
-
-            //    PH_NombrePedido.Controls.Add(l2);
-            //    PH_ButtonPedido.Controls.Add(b1);
-
-               
-            //}
-
             
 
 
