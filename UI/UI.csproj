@@ -67,6 +67,7 @@
     <Content Include="Aplicacion Cliente\scripts\IniciarSesion.js" />
     <Content Include="Aplicacion Cliente\scripts\MostrarDetallesPlato.js" />
     <Content Include="Aplicacion Cliente\scripts\MostrarPlatos.js" />
+    <Content Include="Aplicacion Cliente\scripts\Platos.js" />
     <Content Include="paginas\Administrador\AdministrarUsuario.aspx" />
     <Content Include="Aplicacion Cliente\images\if_green_curry_3377058.png" />
     <Content Include="Aplicacion Cliente\images\if_key_309058.png" />
