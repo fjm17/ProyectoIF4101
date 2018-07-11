@@ -1,5 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BarraNavegacion.Master" AutoEventWireup="true" CodeBehind="AgregarPlato.aspx.cs" Inherits="UI.paginas.Administrador.AgregarPlato" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+     <script type="text/javascript">
+
+        function actualizarFoto(entrada) {
+
+            if (entrada.files && entrada.files[0]) {
+                var lector = new FileReader();
+                lector.onload = function (e) {
+
+                    document.getElementsByTagName("img")[0].setAttribute("src", e.target.result);
+                }
+                lector.readAsDataURL(entrada.files[0]);
+            }
+        }
+
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
@@ -33,7 +48,10 @@
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
-        <asp:FileUpload ID="fileFoto" runat="server" Width="345px" />
+        <img id="img" alt="" style="width:200px; height: 150px;" />
+        <br />
+        <br />
+        <asp:FileUpload ID="fileFoto" runat="server" onchange="actualizarFoto(this)"/>
         <asp:RequiredFieldValidator ID="rfvFoto" runat="server" ControlToValidate="fileFoto" Display="Dynamic" ErrorMessage="Se debe seleccionar una imagen"></asp:RequiredFieldValidator>
         <br />
         &nbsp;&nbsp;&nbsp;
