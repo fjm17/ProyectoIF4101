@@ -34,7 +34,7 @@
                             l2 = new Label();
                             l2.ID = "lb" + var;
                             l2.Text = var;
-                            Panel1.Controls.Add(PH_NombrePedido);
+                            //Panel1.Controls.Add(PH_NombrePedido);
 
                             PH_NombrePedido.Controls.Add(l2); %>
 
@@ -50,7 +50,7 @@
                         <%  b1 = new Button();
                             b1.ID = "btn" + var;
                             b1.Text = var;
-                            PH_ButtonPedido.Controls.Add(b1);
+                            //PH_ButtonPedido.Controls.Add(b1);
                             %>
                         <div class="panel-footer">
                             <asp:PlaceHolder ID="PH_ButtonPedido" runat="server"></asp:PlaceHolder>

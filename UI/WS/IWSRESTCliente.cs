@@ -37,5 +37,10 @@ namespace UI.WS
         [WebGet(RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json)]
         List<BL_Plato> MostrarPlatos(string nombre);
+
+        [OperationContract]
+        [WebGet(RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json)]
+        BL_Plato MostrarDetallePlato(string nombre);
     }
 }

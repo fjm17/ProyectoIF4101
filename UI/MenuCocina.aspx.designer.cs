@@ -40,24 +40,6 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
-        /// PH_NombrePedido control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder PH_NombrePedido;
-        
-        /// <summary>
-        /// PH_ButtonPedido control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder PH_ButtonPedido;
-        
-        /// <summary>
         /// btnPedido1 control.
         /// </summary>
         /// <remarks>

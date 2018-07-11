@@ -63,9 +63,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdministrarUsuario.aspx" />
+    <Content Include="Aplicacion Cliente\HtmlPage1.html" />
     <Content Include="Aplicacion Cliente\images\if_green_curry_3377058.png" />
     <Content Include="Aplicacion Cliente\images\if_key_309058.png" />
     <Content Include="Aplicacion Cliente\IniciarSesionCliente.html" />
+    <Content Include="Aplicacion Cliente\MostrarDetalles.html" />
     <Content Include="Aplicacion Cliente\PaginaInicio.html" />
     <Content Include="Aplicacion Cliente\RegistrarUsuario.html" />
     <Content Include="Aplicacion Cliente\scripts\Cliente.js" />
