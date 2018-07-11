@@ -28,7 +28,7 @@
                     <div class="panel panel-primary" style="border-color:gold;">
                         <div class="panel-heading" style="background-color:red; border-bottom-color:red">
                             <%= strs[i] %>
-                            <asp:Label ID="lbPedido" runat="server" Text="Pedido">
+                            <asp:Label ID="lbPedido" runat="server" Text="<%= strs[i].toString() %>">
                             </asp:Label>
                         </div>
                         <div class="panel-body">
