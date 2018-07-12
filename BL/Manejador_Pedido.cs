@@ -70,5 +70,11 @@ namespace BL
             return daoPedido.ModificarEstadoPedido(toEstado);
         }
 
+        public bool modificarEstado(int numeroPedido, int estado)
+        {
+            DAOPedido datos = new DAOPedido();
+            return datos.CambiarEstado(numeroPedido, estado);
+        }
+
     }
 }
