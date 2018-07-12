@@ -62,12 +62,18 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+
+    <Content Include="Aplicacion Cliente\ModificarDatosCliente.html" />
+
     <Content Include="paginas\Administrador\AdministrarPedidos.aspx" />
-    <Content Include="Aplicacion Cliente\IniciarSesionVacio.html" />
+
     <Content Include="Aplicacion Cliente\scripts\IniciarSesion.js" />
+    <Content Include="Aplicacion Cliente\scripts\ManejarCarrito.js" />
     <Content Include="Aplicacion Cliente\scripts\MostrarDetallesPlato.js" />
     <Content Include="Aplicacion Cliente\scripts\MostrarPlatos.js" />
+    <Content Include="Aplicacion Cliente\scripts\Navegacion.js" />
     <Content Include="Aplicacion Cliente\scripts\Platos.js" />
+    <Content Include="images\if_green_curry_3377058.png" />
     <Content Include="paginas\Administrador\AdministrarUsuario.aspx" />
     <Content Include="Aplicacion Cliente\images\if_green_curry_3377058.png" />
     <Content Include="Aplicacion Cliente\images\if_key_309058.png" />

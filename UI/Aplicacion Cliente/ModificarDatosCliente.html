@@ -10,11 +10,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--<script type="text/javascript" src="scripts/Mo.js"></script>-->
     <script type="text/javascript" src="scripts/Cliente.js"></script>
+    <script type="text/javascript" src="scripts/Navegacion.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
 </head>
-<body>
+<body onload="VerificarSesion(); MostrarCliente();">
     <form id="form1">
 
         <div>
@@ -26,9 +27,7 @@
                     <ul class="nav navbar-nav">
 
                         <li><a href="PaginaInicio.html" style="color:white" CausesValidation="False">Inicio</a></li>
-                        <!-- <li><a href="#" style="color:white">Page 2</a></li> -->
-                        <li><a href="#" style="color:white" 
-                               OnClick="linkCerrarSesion_Click" CausesValidation="False">Cerrar Sesion</a></li>
+                        <li><a href="IniciarSesionCliente.html" onclick="CerrarSesion()" style="color:white" CausesValidation="False">Cerrar Sesion</a></li>
                     </ul>
                 </div>
             </nav>
@@ -36,45 +35,38 @@
             
             <div class="container">
                 <h1>
-                    Agregar Usuario
+                    Modificar Usuario
                 </h1>
                 <b>Nombre</b>
                 <br />
-                <input type="text" ID="tbNombre" />
+                <input type="text" ID="tbNombreNuevo" />
                 <br />
                 <br />
                 <br />
-                <b>Correo</b>
+                <b>Cambiar Contraseña</b>
                 <br />
-                <input type="text" ID="tbCorreo" />
-                <br />
-                <br />
-                <br />
-                <b>Crear Contraseña</b>
-                <br />
-                <input type="password" ID="tbContrasenaCrear" />
+                <input type="password" ID="tbContrasenaNueva" />
                 <br />
                 <br />
                 <br />
-                <b>Confirmar Contraseña</b>
+                <b>Confirmar Nueva Contraseña</b>
                 <br />
                 <input type="password" ID="tbContrasenaConfirmar" />
                 <br />
                 <br />
                 <br />
-                <b>Direccion de casa Completa</b>
+                <b>Modificar Direccion de Casa</b>
                 <br />
                 <br />
-                <textarea rows="5" cols="40" ID="tbDireccionCasa" style="resize:none"></textarea>
+                <textarea rows="5" cols="40" ID="tbDireccionCasaNueva" style="resize:none"></textarea>
                 <br />
                 <br />
-                <input type="button" ID="btnAgregar" onclick="Registrar()" Value="Registrarse" />
+                <input type="button" ID="btnAgregar" onclick="Registrar()" Value="Modificar Datos" />
                 <br />
                 <br />
 
             </div>
         </div>
-     </form>
+    </form>
 </body>
 </html>
-

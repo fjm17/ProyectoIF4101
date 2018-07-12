@@ -17,26 +17,6 @@
             text-align: center;
         }
 
-    /**.Label {
-        display: block; 
-        padding: 12px 20px;
-        text-align: center;
-        color: black;
-        font-weight: bold;
-    }
-
-    .LabelInfo {
-        display: block;
-        width: 400px;
-        height: 20px;
-        text-align: left;
-        color: Black;
-        background-color: #EFF3FB;
-    }*/
-
-    /**/
-    /**/
-
     input[type=text], input[type=password] {
         padding: 12px 20px;
         margin: 8px 0;
@@ -45,7 +25,7 @@
         box-sizing: border-box;
     }
 
-        input[type=submit] {
+        input[type=button] {
             border-style: none;
             border-color: inherit;
             border-width: medium;

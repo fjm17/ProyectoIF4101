@@ -1,10 +1,4 @@
-﻿function prepareForShowing() {
-    localStorage["nombre"] = "Curry";
-    window.location.href = "MostrarDetalles.html";
-}
-
-function MostrarDetalles() {
-    localStorage["nombre"] = "Curry";
+﻿function MostrarDetalles() {
     var nombre = localStorage["nombre"];
     var req = $.ajax(
         {
@@ -14,7 +8,6 @@ function MostrarDetalles() {
         });
 
     req.done(function (datos) {
-        //alert("Funcionaaaa");
         MuestraPlato(datos);
     });
 
@@ -24,7 +17,21 @@ function MostrarDetalles() {
 }
 
 function MuestraPlato(datos) {
-    var h1 = document.createElement("h1");
-    h1.innerHTML = datos.Descripcion;
-    document.getElementById("form1").appendChild(h1);
+    var nombre = document.createElement("h1");
+    var descripcion = document.createElement("h3");
+    var precio = document.createElement("h4");
+    var imagen = document.createElement("img");
+
+
+    nombre.innerHTML = datos.Nombre;
+    descripcion.innerHTML = datos.Descripcion;
+    precio.innerHTML = datos.Precio;
+    imagen.src = ".." + datos.Foto;
+    
+    document.getElementById("contdiv").appendChild(nombre);
+    document.getElementById("contdiv").appendChild(descripcion);
+    document.getElementById("contdiv").appendChild(precio);
+    document.getElementById("contdiv").appendChild(imagen);
+
+
 }

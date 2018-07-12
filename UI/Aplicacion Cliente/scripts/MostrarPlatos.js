@@ -1,6 +1,13 @@
 ﻿function MostrarPlatos() {
     //http://jrvz97-001-site1.dtempurl.com/WS/WSRESTCliente.svc/VerPlatos?nombre=
     //http://localhost:6347/
+    
+    if (localStorage["paraCarrito"] == 1)
+    {
+        AgregarACarrito();
+        localStorage["paraCarrito"] = 0;
+    }
+
     var req = $.ajax(
         {
             url: "http://localhost:6347/WS/WSRESTCliente.svc/VerPlatos?nombre=",
@@ -18,7 +25,6 @@
 }
 
 function ProcesarPlatos(datos) {
-    //$('#tablePlatos').empty();
     CrearTableHeader();
     var tbody = document.createElement("tbody");
 
@@ -26,51 +32,60 @@ function ProcesarPlatos(datos) {
 
         var newTr = document.createElement("tr");
         var newTdNombre = document.createElement("td");
-        //var newTdDescripcion = document.createElement("td");
+        newTdNombre.id = "nombre";
+
         var newTdPrecio = document.createElement("td");
-
         var newTdVerDetalles = document.createElement("td");
-
         var newInputDetalles = document.createElement("input");
-        newInputDetalles.setAttribute("type", "submit");
+        newInputDetalles.setAttribute("type", "button");
         newInputDetalles.value = "Ver Detalles";
 
-        newInputDetalles.click(function () {
-            alert("bkhvjv");
-            var $item = $(this).closest("tr")
-                               .find(".nr")
-                               .text();
-            alert($item);
-            //$("#resultas").append($item);     
-        });
+        newInputDetalles.id = "detalles";
+        
+        /*Agregar metodo para boton Ver Detalles*/
+        newInputDetalles.onclick = (function () {
+            var cells = $(this).closest("tr").children("td");
+            var nombre = cells.eq(0).text();
+            localStorage["nombre"] = nombre;
 
+            window.location.href = "MostrarDetalles.html";
+        });
 
         newTdVerDetalles.appendChild(newInputDetalles);
 
         var newTdAgregarCarrito = document.createElement("td");
 
         var newInputAgregarCarrito = document.createElement("input");
-        newInputAgregarCarrito.setAttribute("type", "submit");
+        newInputAgregarCarrito.setAttribute("type", "button");
         newInputAgregarCarrito.style.backgroundColor = 'red';
         newInputAgregarCarrito.value = "Agregar al Carrito";
+
+        /*Agregando metodo para boton Agregar a Carrito*/
+        newInputAgregarCarrito.onclick = (function () {
+            /*Extrayendo valor necesario.*/
+            var cells = $(this).closest("tr").children("td");
+            var nombre = cells.eq(0).text();
+            localStorage["nombre"] = nombre;
+            /*Agregando a carrito.*/
+            AgregarACarrito();
+        });
 
         newTdAgregarCarrito.appendChild(newInputAgregarCarrito);
 
         newTdNombre.innerHTML = this.Nombre;
-        //newTdDescripcion.innerHTML = this.Descripcion;
         newTdPrecio.innerHTML = this.Precio;
 
         newTr.appendChild(newTdNombre);
-        //newTr.appendChild(newTdDescripcion);
         newTr.appendChild(newTdPrecio);
         newTr.appendChild(newTdVerDetalles);
         newTr.appendChild(newTdAgregarCarrito);
 
         tbody.appendChild(newTr);
-
+        
     });
-    //$('#tablePlatos').append(tbody);
     document.getElementById("tablePlatos").appendChild(tbody);
+
+ 
 }
 
 

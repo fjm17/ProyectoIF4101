@@ -24,12 +24,18 @@ namespace UI.WS
             return resultado;
         }
 
+        public ObjetoLogico ModificarCliente(string correo, string nombre, string contrasena, string direccion)
+        {
+            throw new NotImplementedException();
+        }
+
         public BL_Usuario MostrarCliente(string correo)
         {
             Manejador_Usuario manUsuario = new Manejador_Usuario();
             manUsuario.SeleccionarUsuario(correo, "");
             return manUsuario.Usuario;
         }
+
 
         public List<bool> Registrarse(string correo, string nombreCompleto, string direccion, string contrasena)
         {
@@ -58,5 +64,6 @@ namespace UI.WS
             return manPlato.Plato;
         }
 
+        
     }
 }
