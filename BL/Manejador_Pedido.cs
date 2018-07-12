@@ -73,6 +73,14 @@ namespace BL
             return daoPedido.ModificarEstadoPedido(toEstado);
         }
 
+
+        public bool modificarEstado(int numeroPedido, int estado)
+        {
+            DAOPedido datos = new DAOPedido();
+            return datos.CambiarEstado(numeroPedido, estado);
+        }
+        
+
         public Boolean InsertarDetallePedido(int numero, string nombre)
         {
             DAOPedido dao = new DAOPedido();
