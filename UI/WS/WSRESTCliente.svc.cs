@@ -64,6 +64,7 @@ namespace UI.WS
             return manPlato.Plato;
         }
 
+
         public int InsertarPedido(string correo)
         {
             Manejador_Pedido m = new Manejador_Pedido();

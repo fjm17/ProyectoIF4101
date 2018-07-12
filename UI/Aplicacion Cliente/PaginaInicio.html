@@ -9,13 +9,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="scripts/MostrarPlatos.js"></script>
+    <script type="text/javascript" src="scripts/Navegacion.js"></script>
     <script type="text/javascript" src="scripts/Cliente.js"></script>
     <script type="text/javascript" src="scripts/ManejarCarrito.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
 </head>
-<body onload="MostrarPlatos()">
+<body onload="VerificarSesion(); MostrarPlatos();">
     <form id="form1">
 
         <div>
@@ -26,8 +27,8 @@
                     </div>
                     <ul id="navbarElements" class="nav navbar-nav">
                         <li><a href="Inicio.html" style="color:white">Inicio</a></li>
-                        <li><a href="#" onclick="" style="color:white">Modificar mis Datos</a></li>
-                        <li><a href="#" onclick="" style="color:white">Cerrar Sesion</a></li>
+                        <li><a href="ModificarDatosCliente.html" onclick="" style="color:white">Modificar mis Datos</a></li>
+                        <li><a href="IniciarSesionCliente.html" onclick="CerrarSesion()" style="color:white">Cerrar Sesion</a></li>
                         <!--<li><a>asdgasdga</a></li>-->
                     </ul>
                 </div>
