@@ -10,7 +10,7 @@
 
     var req = $.ajax(
         {
-            url: "http://localhost:6347/WS/WSRESTCliente.svc/VerPlatos?nombre=",
+            url: "http://jrvz97-001-site1.dtempurl.com/WS/WSRESTCliente.svc/VerPlatos?nombre=",
             timeout: 10000,
             dataType: "jsonp"
         });

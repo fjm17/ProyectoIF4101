@@ -2,7 +2,7 @@
     var nombre = localStorage["nombre"];
     var req = $.ajax(
         {
-            url: "http://localhost:6347/WS/WSRESTCliente.svc/MostrarDetallePlato?nombre=" + nombre,
+            url: "http://jrvz97-001-site1.dtempurl.com/WS/WSRESTCliente.svc/MostrarDetallePlato?nombre=" + nombre,
             timeout: 10000,
             dataType: "jsonp"
         });

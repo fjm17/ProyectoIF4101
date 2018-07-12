@@ -4,7 +4,7 @@
 
     var req = $.ajax(
         {
-            url: "http://localhost:6347/WS/WSRESTCliente.svc/IniciarSesion?correo=" + correo + "&contrasena=" + contrasena,
+            url: "http://jrvz97-001-site1.dtempurl.com/WS/WSRESTCliente.svc/IniciarSesion?correo=" + correo + "&contrasena=" + contrasena,
             timeout: 10000,
             dataType: "jsonp"
         });

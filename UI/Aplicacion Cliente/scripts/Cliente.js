@@ -7,7 +7,7 @@
 
     var req = $.ajax(
         {
-            url: "http://localhost:6347/WS/WSRESTCliente.svc/Registrarse?correo=" + correo + "&nombreCompleto=" + nombre + "&direccion=" + direccion + "&contrasena=" + contrasena,
+            url: "http://jrvz97-001-site1.dtempurl.com/WS/WSRESTCliente.svc/Registrarse?correo=" + correo + "&nombreCompleto=" + nombre + "&direccion=" + direccion + "&contrasena=" + contrasena,
             timeout: 10000,
             dataType: "jsonp"
         });
@@ -27,7 +27,7 @@ function MostrarCliente() {
     var correo = localStorage["correo"];
     var req = $.ajax(
         {
-            url: "http://localhost:6347/WS/WSRESTCliente.svc/MostrarCliente?correo=" + correo,
+            url: "http://jrvz97-001-site1.dtempurl.com/WS/WSRESTCliente.svc/MostrarCliente?correo=" + correo,
             timeout: 10000,
             dataType: "jsonp"
         });
@@ -50,7 +50,7 @@ function ModificarCliente() {
 
     var req = $.ajax(
         {
-            url: "http://localhost:6347/WS/WSRESTCliente.svc/ModificarCliente?correo=" 
+            url: "http://jrvz97-001-site1.dtempurl.com/WS/WSRESTCliente.svc/ModificarCliente?correo="
                 + correo + "&nombre=" + nombre + "&contrasena=" + contrasena,
             timeout: 10000,
             dataType: "jsonp"

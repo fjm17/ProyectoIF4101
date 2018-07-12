@@ -34,7 +34,7 @@ function CrearPedido() {
     alert(correo);
     var req = $.ajax(
         {
-            url: "http://localhost:6347/WS/WSRESTCliente.svc/InsertarPedido?correo=" + correo,
+            url: "http://jrvz97-001-site1.dtempurl.com/WS/WSRESTCliente.svc/InsertarPedido?correo=" + correo,
             timeout: 10000,
             dataType: "jsonp"
         });
@@ -55,7 +55,7 @@ function EnviarPedidos(detalles) {
     $.each(detalles, function () {
         var req = $.ajax(
         {
-            url: "http://localhost:6347/WS/WSRESTCliente.svc/InsertarDetalle?numero=" + numeroPedido + "&nombre=" + this,
+            url: "http://jrvz97-001-site1.dtempurl.com/WS/WSRESTCliente.svc/InsertarDetalle?numero=" + numeroPedido + "&nombre=" + this,
             timeout: 10000,
             dataType: "jsonp"
         });
