@@ -11,6 +11,31 @@ namespace DAO
     {
         private BDConexion bdConexion = new BDConexion();
 
+        public int ObtenerEstado(int numeroPedido)
+        {
+            
+            try
+            {
+                bdConexion.Conectar();
+                bdConexion.Inicializar();
+                bdConexion.GenerarConsulta("SELECT Codigo_Estado FROM Pedido WHERE Numero = @num");
+                bdConexion.AsignarParametro("@num", numeroPedido);
+
+                int lector = (int)bdConexion.Comando.ExecuteScalar();
+                bdConexion.RealizarCommit();
+                return lector;
+            }
+            catch (Exception ex)
+            {
+                bdConexion.RealizarRollBack();
+            }
+            finally
+            {
+                bdConexion.Finalizar();
+            }
+            return 0;
+        }
+
         public Boolean Insertar(TO_Pedido toPedido)
         {
             Boolean completado = true;

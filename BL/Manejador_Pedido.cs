@@ -47,12 +47,12 @@ namespace BL
             return false;
         }
 
-        /*public Boolean ActualizarPedido(int numero, string correoCliente, DateTime fecha, string estado)
+        public Boolean ActualizarPedido(int numero, string estado)
         {
             DAOPedido daoPedido = new DAOPedido();
-            TO_Pedido toUsuario = new TO_Pedido(numero, correoCliente, fecha, "");
-            return daoPedido.Actualizar(toUsuario, estado);
-        }*/
+            return daoPedido.CambiarEstado(numero, int.Parse(estado));
+             
+        }
 
 
         //------------------------- Estado -------------------------------------
@@ -72,6 +72,14 @@ namespace BL
             toEstado.Estado = estado;
             return daoPedido.ModificarEstadoPedido(toEstado);
         }
+
+
+        public bool modificarEstado(int numeroPedido, int estado)
+        {
+            DAOPedido datos = new DAOPedido();
+            return datos.CambiarEstado(numeroPedido, estado);
+        }
+        
 
         public Boolean InsertarDetallePedido(int numero, string nombre)
         {

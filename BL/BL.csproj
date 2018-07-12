@@ -46,6 +46,7 @@
     <Compile Include="BL_Usuario.cs" />
     <Compile Include="BL_Pedido.cs" />
     <Compile Include="BL_Plato.cs" />
+    <Compile Include="Estatico.cs" />
     <Compile Include="Manejador_Lista_Pedidos.cs" />
     <Compile Include="Manejador_Lista_Platos.cs" />
     <Compile Include="Manejador_Lista_Usuario.cs" />
