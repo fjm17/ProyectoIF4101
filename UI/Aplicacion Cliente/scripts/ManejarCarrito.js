@@ -9,20 +9,17 @@
         platos = [];
         platos.push(nombre);
         localStorage.setItem("platos", JSON.stringify(platos));
-        alert("platos was null so was created");
     }
     else
     {
         platos.push(nombre);
         localStorage.setItem("platos", JSON.stringify(platos));
-        alert("platos was not null rite");
     }
 }
 
 function RemoverDePedido(nombre) {
     var platos = JSON.parse(localStorage.getItem("platos"));
     var indice = platos.indexOf(nombre);
-    alert(indice);
     platos.splice(indice, 1);
 }
 
@@ -43,7 +40,7 @@ function CrearPedido() {
         });
     req.done(function (datos) {
         localStorage["numeroPedido"] = datos;
-        alert("El pedido se ha creado exitosamente " + datos);
+        alert("¡El pedido se ha creado exitosamente! ");
     });
 
     req.fail(function () {
@@ -64,7 +61,6 @@ function EnviarPedidos(detalles) {
         });
 
         req.done(function (detalles) {
-            alert("Insercion");
         });
 
         req.fail(function () {
