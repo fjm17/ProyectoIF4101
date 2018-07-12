@@ -78,6 +78,7 @@ namespace BL
         {
             DAOPedido datos = new DAOPedido();
             return datos.CambiarEstado(numeroPedido, estado);
+        }
         
 
         public Boolean InsertarDetallePedido(int numero, string nombre)
