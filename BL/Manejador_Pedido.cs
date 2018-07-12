@@ -20,7 +20,12 @@ namespace BL
         {
             DAOPedido daoPedido = new DAOPedido();
             TO_Pedido toPedido = new TO_Pedido(numero, correoCliente, fecha, "");
-            return daoPedido.Insertar(toPedido);
+            Boolean resultado = daoPedido.Insertar(toPedido);
+            if (resultado)
+            {
+                MonitorEstado monitor = new MonitorEstado(numero);
+            }
+            return resultado;
         }
 
         public Boolean SeleccionarPedido(int numero)//Para buscar, solo seria necesario el numero? 

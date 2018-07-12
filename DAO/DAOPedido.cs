@@ -16,17 +16,61 @@ namespace DAO
             Boolean completado = true;
             toPedido.Fecha = DateTime.Now;//Muy forzado?
 
-            TO_Estado_Pedido toEstadoPedido = new TO_Estado_Pedido();
-            toEstadoPedido.Estado = "Habilitado";
-            MostrarEstadoPedido(toEstadoPedido);
-
-            toPedido.CodigoEstado = toEstadoPedido.Codigo;
             try
             {
-                formatoIngreso("INSERT INTO Pedido VALUES (@numero, @correo, @fecha, @codestado)", toPedido);
+                formatoIngreso("INSERT INTO Pedido VALUES (@numero, @correo, @fecha, 3)", toPedido);
             }
             catch (Exception ex)
             //Creo que es necesario tener varios catch para los mensajes. Debemos discutirlo.
+            {
+                completado = false;
+                bdConexion.RealizarRollBack();
+            }
+            finally
+            {
+                bdConexion.Finalizar();
+            }
+            return completado;
+        }
+
+        public int ObtenerTiempo(string estado)
+        {
+            try
+            {
+                bdConexion.Conectar();
+                bdConexion.Inicializar();
+                bdConexion.GenerarConsulta("SELECT Tiempo_Estado FROM Estado_Pedido WHERE Estado = @codestado");
+                bdConexion.AsignarParametro("@codestado", estado);
+
+                int lector = (int) bdConexion.Comando.ExecuteScalar();
+                bdConexion.RealizarCommit();
+                return lector;
+            }
+            catch (Exception ex)
+            {
+                bdConexion.RealizarRollBack();
+            }
+            finally
+            {
+                bdConexion.Finalizar();
+            }
+            return 0;
+        }
+
+        public Boolean CambiarEstado(int numeroPedido, int codigoEstado)
+        {
+            Boolean completado = true;
+            try
+            {
+                bdConexion.Conectar();
+                bdConexion.Inicializar();
+                bdConexion.GenerarConsulta("UPDATE Pedido SET Codigo_Estado = @cod  Where Numero = @num");
+                bdConexion.AsignarParametro("@cod", codigoEstado + "");
+                bdConexion.AsignarParametro("@num", numeroPedido);
+                bdConexion.Comando.ExecuteNonQuery();
+                bdConexion.RealizarCommit();
+            }
+            catch (Exception ex)
             {
                 completado = false;
                 bdConexion.RealizarRollBack();
@@ -177,7 +221,6 @@ namespace DAO
                 bdConexion.AsignarParametro("@numero", pedido.Numero);
                 bdConexion.AsignarParametro("@correo", pedido.CorreoCliente);
                 bdConexion.AsignarParametro("@fecha", pedido.Fecha);
-                bdConexion.AsignarParametro("@codestado", pedido.CodigoEstado);
 
                 bdConexion.Comando.ExecuteNonQuery();
                 bdConexion.RealizarCommit();
