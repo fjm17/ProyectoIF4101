@@ -63,6 +63,7 @@ namespace UI
                 txtFecha1.Visible = true;
                 txtFecha2.Visible = true;
                 btnBuscarFecha.Visible = true;
+                lblFormato.Visible = true;
 
             }
 
@@ -80,6 +81,7 @@ namespace UI
             lblFecha1.Visible = false;
             lblFecha2.Visible = false;
             lblXEstado.Visible = false;
+            lblFormato.Visible = false;
 
             txtCliente.Visible = false;
             txtFecha1.Visible = false;
@@ -113,7 +115,10 @@ namespace UI
             ddlEstados.DataSource = estados;
             ddlEstados.DataBind();
 
-
+            ddlEstadosModificar.DataTextField = "Estado";
+            ddlEstadosModificar.DataValueField = "Codigo";
+            ddlEstadosModificar.DataSource = estados;
+            ddlEstadosModificar.DataBind();
         }
 
         protected void btnBuscarCliente_Click(object sender, EventArgs e)
@@ -124,7 +129,6 @@ namespace UI
 
         protected void ddlEstados_SelectedIndexChanged(object sender, EventArgs e)
         {
-            mostrarMensaje(ddlEstados.SelectedValue);
             manejador.MostrarPedidoEstados(ddlEstados.SelectedValue);
             Session["manejador"] = manejador.Pedidos;
 
@@ -137,6 +141,26 @@ namespace UI
 
             manejador.MostrarPedidoFecha(fe1, fe2);
             Session["manejador"] = manejador.Pedidos;
+        }
+
+        protected void btnModificar_Click(object sender, EventArgs e)
+        {
+            Manejador_Pedido manejadorPe = new Manejador_Pedido();
+            Boolean cambioEstado = manejadorPe.ActualizarPedido(int.Parse(txtModificar.Text), ddlEstadosModificar.SelectedValue);
+
+            if (cambioEstado)
+            {
+                mostrarMensaje("Cambio de Estado con Exito");
+            }
+            else
+            {
+                mostrarMensaje("Ocurrio un error al intentar cambiar el estado del Estado");
+            }
+        }
+
+        protected void ddlEstadosModificar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
