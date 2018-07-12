@@ -18,14 +18,35 @@ namespace UI.paginas.Cocina
         private PlaceHolder PH_ButtonPedido;
         private PlaceHolder PH_DetallePedidos;
         private Estatico ultimoFinalizado = Estatico.getInstance();
+        private int contador = 0;
+        private bool masPedidos = true;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Rol"] != null)
+            {
+                string rol = Session["Rol"].ToString();
+                if (!String.IsNullOrEmpty(rol))
+                {
+                    if (!rol.Equals("Cocina"))
+                    {
+                        string pagina = rol.Equals("Administrador") ?
+                            "~/paginas/Administrador/MenuAdministrador.aspx" : "~/Aplicacion Cliente/PaginaInicio.html";
+
+                        Response.Redirect(pagina);
+                    }
+                }
+            }
+            else
+            {
+                Response.Redirect("~/InicioSesion.aspx");
+            }
+
             Manejador_Lista_Pedidos manejar = new Manejador_Lista_Pedidos();
             manejar.MostrarTodosPedidos();
             listaPedidos = manejar.Pedidos;
 
-            Session["Array"] = listaPedidos;
+            //Session["Array"] = listaPedidos;
 
             pruebas();
         }
@@ -34,28 +55,43 @@ namespace UI.paginas.Cocina
         {
             foreach (BL_Pedido var in listaPedidos)
             {
+                
                 if(var.CodigoEstado == "1" || var.CodigoEstado == "2")
                 {
 
-                } else
+                }
+                else
                 {
-                    crearLabel(var);
-                    crearPedidos(var);
-                    crearButton(var);
+                    if (contador < 7)
+                    {
+                        crearLabel(var);
+                        crearPedidos(var);
+                        crearButton(var);
+                        contador++;
+                    }else
+                    {
+                        if (masPedidos)
+                        {
+                            lbNombrePedido = new Label();
+                            lbNombrePedido.Text = "Hay mas pedidos";
+                            Panel1.Controls.Add(lbNombrePedido);
+                            masPedidos = false;
+                        }
+                    }
+                    
                 }
                 
             }
-            //limpiarPaneles();
-            
-
-
         }
 
         protected void crearLabel(BL_Pedido pedido)
         {
             PH_NombrePedido = new PlaceHolder();
             lbNombrePedido = new Label();
-            lbNombrePedido.Text = "Numero de pedido: " + pedido.Numero;
+            Manejador_Usuario usuario = new Manejador_Usuario();
+            usuario.SeleccionarUsuario(pedido.CorreoCliente, "");
+            BL_Usuario usua = usuario.Usuario;
+            lbNombrePedido.Text = usua.Nombre_Completo + ", Numero de pedido: " + pedido.Numero;
             Panel1.Controls.Add(PH_NombrePedido);
             Literal lite = new Literal();
             lite.Text = "<br/>";
@@ -67,6 +103,19 @@ namespace UI.paginas.Cocina
         {
 
             b1 = new Button();
+            if (Int32.Parse(pedido.CodigoEstado) == 3)
+            {
+                b1.BackColor = System.Drawing.Color.Green;
+            }
+            else if (Int32.Parse(pedido.CodigoEstado) == 4)
+            {
+                b1.BackColor = System.Drawing.Color.Gold;
+            }
+            else if (Int32.Parse(pedido.CodigoEstado) == 5)
+            {
+                b1.BackColor = System.Drawing.Color.Red;
+            }
+            
             b1.ID = "" + pedido.Numero;
             b1.Text = "Finalizar: " + pedido.Numero;
             b1.Click += new System.EventHandler(Button1_Click);

@@ -47,7 +47,7 @@ namespace UI
                 //El caso cocina, también caso por defecto.
                 case "Cocina":
                 default:
-                    Response.Redirect("/paginas/Cocina/MenuCocina.aspx");
+                    Response.Redirect("/paginas/Cocina/PedidosEnCocina.aspx");
                     break;
             }
         }
