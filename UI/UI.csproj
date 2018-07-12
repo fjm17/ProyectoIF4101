@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdministrarPedidos.aspx" />
+    <Content Include="Aplicacion Cliente\ModificarDatosCliente.html" />
     <Content Include="Aplicacion Cliente\scripts\IniciarSesion.js" />
     <Content Include="Aplicacion Cliente\scripts\ManejarCarrito.js" />
     <Content Include="Aplicacion Cliente\scripts\MostrarDetallesPlato.js" />

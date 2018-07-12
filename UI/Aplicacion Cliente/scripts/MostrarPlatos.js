@@ -1,6 +1,13 @@
 ﻿function MostrarPlatos() {
     //http://jrvz97-001-site1.dtempurl.com/WS/WSRESTCliente.svc/VerPlatos?nombre=
     //http://localhost:6347/
+    
+    if (localStorage["paraCarrito"] == 1)
+    {
+        AgregarACarrito();
+        localStorage["paraCarrito"] = 0;
+    }
+
     var req = $.ajax(
         {
             url: "http://localhost:6347/WS/WSRESTCliente.svc/VerPlatos?nombre=",

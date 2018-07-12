@@ -15,7 +15,7 @@
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
 </head>
-<body onload="MostrarDetalles()">
+<body onload="VerificarSesion(); MostrarDetalles();">
     <form id="form1">
         <nav class="navbar navbar-default" style="color:white">
             <div class="container-fluid" style="background-color:black">
@@ -24,9 +24,8 @@
                 </div>
                 <ul id="navbarElements" class="nav navbar-nav">
                     <li><a href="Inicio.html" style="color:white">Inicio</a></li>
-                    <li><a href="#" style="color:white">Sobre Nosotros</a></li>
-                    <li><a href="#" onclick="" style="color:white">Modificar Datos</a></li>
-                    <li><a href="#" onclick="MostrarDetalles()" style="color:white">Cerrar</a></li>
+                    <li><a href="#" onclick="" style="color:white">Modificar Mis Datos</a></li>
+                    <li><a href="#" onclick="" style="color:white">Cerrar Sesion</a></li>
                     <!--<li><a>asdgasdga</a></li>-->
                 </ul>
             </div>
@@ -35,7 +34,7 @@
             
         </div>
         <div class="container">
-            <input type="button" onclick="prepareForShowing()" value="Agregar al carrito" 
+            <input type="button" onclick="MandarParaCarrito()" value="Agregar al carrito" 
                    style="background-color:red" />
             <input type="button" onclick="Volver()" value="Volver"
                    style="background-color:black" />

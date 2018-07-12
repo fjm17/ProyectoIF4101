@@ -32,12 +32,15 @@ function MostrarCliente() {
         });
 
     req.done(function (datos) {
-        alert(datos.Nombre_Completo);
-        //localStorage["correo"] = correo;
-        //Validar(datos);
+        document.getElementById("tbNombreNuevo").value = datos.Nombre_Completo;
+        document.getElementById("tbDireccionCasaNueva").value = datos.Direccion;
     });
 
     req.fail(function () {
         alert("No se pudo completar la transaccion.");
     });
+}
+
+function ModificarCliente() {
+    
 }

@@ -10,7 +10,13 @@
         });
 
     req.done(function (datos) {
+        /*var sessionTimeout = 1; //hours
+        var loginDuration = new Date();
+        loginDuration.setTime(loginDuration.getTime() + (sessionTimeout * 60 * 60 * 1000));
+        document.cookie = "CrewCentreSession=Valid; " + loginDuration.toGMTString() + "; path=/";*/
+
         if (datos.Valor === true) {
+            localStorage["correo"] = correo;
             window.location.href = "PaginaInicio.html";
         }
         else {
