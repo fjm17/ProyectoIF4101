@@ -62,8 +62,11 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AdministrarPedidos.aspx" />
+
     <Content Include="Aplicacion Cliente\ModificarDatosCliente.html" />
+
+    <Content Include="paginas\Administrador\AdministrarPedidos.aspx" />
+
     <Content Include="Aplicacion Cliente\scripts\IniciarSesion.js" />
     <Content Include="Aplicacion Cliente\scripts\ManejarCarrito.js" />
     <Content Include="Aplicacion Cliente\scripts\MostrarDetallesPlato.js" />
@@ -93,16 +96,17 @@
     <Content Include="PaginaInicio.aspx" />
     <Content Include="paginas\Administrador\MenuAdministrador.aspx" />
     <Content Include="paginas\Cocina\ListaCocina.aspx" />
+    <Content Include="paginas\Cocina\PedidosEnCocina.aspx" />
     <Content Include="styles\generic_style.css" />
     <Content Include="Web.config" />
     <Content Include="WS\WSRESTCliente.svc" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdministrarPedidos.aspx.cs">
+    <Compile Include="paginas\Administrador\AdministrarPedidos.aspx.cs">
       <DependentUpon>AdministrarPedidos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdministrarPedidos.aspx.designer.cs">
+    <Compile Include="paginas\Administrador\AdministrarPedidos.aspx.designer.cs">
       <DependentUpon>AdministrarPedidos.aspx</DependentUpon>
     </Compile>
     <Compile Include="paginas\Administrador\AdministrarUsuario.aspx.cs">
@@ -195,6 +199,13 @@
     </Compile>
     <Compile Include="paginas\Cocina\ListaCocina.aspx.designer.cs">
       <DependentUpon>ListaCocina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="paginas\Cocina\PedidosEnCocina.aspx.cs">
+      <DependentUpon>PedidosEnCocina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paginas\Cocina\PedidosEnCocina.aspx.designer.cs">
+      <DependentUpon>PedidosEnCocina.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WS\IWSRESTCliente.cs" />

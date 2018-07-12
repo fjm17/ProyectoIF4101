@@ -20,7 +20,12 @@ namespace BL
         {
             DAOPedido daoPedido = new DAOPedido();
             TO_Pedido toPedido = new TO_Pedido(numero, correoCliente, fecha, "");
-            return daoPedido.Insertar(toPedido);
+            Boolean resultado = daoPedido.Insertar(toPedido);
+            if (resultado)
+            {
+                MonitorEstado monitor = new MonitorEstado(numero);
+            }
+            return resultado;
         }
 
         public Boolean SeleccionarPedido(int numero)//Para buscar, solo seria necesario el numero? 
@@ -46,21 +51,6 @@ namespace BL
             return daoPedido.Actualizar(toUsuario, estado);
         }*/
 
-        public Boolean EliminarPedido(string correo)
-        {
-            //TODO
-            return false;
-        }
-
-        //------------------------- Detalles -----------------------------------
-
-
-        public Boolean AgregarDetallePedido(int numeroPedido, string nombrePlato)
-        {
-            TO_Detalle_Pedido toDetalle = new TO_Detalle_Pedido(numeroPedido, nombrePlato);
-            DAOPedido daoPedido = new DAOPedido();
-            return daoPedido.AgregarDetalle(toDetalle);
-        }
 
         //------------------------- Estado -------------------------------------
         public Boolean MostrarEstadoPedido(string estado)

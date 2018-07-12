@@ -20,32 +20,37 @@
             <ContentTemplate>-->
 
                 <%
-                    string[] vec = (string[])Session["Array"];
-                    foreach (string var in vec)
-                    { %>
+                    List<BL.BL_Pedido> vec = (List<BL.BL_Pedido>)Session["Array"];
+
+                    for (int i = 0; i < vec.Count; i++)
+                    {
+                        pe = vec[i];
+                        pruebas();
+                        %>
                 <div class="col-sm-4" style="width: 230px; top: 0px; left: 0px; height: 262px;" id="div1">
                     <div class="panel panel-primary" style="border-color: gold;">
 
-                        <% crearLabel(var); %>
+                        <% //crearLabel(var); %>
 
-                        <div id="dad" class="panel-heading" style="background-color: red; border-bottom-color: red">
-                            <asp:Panel ID="PanelNombres" runat="server" EnableViewState="False"></asp:Panel>
+                        <div class="panel-heading" style="background-color: red; border-bottom-color: red">
+                            <asp:Panel ID="PanelNombres" runat="server"></asp:Panel>
 
                         </div>
-
+                        <% //crearPedidos(var); %>
                         <div class="panel-body">
-                            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width: 100%" alt="Image" />
+                            <asp:Panel ID="PanelDetallesPedidos" runat="server"></asp:Panel>
                         </div>
 
-                        <% crearButton(var); %>
+                        <% //crearButton(var);
+                            asignarBoton(i); %>
 
                         <div class="panel-footer">
-                            <asp:Panel ID="PanelBotones" runat="server" EnableViewState="False"></asp:Panel>
+                            <asp:Panel ID="PanelBotones" runat="server"></asp:Panel>
                         </div>
                         
                     </div>
                 </div>
-                <% limpiarPaneles();
+                <% //limpiarPaneles();
                     } %>
            <!-- </ContentTemplate>
 

@@ -8,11 +8,16 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <%  string[] vec = (string[])Session["Array"];
+            foreach (string var in vec)
+            {
+                pruebas(); %>
     <div>
-        <asp:PlaceHolder ID="PlaceHolder1" runat="server">
-
-        </asp:PlaceHolder>
+        
+        <asp:Panel ID="Panel1" runat="server"></asp:Panel>
+        
     </div>
+        <%} %>
     </form>
 </body>
 </html>

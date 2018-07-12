@@ -12,6 +12,7 @@ namespace BL
     {
         public List<BL_Pedido> Pedidos { get; set; }
 
+
         public Manejador_Lista_Pedidos()
         {
             Pedidos = new List<BL_Pedido>();
@@ -22,8 +23,9 @@ namespace BL
             Pedidos.Add(entrada);
         }
 
-        public void BuscarPedidos(TO_Manejador_Lista_Pedidos toPedidos, string correo)
+        public void BuscarPedidos(string correo)
         {
+            TO_Manejador_Lista_Pedidos toPedidos = new TO_Manejador_Lista_Pedidos();
             DAOPedido daoPedido = new DAOPedido();
             daoPedido.MostrarPedidos(toPedidos, correo);
             ConvertirLista(toPedidos);
@@ -39,13 +41,39 @@ namespace BL
             ConvertirLista(toPedidos);
         }
 
+        public void MostrarPedidoFecha(DateTime fecha1, DateTime fecha2)
+        {
+            TO_Manejador_Lista_Pedidos toPedidos = new TO_Manejador_Lista_Pedidos();
+            DAOPedido daoPedido = new DAOPedido();
+            daoPedido.MostrarPedidosFecha(toPedidos, fecha1, fecha2);
+            ConvertirLista(toPedidos);
+        }
+
+        public void MostrarPedidoEstados(string estado)
+        {
+            TO_Manejador_Lista_Pedidos toPedidos = new TO_Manejador_Lista_Pedidos();
+            DAOPedido daoPedido = new DAOPedido();
+            daoPedido.MostrarPedidosEstado(toPedidos, estado);
+            ConvertirLista(toPedidos);
+        }
+
         public void ConvertirLista(TO_Manejador_Lista_Pedidos toPedidos)
         {
             foreach (TO_Pedido toPedido in toPedidos.Pedidos)
             {
-                //foreach
-                AgregarPedido(new BL_Pedido(toPedido.Numero, toPedido.CorreoCliente,
-                    toPedido.Fecha, toPedido.CodigoEstado));
+                BL_Pedido nuevoPedido = new BL_Pedido(toPedido.Numero, toPedido.CorreoCliente,
+                    toPedido.Fecha, toPedido.CodigoEstado);
+
+                pasarDetalles(toPedido, nuevoPedido);
+                AgregarPedido(nuevoPedido);
+            }
+        }
+
+        public void pasarDetalles(TO_Pedido toPedidos, BL_Pedido blPedido)
+        {
+            foreach(TO_Detalle_Pedido toPed in toPedidos.Detalles)
+            {
+                blPedido.AgregarDetalle(toPed.NumeroPedido, toPed.NombrePlato);
             }
         }
     }

@@ -1,11 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BarraNavegacion.Master" AutoEventWireup="true" CodeBehind="MenuAdministrador.aspx.cs" Inherits="UI.paginas.Administrador.MenuAdministrador" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="container">
-    <!-- 
+        <!-- 
         <div class="dropdown">
     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" 
         style="background-color:#DD392E;color:white;border-color:white">
@@ -20,43 +21,61 @@
   </div>
   -->
 
-   <div class="dropdown btn-group">
-      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" 
-          style="background-color:#DD392E;color:white;border-color:white">
-          Gestionar Usuarios
+        <div class="dropdown btn-group">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"
+                style="background-color: #DD392E; color: white; border-color: white">
+                Gestionar Usuarios
         <span class="caret"></span>
-      </button>
-      
-      <ul class="dropdown-menu" style="background-color:yellow; color:black">
-        <li><a class="dropdown-it" href="AgregarUsuario.aspx">Agregar Usuario</a></li>
-        <li><a class="dropdown-it" href="AdministrarUsuario.aspx">Actualizar Datos de Usuario</a></li>
-        <li><a class="dropdown-it" href="BloquearClientes.aspx">Modificar  Estado de Cuenta de Clientes</a></li>
-      </ul>
+            </button>
 
-    </div>
-    <br />
+            <ul class="dropdown-menu" style="background-color: yellow; color: black">
+                <li><a class="dropdown-it" href="AgregarUsuario.aspx">Agregar Usuario</a></li>
+                <li><a class="dropdown-it" href="AdministrarUsuario.aspx">Actualizar Datos de Usuario</a></li>
+                <li><a class="dropdown-it" href="BloquearClientes.aspx">Modificar  Estado de Cuenta de Clientes</a></li>
+            </ul>
+
+        </div>
         <br />
-    <br />
-  <div class="dropdown btn-group">
-      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" 
-          style="background-color:#DD392E;color:white;border-color:white">
-          Gestionar Platos
+        <br />
+        <br />
+
+        <div class="dropdown btn-group">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"
+                style="background-color: #DD392E; color: white; border-color: white">
+                Gestionar Pedidos
         <span class="caret"></span>
-      </button>
+            </button>
 
-      <ul class="dropdown-menu" style="background-color:yellow; color:black">
-        <li><a class="dropdown-it" href="AgregarPlato.aspx">Agregar Plato</a></li>
-        <li><a class="dropdown-item" href="AdministrarPlato.aspx">Administrar Plato</a></li>
-      </ul>
+            <ul class="dropdown-menu" style="background-color: yellow; color: black">
+                <li><a class="dropdown-it" href="AdministrarPedidos.aspx">Ver Platos y Modificar sus Estados</a></li>
+            </ul>
 
-    </div>
+        </div>
+        <br />
+        <br />
+        <br />
+
+        <div class="dropdown btn-group">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"
+                style="background-color: #DD392E; color: white; border-color: white">
+                Gestionar Platos
+        <span class="caret"></span>
+            </button>
+
+            <ul class="dropdown-menu" style="background-color: yellow; color: black">
+                <li><a class="dropdown-it" href="AgregarPlato.aspx">Agregar Plato</a></li>
+                <li><a class="dropdown-item" href="AdministrarPlato.aspx">Administrar Plato</a></li>
+            </ul>
+
+        </div>
 
     </div>
 
     <p>
     </p>
     <p>
-        &nbsp;</p>
+        &nbsp;
+    </p>
     <p>
     </p>
     <p>

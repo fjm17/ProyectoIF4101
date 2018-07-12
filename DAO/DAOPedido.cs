@@ -14,19 +14,62 @@ namespace DAO
         public Boolean Insertar(TO_Pedido toPedido)
         {
             Boolean completado = true;
-            toPedido.Fecha = DateTime.Now;//Muy forzado?
+            toPedido.Fecha = DateTime.Now;
 
-            TO_Estado_Pedido toEstadoPedido = new TO_Estado_Pedido();
-            toEstadoPedido.Estado = "Habilitado";
-            MostrarEstadoPedido(toEstadoPedido);
-
-            toPedido.CodigoEstado = toEstadoPedido.Codigo;
             try
             {
-                formatoIngreso("INSERT INTO Pedido VALUES (@numero, @correo, @fecha, @codestado)", toPedido);
+                formatoIngreso("INSERT INTO Pedido VALUES (@numero, @correo, @fecha, 3)", toPedido);
             }
             catch (Exception ex)
-            //Creo que es necesario tener varios catch para los mensajes. Debemos discutirlo.
+            {
+                completado = false;
+                bdConexion.RealizarRollBack();
+            }
+            finally
+            {
+                bdConexion.Finalizar();
+            }
+            return completado;
+        }
+
+        public int ObtenerTiempo(string estado)
+        {
+            try
+            {
+                bdConexion.Conectar();
+                bdConexion.Inicializar();
+                bdConexion.GenerarConsulta("SELECT Tiempo_Estado FROM Estado_Pedido WHERE Estado = @codestado");
+                bdConexion.AsignarParametro("@codestado", estado);
+
+                int lector = (int) bdConexion.Comando.ExecuteScalar();
+                bdConexion.RealizarCommit();
+                return lector;
+            }
+            catch (Exception ex)
+            {
+                bdConexion.RealizarRollBack();
+            }
+            finally
+            {
+                bdConexion.Finalizar();
+            }
+            return 0;
+        }
+
+        public Boolean CambiarEstado(int numeroPedido, int codigoEstado)
+        {
+            Boolean completado = true;
+            try
+            {
+                bdConexion.Conectar();
+                bdConexion.Inicializar();
+                bdConexion.GenerarConsulta("UPDATE Pedido SET Codigo_Estado = @cod  Where Numero = @num");
+                bdConexion.AsignarParametro("@cod", codigoEstado + "");
+                bdConexion.AsignarParametro("@num", numeroPedido);
+                bdConexion.Comando.ExecuteNonQuery();
+                bdConexion.RealizarCommit();
+            }
+            catch (Exception ex)
             {
                 completado = false;
                 bdConexion.RealizarRollBack();
@@ -46,6 +89,53 @@ namespace DAO
             {
                 string query = "SELECT * FROM Pedido WHERE Correo_Cliente LIKE @correo";
                 bdConexion.AsignarParametro("@correo", '%' + correoCliente + '%');
+                bdConexion.GenerarConsulta(query);
+
+                SqlDataReader lector = bdConexion.Comando.ExecuteReader();
+                llenarLista(lector, toPedidos);
+                lector.Close();
+                return true;
+            }
+
+            catch (Exception e)
+            {
+                bdConexion.RealizarRollBack();
+                return false;
+            }
+        }
+
+        public Boolean MostrarPedidosEstado(TO_Manejador_Lista_Pedidos toPedidos, string estado)
+        {
+            bdConexion.Conectar();
+            bdConexion.Inicializar();
+            try
+            {
+                string query = "SELECT * FROM Pedido WHERE Codigo_Estado = @codEstado";
+                bdConexion.AsignarParametro("@codEstado", estado);
+                bdConexion.GenerarConsulta(query);
+
+                SqlDataReader lector = bdConexion.Comando.ExecuteReader();
+                llenarLista(lector, toPedidos);
+                lector.Close();
+                return true;
+            }
+
+            catch (Exception e)
+            {
+                bdConexion.RealizarRollBack();
+                return false;
+            }
+        }
+
+        public Boolean MostrarPedidosFecha(TO_Manejador_Lista_Pedidos toPedidos, DateTime fecha1, DateTime fecha2)
+        {
+            bdConexion.Conectar();
+            bdConexion.Inicializar();
+            try
+            {
+                string query = "SELECT * FROM Pedido WHERE Fecha BETWEEN @fecha1 AND @fecha2";
+                bdConexion.AsignarParametro("@fecha1", fecha1);
+                bdConexion.AsignarParametro("@fecha2", fecha2);
                 bdConexion.GenerarConsulta(query);
 
                 SqlDataReader lector = bdConexion.Comando.ExecuteReader();
@@ -87,9 +177,12 @@ namespace DAO
         {
             while (lector.Read())
             {
-                pedidos.AgregarPedido(new TO_Pedido(int.Parse(lector["Numero"].ToString()),
+                TO_Pedido nuevoPedido = new TO_Pedido(int.Parse(lector["Numero"].ToString()),
                     lector["Correo_Cliente"].ToString(), (DateTime)lector["Fecha"],
-                    lector["Codigo_Estado"].ToString()));
+                    lector["Codigo_Estado"].ToString());
+                BuscarDetallesPedido(nuevoPedido);
+                pedidos.AgregarPedido(nuevoPedido);
+               
             }
         }
 
@@ -174,7 +267,6 @@ namespace DAO
                 bdConexion.AsignarParametro("@numero", pedido.Numero);
                 bdConexion.AsignarParametro("@correo", pedido.CorreoCliente);
                 bdConexion.AsignarParametro("@fecha", pedido.Fecha);
-                bdConexion.AsignarParametro("@codestado", pedido.CodigoEstado);
 
                 bdConexion.Comando.ExecuteNonQuery();
                 bdConexion.RealizarCommit();
@@ -192,7 +284,9 @@ namespace DAO
             Boolean completado = true;
             try
             {
-                string consulta = "INSERT INTO Detalle Pedido VALUES (@num, @nom)";
+                string consulta = "INSERT INTO Detalle_Pedido VALUES (@num, @nom)";
+                bdConexion.Conectar();
+                bdConexion.Inicializar();
                 bdConexion.GenerarConsulta(consulta);
 
                 bdConexion.AsignarParametro("@num", toDetalle.NumeroPedido);
@@ -212,6 +306,46 @@ namespace DAO
             }
             return completado;
         }
+
+
+        public Boolean BuscarDetallesPedido(TO_Pedido toPedido)
+        {
+            Boolean completado = true;
+            try
+            {
+                string consulta = "SELECT * FROM Detalle_Pedido WHERE Numero_Pedido = @num";
+                bdConexion.Conectar();
+                bdConexion.Inicializar();
+                bdConexion.GenerarConsulta(consulta);
+
+                bdConexion.AsignarParametro("@num", toPedido.Numero);
+
+                SqlDataReader lector = bdConexion.Comando.ExecuteReader();
+
+                if (lector.HasRows)
+                {
+                    completado = true;
+
+                    while (lector.Read())
+                    {
+                        toPedido.AgregarDetalle(int.Parse(lector["Numero_Pedido"].ToString()), lector["Nombre_Plato"].ToString());
+                    }
+                }
+                lector.Close();
+                bdConexion.RealizarCommit();
+            }
+            catch (Exception ex){
+
+                completado = false;
+                bdConexion.RealizarRollBack();
+            }
+            finally
+            {
+                bdConexion.Finalizar();
+            }
+            return completado;
+        }
+
 
         //--------------------------- Manejo de Estado Pedido ------------------------------------------
 
