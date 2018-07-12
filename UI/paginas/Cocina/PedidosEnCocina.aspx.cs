@@ -17,6 +17,7 @@ namespace UI.paginas.Cocina
         private PlaceHolder PH_NombrePedido;
         private PlaceHolder PH_ButtonPedido;
         private PlaceHolder PH_DetallePedidos;
+        private Estatico ultimoFinalizado = Estatico.getInstance();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -66,7 +67,7 @@ namespace UI.paginas.Cocina
         {
 
             b1 = new Button();
-            b1.ID = "btn" + pedido.Numero;
+            b1.ID = "" + pedido.Numero;
             b1.Text = "Finalizar: " + pedido.Numero;
             b1.Click += new System.EventHandler(Button1_Click);
             PH_ButtonPedido = new PlaceHolder();
@@ -100,12 +101,39 @@ namespace UI.paginas.Cocina
         protected void Button1_Click(object sender, EventArgs e)
         {
             Button bt = (Button)sender;
-            Response.Write("<script>alert('Esto es magia, " + bt.Text + "');</script>");
-            //btnDeshacer.Text = "Si dentra al metodo";
+            Manejador_Pedido manejador = new Manejador_Pedido();
+
+            manejador.SeleccionarPedido(Int32.Parse(bt.ID));
+            ultimoFinalizado.pedido = manejador.Pedido;
+            ultimoFinalizado.pedido.Numero = Int32.Parse(bt.ID);
+            ultimoFinalizado.usado = false;
+
+            bool cambio = manejador.modificarEstado(Int32.Parse(bt.ID), 1);
+
+            if (cambio)
+            {
+                //Response.Write("<script>alert('Se finalizo el pedido');</script>");
+                Response.Redirect("/paginas/Cocina/PedidosEnCocina.aspx");
+            } else
+            {
+               // Response.Write("<script>alert('No se pudo finalizar');</script>");
+                Response.Redirect("/paginas/Cocina/PedidosEnCocina.aspx");
+            }
+
         }
         protected void btnDeshacer_Click1(object sender, EventArgs e)
         {
-            Response.Write("<script>alert('Algo paso aqui');</script>");
+            if(ultimoFinalizado.usado)
+            {
+                Response.Write("<script>alert('Ya se devolvio el ultimo pedido');</script>");
+            } else
+            {
+                Manejador_Pedido manejador = new Manejador_Pedido();
+                manejador.modificarEstado(ultimoFinalizado.pedido.Numero, Int32.Parse(ultimoFinalizado.pedido.CodigoEstado));
+                ultimoFinalizado.usado = true;
+                Response.Redirect("/paginas/Cocina/PedidosEnCocina.aspx");
+            }
         }
     }
+
 }
