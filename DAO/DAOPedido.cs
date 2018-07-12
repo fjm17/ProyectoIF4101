@@ -14,11 +14,10 @@ namespace DAO
         public Boolean Insertar(TO_Pedido toPedido)
         {
             Boolean completado = true;
-            toPedido.Fecha = DateTime.Now;
-
+            
             try
             {
-                formatoIngreso("INSERT INTO Pedido VALUES (@numero, @correo, @fecha, 3)", toPedido);
+                formatoIngreso("INSERT INTO Pedido (Correo_Cliente, Fecha, Codigo_Estado) VALUES (@correo, @fecha, 3)", toPedido);
             }
             catch (Exception ex)
             {
@@ -30,6 +29,57 @@ namespace DAO
                 bdConexion.Finalizar();
             }
             return completado;
+        }
+
+        public Boolean InsertarDetalle(TO_Detalle_Pedido to)
+        {
+            Boolean completado = true;
+            try
+            {
+                bdConexion.Conectar();
+                bdConexion.Inicializar();
+                bdConexion.GenerarConsulta("Insert into Detalle_Pedido values (@num, @nom)");
+                bdConexion.AsignarParametro("@num", to.NumeroPedido);
+                bdConexion.AsignarParametro("@nom", to.NombrePlato);
+
+                bdConexion.Comando.ExecuteNonQuery();
+                bdConexion.RealizarCommit();
+               
+            }
+            catch (Exception ex)
+            {
+                completado = false;
+                bdConexion.RealizarRollBack();
+            }
+            finally
+            {
+                bdConexion.Finalizar();
+            }
+            return completado;
+        }
+
+        public int ObtenerNumeroPedido(DateTime fecha)
+        {
+            try
+            {
+                bdConexion.Conectar();
+                bdConexion.Inicializar();
+                bdConexion.GenerarConsulta("SELECT Numero FROM Pedido WHERE Fecha = @fecha");
+                bdConexion.AsignarParametro("@fecha", fecha);
+
+                int lector = (int)bdConexion.Comando.ExecuteScalar();
+                bdConexion.RealizarCommit();
+                return lector;
+            }
+            catch (Exception ex)
+            {
+                bdConexion.RealizarRollBack();
+            }
+            finally
+            {
+                bdConexion.Finalizar();
+            }
+            return 0;
         }
 
         public int ObtenerTiempo(string estado)
@@ -264,7 +314,6 @@ namespace DAO
                 bdConexion.Inicializar();
 
                 bdConexion.GenerarConsulta(consulta);
-                bdConexion.AsignarParametro("@numero", pedido.Numero);
                 bdConexion.AsignarParametro("@correo", pedido.CorreoCliente);
                 bdConexion.AsignarParametro("@fecha", pedido.Fecha);
 
