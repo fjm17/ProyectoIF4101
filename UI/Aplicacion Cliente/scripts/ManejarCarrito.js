@@ -18,6 +18,7 @@
         alert("platos was not null rite");
     }
     var result = JSON.parse(localStorage.getItem("platos"));
+    TerminarCompra();
 }
 
 function TerminarCompra() {
