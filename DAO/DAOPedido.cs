@@ -14,7 +14,7 @@ namespace DAO
         public Boolean Insertar(TO_Pedido toPedido)
         {
             Boolean completado = true;
-            toPedido.Fecha = DateTime.Now;//Muy forzado?
+            toPedido.Fecha = DateTime.Now;
 
             TO_Estado_Pedido toEstadoPedido = new TO_Estado_Pedido();
             toEstadoPedido.Estado = "Habilitado";
@@ -26,7 +26,6 @@ namespace DAO
                 formatoIngreso("INSERT INTO Pedido VALUES (@numero, @correo, @fecha, @codestado)", toPedido);
             }
             catch (Exception ex)
-            //Creo que es necesario tener varios catch para los mensajes. Debemos discutirlo.
             {
                 completado = false;
                 bdConexion.RealizarRollBack();
@@ -46,6 +45,53 @@ namespace DAO
             {
                 string query = "SELECT * FROM Pedido WHERE Correo_Cliente LIKE @correo";
                 bdConexion.AsignarParametro("@correo", '%' + correoCliente + '%');
+                bdConexion.GenerarConsulta(query);
+
+                SqlDataReader lector = bdConexion.Comando.ExecuteReader();
+                llenarLista(lector, toPedidos);
+                lector.Close();
+                return true;
+            }
+
+            catch (Exception e)
+            {
+                bdConexion.RealizarRollBack();
+                return false;
+            }
+        }
+
+        public Boolean MostrarPedidosEstado(TO_Manejador_Lista_Pedidos toPedidos, string estado)
+        {
+            bdConexion.Conectar();
+            bdConexion.Inicializar();
+            try
+            {
+                string query = "SELECT * FROM Pedido WHERE Codigo_Estado = @codEstado";
+                bdConexion.AsignarParametro("@codEstado", estado);
+                bdConexion.GenerarConsulta(query);
+
+                SqlDataReader lector = bdConexion.Comando.ExecuteReader();
+                llenarLista(lector, toPedidos);
+                lector.Close();
+                return true;
+            }
+
+            catch (Exception e)
+            {
+                bdConexion.RealizarRollBack();
+                return false;
+            }
+        }
+
+        public Boolean MostrarPedidosFecha(TO_Manejador_Lista_Pedidos toPedidos, DateTime fecha1, DateTime fecha2)
+        {
+            bdConexion.Conectar();
+            bdConexion.Inicializar();
+            try
+            {
+                string query = "SELECT * FROM Pedido WHERE Fecha BETWEEN @fecha1 AND @fecha2";
+                bdConexion.AsignarParametro("@fecha1", fecha1);
+                bdConexion.AsignarParametro("@fecha2", fecha2);
                 bdConexion.GenerarConsulta(query);
 
                 SqlDataReader lector = bdConexion.Comando.ExecuteReader();
