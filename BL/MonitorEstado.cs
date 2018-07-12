@@ -14,35 +14,66 @@ namespace BL
         private int contador;
         private int numeroPedido;
         private string temporal;
+        private int estadoAtual;
+        private DAOPedido dao;
 
         public MonitorEstado(int numero)
         {
+            dao = new DAOPedido();
             tiempo = new Timer(controlar, null, 1000, 1000);
-            maximo = obtenerTiempo("A Tiempo");
-            temporal = "A Tiempo";
-            contador = 0;
             numeroPedido = numero;
+            estadoAtual = dao.ObtenerEstado(numeroPedido);
+
+            switch (estadoAtual)
+            {
+                case 1:
+                    tiempo.Dispose();
+                    break;
+                case 2:
+                    tiempo.Dispose();
+                    break;
+                case 3:
+                    maximo = obtenerTiempo("A Tiempo");
+                    temporal = "A Tiempo";
+                    contador = 0;
+                    break;
+                case 4:
+                    maximo = obtenerTiempo("Sobre Tiempo");
+                    temporal = "Sobre Tiempo";
+                    contador = dao.ObtenerTiempo("A Tiempo");
+                    break;
+                case 5:
+                    maximo = obtenerTiempo("Demorado");
+                    temporal = "Demorado";
+                    contador = dao.ObtenerTiempo("Sobre Tiempo");
+                    break;
+            }
+
         }
 
         private void controlar(object args)
         {
             if (contador == maximo)
             {
-                DAOPedido dao = new DAOPedido();
-
-                if (temporal.Equals("A Tiempo"))
+                estadoAtual = dao.ObtenerEstado(numeroPedido);
+                if (estadoAtual == 1 || estadoAtual == 2)
                 {
-                    maximo = obtenerTiempo("Sobre Tiempo");
-                    temporal = "Sobre Tiempo";
-                    dao.CambiarEstado(numeroPedido, 4);
-                }
-
-                if (temporal.Equals("Sobre Tiempo"))
-                {
-                    maximo = obtenerTiempo("Demorado");
-                    temporal = "Demorado";
-                    dao.CambiarEstado(numeroPedido, 5);
                     tiempo.Dispose();
+                }
+                else {
+                    if (temporal.Equals("A Tiempo"))
+                    {
+                        maximo = obtenerTiempo("Sobre Tiempo");
+                        temporal = "Sobre Tiempo";
+                        dao.CambiarEstado(numeroPedido, 4);
+                    }
+                    else if (temporal.Equals("Sobre Tiempo"))
+                    {
+                        maximo = obtenerTiempo("Demorado");
+                        temporal = "Demorado";
+                        dao.CambiarEstado(numeroPedido, 5);
+                        tiempo.Dispose();
+                    }
                 }
             }
                 contador++;

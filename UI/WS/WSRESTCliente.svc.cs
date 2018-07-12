@@ -73,6 +73,7 @@ namespace UI.WS
 
         public ObjetoLogico InsertarDetalle(int numero, string nombre)
         {
+            numero++;
             Manejador_Pedido m = new Manejador_Pedido();
             ObjetoLogico o = new ObjetoLogico();
             o.Valor = m.InsertarDetallePedido(numero, nombre);

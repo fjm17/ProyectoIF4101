@@ -51,7 +51,12 @@ namespace BL
         {
             DAOPedido daoPedido = new DAOPedido();
             return daoPedido.CambiarEstado(numero, int.Parse(estado));
-             
+        }
+
+        public Boolean ModificarTiempoEstado(string codigo, int tiempo)
+        {
+            DAOPedido daoPedido = new DAOPedido();
+            return daoPedido.ModificarTiempoEstado(codigo, tiempo);
         }
 
 

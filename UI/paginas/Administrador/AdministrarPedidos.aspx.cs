@@ -115,9 +115,13 @@ namespace UI
             ddlEstados.DataSource = estados;
             ddlEstados.DataBind();
 
+            List<BL_Estado_Pedido> estadosCambiar = new List<BL_Estado_Pedido>();
+            estadosCambiar.Add(new BL_Estado_Pedido("1", "Entregado", 0));
+            estadosCambiar.Add(new BL_Estado_Pedido("2", "Anulado", 0));
+
             ddlEstadosModificar.DataTextField = "Estado";
             ddlEstadosModificar.DataValueField = "Codigo";
-            ddlEstadosModificar.DataSource = estados;
+            ddlEstadosModificar.DataSource = estadosCambiar;
             ddlEstadosModificar.DataBind();
         }
 
@@ -156,6 +160,10 @@ namespace UI
             {
                 mostrarMensaje("Ocurrio un error al intentar cambiar el estado del Estado");
             }
+
+            txtModificar.Text = "";
+            manejador.MostrarTodosPedidos();
+            Session["manejador"] = manejador.Pedidos;
         }
 
         protected void ddlEstadosModificar_SelectedIndexChanged(object sender, EventArgs e)
