@@ -10,7 +10,6 @@
         });
 
     req.done(function (datos) {
-        alert(datos.Valor);
         if (datos.Valor === true) {
             window.location.href = "PaginaInicio.html";
         }

@@ -10,6 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="scripts/MostrarPlatos.js"></script>
     <script type="text/javascript" src="scripts/Cliente.js"></script>
+    <script type="text/javascript" src="scripts/ManejarCarrito.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
@@ -30,13 +31,12 @@
                         <li><a href="#" onclick="MostrarDetalles()" style="color:white">Cerrar</a></li>
                         <!--<li><a>asdgasdga</a></li>-->
                     </ul>
-
                 </div>
             </nav>
             <div class="container table-responsive">
                 <h3> Platos disponibles </h3>
                 <table id="tablePlatos" class="table table-bordered table-condensed"></table>
-                <input type="submit" onclick="prepareForShowing()" value="Mostrar Platos" />
+                <input type="button" onclick="prepareForShowing()" value="Mostrar Platos" />
             </div>
         </div>
     </form>

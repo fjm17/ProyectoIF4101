@@ -10,16 +10,37 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="scripts/MostrarDetallesPlato.js"></script>
     <script type="text/javascript" src="scripts/Cliente.js"></script>
+    <script type="text/javascript" src="scripts/Navegacion.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
 </head>
 <body onload="MostrarDetalles()">
     <form id="form1">
-        <p>
+        <nav class="navbar navbar-default" style="color:white">
+            <div class="container-fluid" style="background-color:black">
+                <div class="navbar-header" style="color:white">
+                    <a class="navbar-brand" style="color:white" href="#">Les Quatre ???</a>
+                </div>
+                <ul id="navbarElements" class="nav navbar-nav">
+                    <li><a href="Inicio.html" style="color:white">Inicio</a></li>
+                    <li><a href="#" style="color:white">Sobre Nosotros</a></li>
+                    <li><a href="#" onclick="" style="color:white">Modificar Datos</a></li>
+                    <li><a href="#" onclick="MostrarDetalles()" style="color:white">Cerrar</a></li>
+                    <!--<li><a>asdgasdga</a></li>-->
+                </ul>
+            </div>
+        </nav>
+        <div class="container" id="contdiv">
+            
+        </div>
+        <div class="container">
+            <input type="button" onclick="prepareForShowing()" value="Agregar al carrito" 
+                   style="background-color:red" />
+            <input type="button" onclick="Volver()" value="Volver"
+                   style="background-color:black" />
+        </div>
 
-
-        </p>
     </form>
 </body>
 </html>
