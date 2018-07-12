@@ -33,9 +33,16 @@ namespace UI.paginas.Cocina
         {
             foreach (BL_Pedido var in listaPedidos)
             {
-                crearLabel(var);
-                crearPedidos(var);
-                crearButton(var);
+                if(var.CodigoEstado == "1" || var.CodigoEstado == "2")
+                {
+
+                } else
+                {
+                    crearLabel(var);
+                    crearPedidos(var);
+                    crearButton(var);
+                }
+                
             }
             //limpiarPaneles();
             
@@ -43,19 +50,11 @@ namespace UI.paginas.Cocina
 
         }
 
-        //protected void limpiarPaneles()
-        //{
-        //    PanelNombres.Controls.Remove(PH_NombrePedido);
-        //    //PanelBotones.Controls.Remove(PH_ButtonPedido);
-        //    PanelDetallesPedidos.Controls.Remove(PH_DetallePedidos);
-        //}
-
         protected void crearLabel(BL_Pedido pedido)
         {
             PH_NombrePedido = new PlaceHolder();
             lbNombrePedido = new Label();
-            lbNombrePedido.ID = "lb" + pedido.CorreoCliente;
-            lbNombrePedido.Text = "Persona que realizo el pedido, Numero de pedido: " + pedido.Numero;
+            lbNombrePedido.Text = "Numero de pedido: " + pedido.Numero;
             Panel1.Controls.Add(PH_NombrePedido);
             Literal lite = new Literal();
             lite.Text = "<br/>";
@@ -77,26 +76,22 @@ namespace UI.paginas.Cocina
             lite.Text = "<br/> <br/>";
             Panel1.Controls.Add(lite);
         }
-
-        //protected void asignarBoton(int posicion)
-        //{
-            
-        //    PH_ButtonPedido = new PlaceHolder();
-        //    Panel1.Controls.Add(PH_ButtonPedido);
-        //    PH_ButtonPedido.Controls.Add(b1);
-
-        //}
         protected void crearPedidos(BL_Pedido pedido)
-        {
+        {            
+            List<BL_Detalle_Pedido> listaDetalle = pedido.Detalles;
             PH_DetallePedidos = new PlaceHolder();
-            string[] vec = { "Pedido 1", "Pedido 2", "Pedido 3" };
-            foreach (string var in vec)
+
+            Literal lite = new Literal();
+            lite.Text = "<h4>Platos del pedido</h4>";
+            PH_DetallePedidos.Controls.Add(lite);
+
+            foreach (BL_Detalle_Pedido var in listaDetalle)
             {
                 lbDetallePedido = new Label();
-                lbDetallePedido.Text = var + ". ";
+                lbDetallePedido.Text = var.NombrePlato + ". ";
                 PH_DetallePedidos.Controls.Add(lbDetallePedido);
             }
-            Literal lite = new Literal();
+            lite = new Literal();
             lite.Text = "<br/>";
             PH_DetallePedidos.Controls.Add(lite);
             Panel1.Controls.Add(PH_DetallePedidos);
