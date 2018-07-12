@@ -36,8 +36,7 @@ namespace BL
                     temporal = "Sobre Tiempo";
                     dao.CambiarEstado(numeroPedido, 4);
                 }
-
-                if (temporal.Equals("Sobre Tiempo"))
+                else if (temporal.Equals("Sobre Tiempo"))
                 {
                     maximo = obtenerTiempo("Demorado");
                     temporal = "Demorado";

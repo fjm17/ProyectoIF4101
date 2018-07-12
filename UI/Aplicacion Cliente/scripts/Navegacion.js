@@ -9,8 +9,8 @@ function MandarParaCarrito() {
 }
 
 function VerificarSesion() {
-    /*var correo = localStorage["correo"];
-    if (typeof correo !== 'undefined' && correo !== null) {
+    var correo = localStorage["correo"];
+    /*if (typeof correo !== 'undefined' && correo !== null) {
         alert(correo);
     }
     else
@@ -22,7 +22,7 @@ function VerificarSesion() {
 }
 
 function CerrarSesion() {
-    localStorage["correo"] = 'undefined';
+    localStorage.removeItem("correo");
 }
 
 
