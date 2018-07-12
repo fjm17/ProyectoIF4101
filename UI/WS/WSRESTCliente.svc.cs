@@ -63,7 +63,5 @@ namespace UI.WS
             manPlato.SeleccionarPlato(nombre);
             return manPlato.Plato;
         }
-
-        
     }
 }
