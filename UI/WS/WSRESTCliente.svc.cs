@@ -26,7 +26,10 @@ namespace UI.WS
 
         public ObjetoLogico ModificarCliente(string correo, string nombre, string contrasena, string direccion)
         {
-            throw new NotImplementedException();
+            Manejador_Usuario manUsuario = new Manejador_Usuario();
+            ObjetoLogico resultado = new ObjetoLogico();
+            resultado.Valor = manUsuario.ActualizarUsuario(correo, nombre, direccion, correo, "Cliente", "Habilitado");
+            return resultado;
         }
 
         public BL_Usuario MostrarCliente(string correo)

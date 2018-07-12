@@ -9,21 +9,24 @@
         platos = [];
         platos.push(nombre);
         localStorage.setItem("platos", JSON.stringify(platos));
-        alert("platos was null so was created");
     }
     else
     {
         platos.push(nombre);
         localStorage.setItem("platos", JSON.stringify(platos));
-        alert("platos was not null rite");
     }
-    var result = JSON.parse(localStorage.getItem("platos"));
-    TerminarCompra();
+}
+
+function RemoverDePedido(nombre) {
+    var platos = JSON.parse(localStorage.getItem("platos"));
+    var indice = platos.indexOf(nombre);
+    platos.splice(indice, 1);
 }
 
 function TerminarCompra() {
+    var platos = JSON.parse(localStorage.getItem("platos"));
     CrearPedido();
-    EnviarPedidos(result);
+    EnviarPedidos(platos);
 }
 
 function CrearPedido() {
@@ -37,7 +40,7 @@ function CrearPedido() {
         });
     req.done(function (datos) {
         localStorage["numeroPedido"] = datos;
-        alert("El pedido se ha creado exitosamente " + datos);
+        alert("¡El pedido se ha creado exitosamente! ");
     });
 
     req.fail(function () {
@@ -58,11 +61,67 @@ function EnviarPedidos(detalles) {
         });
 
         req.done(function (detalles) {
-            alert("Insercion");
         });
 
         req.fail(function () {
             alert("Ocurrió un problema.");
         });
     });
+}
+
+function MontarCarrito() {
+    CrearTableHeader();
+    var tbody = document.createElement("tbody");
+    var platos = JSON.parse(localStorage.getItem("platos"));
+
+    $.each(platos, function () {
+
+        var newTr = document.createElement("tr");
+
+        var newTdNombre = document.createElement("td");
+        newTdNombre.innerHTML = this;
+
+        var newTdEliminar = document.createElement("td");
+
+        var newInputEliminar = document.createElement("input");
+        newInputEliminar.setAttribute("type", "button");
+        newInputEliminar.value = "Eliminar";
+        newInputEliminar.style.backgroundColor = 'red';
+
+        /*Agregar metodo para boton Ver Detalles*/
+        newInputEliminar.onclick = (function () {
+            var cells = $(this).closest("tr").children("td");
+            var nombre = cells.eq(0).text();
+            RemoverDePedido(nombre);
+            window.location.href = "Carrito.html";
+        });
+
+        newTdEliminar.appendChild(newInputEliminar);
+
+        newTr.appendChild(newTdNombre);
+        newTr.appendChild(newTdEliminar);
+
+        tbody.appendChild(newTr);
+
+    });
+    document.getElementById("tableDetalles").appendChild(tbody);
+
+}
+
+
+function CrearTableHeader() {
+    var thead = document.createElement("thead");
+    var tr = document.createElement("tr");
+
+    var thNombre = document.createElement("th");
+    thNombre.innerHTML = "Nombre";
+    var thEliminar = document.createElement("th");
+    thEliminar.innerHTML = "Eliminar";
+
+    tr.appendChild(thNombre);
+    tr.appendChild(thEliminar);
+
+    thead.appendChild(tr);
+
+    $('#tableDetalles').append(thead);
 }

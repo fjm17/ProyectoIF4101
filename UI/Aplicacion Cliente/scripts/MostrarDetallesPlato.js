@@ -32,6 +32,4 @@ function MuestraPlato(datos) {
     document.getElementById("contdiv").appendChild(descripcion);
     document.getElementById("contdiv").appendChild(precio);
     document.getElementById("contdiv").appendChild(imagen);
-
-
 }

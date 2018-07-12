@@ -14,6 +14,7 @@
 
     req.done(function (datos) {
         alert("Cliente insertado satisfactoriamente.");
+        location.href = "IniciarSesionCliente.html";
         //localStorage["correo"] = correo;
     });
 
@@ -42,5 +43,23 @@ function MostrarCliente() {
 }
 
 function ModificarCliente() {
-    
+    var correo = localStorage["correo"];
+    var nombre = document.getElementById("tbNombreNuevo").value;
+    var direccion = document.getElementById("tbDireccionCasaNueva").value;
+    var contrasena = document.getElementById("tbContrasenaNueva").value;
+
+    var req = $.ajax(
+        {
+            url: "http://localhost:6347/WS/WSRESTCliente.svc/ModificarCliente?correo=" 
+                + correo + "&nombre=" + nombre + "&contrasena=" + contrasena,
+            timeout: 10000,
+            dataType: "jsonp"
+        });
+
+    req.done(function (datos) {
+    });
+
+    req.fail(function () {
+        alert("No se pudo completar la transaccion.");
+    });
 }
