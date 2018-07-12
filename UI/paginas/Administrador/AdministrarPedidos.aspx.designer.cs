@@ -67,15 +67,6 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox txtFecha1;
         
         /// <summary>
-        /// validarFecha1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator validarFecha1;
-        
-        /// <summary>
         /// lblFecha2 control.
         /// </summary>
         /// <remarks>
@@ -103,6 +94,33 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Button btnBuscarFecha;
         
         /// <summary>
+        /// lblFormato control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFormato;
+        
+        /// <summary>
+        /// revFecha1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revFecha1;
+        
+        /// <summary>
+        /// revFecha2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revFecha2;
+        
+        /// <summary>
         /// lblXEstado control.
         /// </summary>
         /// <remarks>
@@ -119,6 +137,33 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlEstados;
+        
+        /// <summary>
+        /// txtModificar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtModificar;
+        
+        /// <summary>
+        /// ddlEstadosModificar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlEstadosModificar;
+        
+        /// <summary>
+        /// btnModificar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnModificar;
         
         /// <summary>
         /// btnRegresar control.

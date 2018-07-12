@@ -16,16 +16,19 @@ namespace BL
             Pedido = new BL_Pedido();
         }
 
-        public Boolean InsertarPedido(int numero, string correoCliente, DateTime fecha)
+        public int InsertarPedido(string correoCliente)
         {
+            int n = 0;
             DAOPedido daoPedido = new DAOPedido();
-            TO_Pedido toPedido = new TO_Pedido(numero, correoCliente, fecha, "");
+            DateTime fecha = DateTime.Now;
+            TO_Pedido toPedido = new TO_Pedido(0, correoCliente, fecha, "");
             Boolean resultado = daoPedido.Insertar(toPedido);
             if (resultado)
             {
-                MonitorEstado monitor = new MonitorEstado(numero);
+                n = daoPedido.ObtenerNumeroPedido(fecha);
+                MonitorEstado monitor = new MonitorEstado(n);
             }
-            return resultado;
+            return n;
         }
 
         public Boolean SeleccionarPedido(int numero)//Para buscar, solo seria necesario el numero? 
@@ -44,12 +47,12 @@ namespace BL
             return false;
         }
 
-        /*public Boolean ActualizarPedido(int numero, string correoCliente, DateTime fecha, string estado)
+        public Boolean ActualizarPedido(int numero, string estado)
         {
             DAOPedido daoPedido = new DAOPedido();
-            TO_Pedido toUsuario = new TO_Pedido(numero, correoCliente, fecha, "");
-            return daoPedido.Actualizar(toUsuario, estado);
-        }*/
+            return daoPedido.CambiarEstado(numero, int.Parse(estado));
+             
+        }
 
 
         //------------------------- Estado -------------------------------------
@@ -70,10 +73,18 @@ namespace BL
             return daoPedido.ModificarEstadoPedido(toEstado);
         }
 
+
         public bool modificarEstado(int numeroPedido, int estado)
         {
             DAOPedido datos = new DAOPedido();
             return datos.CambiarEstado(numeroPedido, estado);
+        
+
+        public Boolean InsertarDetallePedido(int numero, string nombre)
+        {
+            DAOPedido dao = new DAOPedido();
+            TO_Detalle_Pedido to = new TO_Detalle_Pedido(numero, nombre);
+            return dao.InsertarDetalle(to);
         }
 
     }

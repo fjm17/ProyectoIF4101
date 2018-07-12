@@ -47,5 +47,15 @@ namespace UI.WS
         [WebGet(RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json)]
         BL_Plato MostrarDetallePlato(string nombre);
+
+        [OperationContract]
+        [WebGet(RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json)]
+        int InsertarPedido(string correo);
+
+        [OperationContract]
+        [WebGet(RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json)]
+        ObjetoLogico InsertarDetalle(int numero, string nombre);
     }
 }

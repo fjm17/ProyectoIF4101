@@ -9,18 +9,20 @@ function MandarParaCarrito() {
 }
 
 function VerificarSesion() {
-    var correo = localStorage["correo"];
-    if (correo == null) {
-        //alert("Get Out");
-        window.localStorage.href = "IniciarSesionCliente.html";
+    /*var correo = localStorage["correo"];
+    if (typeof correo !== 'undefined' && correo !== null) {
+        alert(correo);
     }
-    else {
+    else
+    {
+        alert("Get Out");
+        location.href = "IniciarSesionCliente.html";
         //alert("You're cool " + localStorage["correo"]);
-    }
+    }*/
 }
 
 function CerrarSesion() {
-    localStorage["correo"] = null;
+    localStorage["correo"] = 'undefined';
 }
 
 

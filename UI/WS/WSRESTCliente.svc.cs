@@ -64,6 +64,19 @@ namespace UI.WS
             return manPlato.Plato;
         }
 
-        
+
+        public int InsertarPedido(string correo)
+        {
+            Manejador_Pedido m = new Manejador_Pedido();
+            return m.InsertarPedido(correo);
+        }
+
+        public ObjetoLogico InsertarDetalle(int numero, string nombre)
+        {
+            Manejador_Pedido m = new Manejador_Pedido();
+            ObjetoLogico o = new ObjetoLogico();
+            o.Valor = m.InsertarDetallePedido(numero, nombre);
+            return o;
+        }
     }
 }
