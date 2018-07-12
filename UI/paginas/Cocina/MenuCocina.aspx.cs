@@ -18,8 +18,10 @@ namespace UI
         private PlaceHolder PH_NombrePedido;
         private PlaceHolder PH_ButtonPedido;
         private PlaceHolder PH_DetallePedidos;
-        private List<BL_Pedido> lista;
-        public BL_Pedido pe;
+        private List<BL_Pedido> listaPedidos;
+        private List<Button> listaBotones;
+
+        public BL_Pedido pe { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -43,29 +45,39 @@ namespace UI
                 Response.Redirect("~/InicioSesion.aspx");
             }
 
-            Manejador_Lista_Pedidos manejar = new Manejador_Lista_Pedidos();
-            manejar.MostrarTodosPedidos();
-            lista = manejar.Pedidos;
-
-            Session["Array"] = lista;
-            pruebas();
-        }
-        protected void pruebas()
-        {
-            foreach(BL_Pedido var in lista)
+            
+            
+            if (!IsPostBack)
             {
-                //limpiarPaneles();
-                crearLabel(var);
-                crearPedidos(var);
-                crearButton(var);
+                
                 
             }
+            listaBotones = new List<Button>();
+            manejarBotones();
+
+
+        }
+        protected void manejarBotones()
+        {
+            foreach(BL_Pedido var in listaPedidos)
+            {
+                crearButton(var);
+                listaBotones.Add(b1);
+            }
+        }
+        protected void pruebas()
+        {            
+                limpiarPaneles();
+                crearLabel(pe);
+                crearPedidos(pe);
+                
+                
         }
 
         protected void limpiarPaneles()
         {
             PanelNombres.Controls.Remove(PH_NombrePedido);
-            PanelBotones.Controls.Remove(PH_ButtonPedido);
+            //PanelBotones.Controls.Remove(PH_ButtonPedido);
             PanelDetallesPedidos.Controls.Remove(PH_DetallePedidos);
         }
 
@@ -80,13 +92,21 @@ namespace UI
         }
         protected void crearButton(BL_Pedido pedido)
         {
-            PH_ButtonPedido = new PlaceHolder();
+            
             b1 = new Button();
             b1.ID = "btn" + pedido.Numero;
             b1.Text = "Finalizar: " + pedido.Numero;
             b1.Click += new System.EventHandler(Button1_Click);
+            
+        }
+
+        protected void asignarBoton(int posicion)
+        {
+            PanelBotones.Controls.Remove(PH_ButtonPedido);
+            PH_ButtonPedido = new PlaceHolder();
             PanelBotones.Controls.Add(PH_ButtonPedido);
-            PH_ButtonPedido.Controls.Add(b1);
+            PH_ButtonPedido.Controls.Add(listaBotones[posicion]);
+            
         }
         protected void crearPedidos(BL_Pedido pedido)
         {

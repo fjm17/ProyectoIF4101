@@ -20,10 +20,13 @@
             <ContentTemplate>-->
 
                 <%
-                   List<BL.BL_Pedido> vec = (List<BL.BL_Pedido>)Session["Array"];
+                    List<BL.BL_Pedido> vec = (List<BL.BL_Pedido>)Session["Array"];
 
-                    foreach (BL.BL_Pedido var in vec)
-                    { %>
+                    for (int i = 0; i < vec.Count; i++)
+                    {
+                        pe = vec[i];
+                        pruebas();
+                        %>
                 <div class="col-sm-4" style="width: 230px; top: 0px; left: 0px; height: 262px;" id="div1">
                     <div class="panel panel-primary" style="border-color: gold;">
 
@@ -38,7 +41,8 @@
                             <asp:Panel ID="PanelDetallesPedidos" runat="server"></asp:Panel>
                         </div>
 
-                        <% //crearButton(var); %>
+                        <% //crearButton(var);
+                            asignarBoton(i); %>
 
                         <div class="panel-footer">
                             <asp:Panel ID="PanelBotones" runat="server"></asp:Panel>
