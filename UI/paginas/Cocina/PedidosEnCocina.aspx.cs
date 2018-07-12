@@ -100,6 +100,19 @@ namespace UI.paginas.Cocina
         {
 
             b1 = new Button();
+            if (Int32.Parse(pedido.CodigoEstado) == 3)
+            {
+                b1.BackColor = System.Drawing.Color.Green;
+            }
+            else if (Int32.Parse(pedido.CodigoEstado) == 4)
+            {
+                b1.BackColor = System.Drawing.Color.Gold;
+            }
+            else if (Int32.Parse(pedido.CodigoEstado) == 5)
+            {
+                b1.BackColor = System.Drawing.Color.Red;
+            }
+            
             b1.ID = "" + pedido.Numero;
             b1.Text = "Finalizar: " + pedido.Numero;
             b1.Click += new System.EventHandler(Button1_Click);

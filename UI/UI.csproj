@@ -62,11 +62,8 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-
     <Content Include="Aplicacion Cliente\ModificarDatosCliente.html" />
-
     <Content Include="paginas\Administrador\AdministrarPedidos.aspx" />
-
     <Content Include="Aplicacion Cliente\scripts\IniciarSesion.js" />
     <Content Include="Aplicacion Cliente\scripts\ManejarCarrito.js" />
     <Content Include="Aplicacion Cliente\scripts\MostrarDetallesPlato.js" />
@@ -89,13 +86,11 @@
     <Content Include="paginas\Administrador\AgregarUsuario.aspx" />
     <Content Include="images\if_key_309058.png" />
     <Content Include="Inicio.html" />
-    <Content Include="paginas\Cocina\MenuCocina.aspx" />
     <Content Include="paginas\Administrador\MostrarListaPlatos.aspx" />
     <Content Include="paginas\Administrador\MostrarUsuarios.aspx" />
     <Content Include="InicioSesion.aspx" />
     <Content Include="PaginaInicio.aspx" />
     <Content Include="paginas\Administrador\MenuAdministrador.aspx" />
-    <Content Include="paginas\Cocina\ListaCocina.aspx" />
     <Content Include="paginas\Cocina\PedidosEnCocina.aspx" />
     <Content Include="styles\generic_style.css" />
     <Content Include="Web.config" />
@@ -151,13 +146,6 @@
     <Compile Include="BarraNavegacion.Master.designer.cs">
       <DependentUpon>BarraNavegacion.Master</DependentUpon>
     </Compile>
-    <Compile Include="paginas\Cocina\MenuCocina.aspx.cs">
-      <DependentUpon>MenuCocina.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="paginas\Cocina\MenuCocina.aspx.designer.cs">
-      <DependentUpon>MenuCocina.aspx</DependentUpon>
-    </Compile>
     <Compile Include="paginas\Administrador\MostrarListaPlatos.aspx.cs">
       <DependentUpon>MostrarListaPlatos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -192,13 +180,6 @@
     </Compile>
     <Compile Include="paginas\Administrador\MenuAdministrador.aspx.designer.cs">
       <DependentUpon>MenuAdministrador.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="paginas\Cocina\ListaCocina.aspx.cs">
-      <DependentUpon>ListaCocina.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="paginas\Cocina\ListaCocina.aspx.designer.cs">
-      <DependentUpon>ListaCocina.aspx</DependentUpon>
     </Compile>
     <Compile Include="paginas\Cocina\PedidosEnCocina.aspx.cs">
       <DependentUpon>PedidosEnCocina.aspx</DependentUpon>
