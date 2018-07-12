@@ -90,6 +90,7 @@
     <Content Include="PaginaInicio.aspx" />
     <Content Include="paginas\Administrador\MenuAdministrador.aspx" />
     <Content Include="paginas\Cocina\ListaCocina.aspx" />
+    <Content Include="paginas\Cocina\PedidosEnCocina.aspx" />
     <Content Include="styles\generic_style.css" />
     <Content Include="Web.config" />
     <Content Include="WS\WSRESTCliente.svc" />
@@ -192,6 +193,13 @@
     </Compile>
     <Compile Include="paginas\Cocina\ListaCocina.aspx.designer.cs">
       <DependentUpon>ListaCocina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="paginas\Cocina\PedidosEnCocina.aspx.cs">
+      <DependentUpon>PedidosEnCocina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paginas\Cocina\PedidosEnCocina.aspx.designer.cs">
+      <DependentUpon>PedidosEnCocina.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WS\IWSRESTCliente.cs" />
