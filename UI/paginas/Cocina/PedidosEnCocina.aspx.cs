@@ -88,7 +88,10 @@ namespace UI.paginas.Cocina
         {
             PH_NombrePedido = new PlaceHolder();
             lbNombrePedido = new Label();
-            lbNombrePedido.Text = "Numero de pedido: " + pedido.Numero;
+            Manejador_Usuario usuario = new Manejador_Usuario();
+            usuario.SeleccionarUsuario(pedido.CorreoCliente, "");
+            BL_Usuario usua = usuario.Usuario;
+            lbNombrePedido.Text = usua.Nombre_Completo + ", Numero de pedido: " + pedido.Numero;
             Panel1.Controls.Add(PH_NombrePedido);
             Literal lite = new Literal();
             lite.Text = "<br/>";
