@@ -13,7 +13,26 @@ namespace UI.paginas.Administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (Session["Rol"] != null)
+            {
+                string rol = Session["Rol"].ToString();
+                if (!String.IsNullOrEmpty(rol))
+                {
+                    if (!rol.Equals("Administrador"))
+                    {
+                        string pagina = rol.Equals("Cocina") ?
+                            "~/paginas/Cocina/MenuCocina.aspx" : "~/Aplicacion Cliente/PaginaInicio.html";
+
+                        Response.Redirect(pagina);
+                    }
+                }
+            }
+            else
+            {
+                Response.Redirect("~/InicioSesion.aspx");
+            }
+
+            if (!IsPostBack)
             {
                 cbEstado.Items.Add("Habilitado");
                 cbEstado.Items.Add("Deshabilitado");

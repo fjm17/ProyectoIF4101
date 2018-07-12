@@ -88,8 +88,6 @@
     <Content Include="paginas\Administrador\AgregarUsuario.aspx" />
     <Content Include="images\if_key_309058.png" />
     <Content Include="Inicio.html" />
-    <Content Include="paginas\Administrador\MostrarListaPlatos.aspx" />
-    <Content Include="paginas\Administrador\MostrarUsuarios.aspx" />
     <Content Include="InicioSesion.aspx" />
     <Content Include="PaginaInicio.aspx" />
     <Content Include="paginas\Administrador\MenuAdministrador.aspx" />
@@ -154,20 +152,6 @@
     </Compile>
     <Compile Include="BarraNavegacion.Master.designer.cs">
       <DependentUpon>BarraNavegacion.Master</DependentUpon>
-    </Compile>
-    <Compile Include="paginas\Administrador\MostrarListaPlatos.aspx.cs">
-      <DependentUpon>MostrarListaPlatos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="paginas\Administrador\MostrarListaPlatos.aspx.designer.cs">
-      <DependentUpon>MostrarListaPlatos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="paginas\Administrador\MostrarUsuarios.aspx.cs">
-      <DependentUpon>MostrarUsuarios.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="paginas\Administrador\MostrarUsuarios.aspx.designer.cs">
-      <DependentUpon>MostrarUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="InicioSesion.aspx.cs">
       <DependentUpon>InicioSesion.aspx</DependentUpon>

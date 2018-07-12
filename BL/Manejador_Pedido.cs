@@ -31,14 +31,13 @@ namespace BL
             return n;
         }
 
-        public Boolean SeleccionarPedido(int numero)//Para buscar, solo seria necesario el numero? 
+        public Boolean SeleccionarPedido(int numero)
         {
             DAOPedido daoPedido = new DAOPedido();
             TO_Pedido toPedido = new TO_Pedido();
             toPedido.Numero = numero;
             if (daoPedido.Mostrar(toPedido))
             {
-                //Pedido.Numero = toPedido.Numero;
                 Pedido.CorreoCliente = toPedido.CorreoCliente;
                 Pedido.Fecha = toPedido.Fecha;
                 Pedido.CodigoEstado = toPedido.CodigoEstado;

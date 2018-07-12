@@ -61,11 +61,9 @@ namespace DAO
             while (lector.Read())
             {
                 string estado = lector["Estado_Plato"].ToString();
-                //if (estado.Equals("Disponible"))
-                //{
+
                     platos.AgregarPlato(new TO_Plato(lector["Nombre"].ToString(), lector["Descripcion"].ToString(),
                     double.Parse(lector["Precio"].ToString()), lector["Foto"].ToString(), estado));
-                //}
             }
         }
 
@@ -88,7 +86,7 @@ namespace DAO
             return completado;
         }
 
-        private void formatoIngreso(string consulta, TO_Plato plato) // Se utiliza para no repetir el mismo codigo en actualizar y en agregar
+        private void formatoIngreso(string consulta, TO_Plato plato)
         {
             try
             {

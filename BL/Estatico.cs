@@ -12,8 +12,6 @@ namespace BL
         private static Estatico estatico = null;
         public bool usado { set; get; } = true;
 
-
-        
         private Estatico ()
             
         {

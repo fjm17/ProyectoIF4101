@@ -28,12 +28,6 @@ namespace DAO
                 string query = "SELECT * FROM Usuario WHERE ";
                 string where = "";
 
-                /*if (!String.IsNullOrEmpty(usuario.Nombre_Completo))
-                {
-                    where = "Nombre LIKE %@nom%";
-                    bdConexion.AsignarParametro("@nom", usuario.Nombre_Completo);
-                }
-                else*/
                 where = "Correo = @correo";
                 bdConexion.AsignarParametro("@correo", usuario.Correo);
 
@@ -67,7 +61,6 @@ namespace DAO
             }
             catch (Exception ex)
             {
-                //throw ex;
                 completado = false;
                 bdConexion.RealizarRollBack();
             }
@@ -97,7 +90,7 @@ namespace DAO
 
             catch (Exception e)
             {
-                throw e;
+
                 bdConexion.RealizarRollBack();
                 return false;
             }
@@ -123,7 +116,6 @@ namespace DAO
                 formatoIngreso("INSERT INTO Usuario VALUES (@correo, @nom, @dir, @contr, @tipo, @estado)", usuario);
             }
             catch (Exception ex)
-            //Creo que es necesario tener varios catch para los mensajes. Debemos discutirlo.
             {
                 completado = false;
                 bdConexion.RealizarRollBack();

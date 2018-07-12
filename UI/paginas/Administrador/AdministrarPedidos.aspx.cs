@@ -16,6 +16,25 @@ namespace UI
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Rol"] != null)
+            {
+                string rol = Session["Rol"].ToString();
+                if (!String.IsNullOrEmpty(rol))
+                {
+                    if (!rol.Equals("Administrador"))
+                    {
+                        string pagina = rol.Equals("Cocina") ?
+                            "~/paginas/Cocina/MenuCocina.aspx" : "~/Aplicacion Cliente/PaginaInicio.html";
+
+                        Response.Redirect(pagina);
+                    }
+                }
+            }
+            else
+            {
+                Response.Redirect("~/InicioSesion.aspx");
+            }
+
             if (!IsPostBack)
             {
                 esconderComponentes();
@@ -167,6 +186,11 @@ namespace UI
         }
 
         protected void ddlEstadosModificar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void txtCliente_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -13,7 +13,7 @@
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Label ID="lblXCliente" runat="server" Text="Ingrese el Cliente:"></asp:Label>
     &nbsp;&nbsp;
-    <asp:TextBox ID="txtCliente" runat="server"></asp:TextBox>
+    <asp:TextBox ID="txtCliente" runat="server" OnTextChanged="txtCliente_TextChanged"></asp:TextBox>
     &nbsp;&nbsp;&nbsp;
     <asp:Button ID="btnBuscarCliente" runat="server" OnClick="btnBuscarCliente_Click" Text="Buscar" />
     <br />
