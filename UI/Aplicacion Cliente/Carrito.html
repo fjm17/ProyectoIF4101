@@ -16,7 +16,7 @@
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
 </head>
-<body onload="VerificarSesion(); MostrarPlatos();">
+<body onload="VerificarSesion(); MontarCarrito();">
     <form id="form1">
 
         <div>
@@ -26,18 +26,23 @@
                         <a class="navbar-brand" style="color:white" href="#">Les Quatre ???</a>
                     </div>
                     <ul id="navbarElements" class="nav navbar-nav">
-                        <li><a href="Inicio.html" style="color:white">Inicio</a></li>
+                        <li><a href="PaginaInicio.html" style="color:white">Inicio</a></li>
                         <li><a href="ModificarDatosCliente.html" onclick="" style="color:white">Modificar mis Datos</a></li>
                         <li><a href="IniciarSesionCliente.html" onclick="CerrarSesion()" style="color:white">Cerrar Sesion</a></li>
-                        <li><a href="Carrito.html" style="color:white"><span class="glyphicon glyphicon-shopping-cart" style="color:white"></span> Carrito</a></li>
                         <!--<li><a>asdgasdga</a></li>-->
                     </ul>
                 </div>
             </nav>
             <div class="container table-responsive">
                 <h3> Platos disponibles </h3>
-                <table id="tablePlatos" class="table table-bordered table-condensed"></table>
+                <table id="tableDetalles" class="table table-bordered table-condensed"></table>
                 <!--<input type="button" onclick="prepareForShowing()" value="Mostrar Platos" />-->
+                <br/>
+                <br/>
+                <input type="button" onclick="TerminarCompra()" value="Enviar Pedido" />
+                <br />
+                <br />
+                <input type="button" onclick="Volver()" value="Volver" style="background-color:black"/>
             </div>
         </div>
     </form>

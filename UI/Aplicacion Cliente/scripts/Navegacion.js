@@ -10,21 +10,12 @@ function MandarParaCarrito() {
 
 function VerificarSesion() {
     var correo = localStorage["correo"];
-    /*if (typeof correo !== 'undefined' && correo !== null) {
-        alert(correo);
-    }
-    else
-    {
-        alert("Get Out");
+    if (correo == null) {
         location.href = "IniciarSesionCliente.html";
-        //alert("You're cool " + localStorage["correo"]);
-    }*/
+    }
 }
 
 function CerrarSesion() {
     localStorage.removeItem("correo");
-}
-
-
-function AInicioSesion() {
+    location.href = "";
 }
