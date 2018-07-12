@@ -58,6 +58,22 @@
         <div class="dropdown btn-group">
             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"
                 style="background-color: #DD392E; color: white; border-color: white">
+                Gestionar Estados
+        <span class="caret"></span>
+            </button>
+
+            <ul class="dropdown-menu" style="background-color: yellow; color: black">
+                <li><a class="dropdown-it" href="AdministrarEstados.aspx">Modificar Tiempo de Estados</a></li>
+            </ul>
+
+        </div>
+        <br />
+        <br />
+        <br />
+
+        <div class="dropdown btn-group">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"
+                style="background-color: #DD392E; color: white; border-color: white">
                 Gestionar Platos
         <span class="caret"></span>
             </button>

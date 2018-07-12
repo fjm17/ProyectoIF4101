@@ -41,7 +41,7 @@ namespace DAO
                 bdConexion.GenerarConsulta("SELECT Tiempo_Estado FROM Estado_Pedido WHERE Estado = @codestado");
                 bdConexion.AsignarParametro("@codestado", estado);
 
-                int lector = (int) bdConexion.Comando.ExecuteScalar();
+                int lector = (int)bdConexion.Comando.ExecuteScalar();
                 bdConexion.RealizarCommit();
                 return lector;
             }
@@ -54,6 +54,31 @@ namespace DAO
                 bdConexion.Finalizar();
             }
             return 0;
+        }
+
+        public Boolean ModificarTiempoEstado(string codigo, int tiempo)
+        {
+            try
+            {
+                bdConexion.Conectar();
+                bdConexion.Inicializar();
+                bdConexion.GenerarConsulta("Update Estado_Pedido Set Tiempo_Estado = @tiempo Where Codigo = @cod");
+                bdConexion.AsignarParametro("@tiempo", tiempo);
+                bdConexion.AsignarParametro("@cod", codigo);
+
+                bdConexion.Comando.ExecuteNonQuery();
+                bdConexion.RealizarCommit();
+            }
+            catch (Exception ex)
+            {
+                bdConexion.RealizarRollBack();
+                return false;
+            }
+            finally
+            {
+                bdConexion.Finalizar();
+            }
+            return true;
         }
 
         public Boolean CambiarEstado(int numeroPedido, int codigoEstado)
@@ -182,7 +207,7 @@ namespace DAO
                     lector["Codigo_Estado"].ToString());
                 BuscarDetallesPedido(nuevoPedido);
                 pedidos.AgregarPedido(nuevoPedido);
-               
+
             }
         }
 
@@ -232,29 +257,6 @@ namespace DAO
                 return false;
             }
         }
-
-        /*public bool Actualizar(TO_Pedido toPedido, string estado)
-        {
-            Boolean completado = true;
-            try
-            {
-                TO_Estado_Pedido toEstadoPedido = new TO_Estado_Pedido();
-                toEstadoPedido.Estado = estado;
-                MostrarEstadoPedido(toEstadoPedido);
-                toPedido.CodigoEstado = toEstadoPedido.Codigo;
-                formatoIngreso("UPDATE Pedido SET Precio = @prec, Foto = @foto, Estado = @estado Where Nombre = @nom", plato);
-            }
-            catch (Exception ex)
-            {
-                completado = false;
-                bdConexion.RealizarRollBack();
-            }
-            finally
-            {
-                bdConexion.Finalizar();
-            }
-            return completado;
-        }*/
 
         private void formatoIngreso(string consulta, TO_Pedido pedido)
         {
@@ -334,7 +336,8 @@ namespace DAO
                 lector.Close();
                 bdConexion.RealizarCommit();
             }
-            catch (Exception ex){
+            catch (Exception ex)
+            {
 
                 completado = false;
                 bdConexion.RealizarRollBack();
