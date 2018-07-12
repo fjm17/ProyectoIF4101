@@ -47,12 +47,12 @@ namespace BL
             return false;
         }
 
-        /*public Boolean ActualizarPedido(int numero, string correoCliente, DateTime fecha, string estado)
+        public Boolean ActualizarPedido(int numero, string estado)
         {
             DAOPedido daoPedido = new DAOPedido();
-            TO_Pedido toUsuario = new TO_Pedido(numero, correoCliente, fecha, "");
-            return daoPedido.Actualizar(toUsuario, estado);
-        }*/
+            return daoPedido.CambiarEstado(numero, int.Parse(estado));
+             
+        }
 
 
         //------------------------- Estado -------------------------------------
