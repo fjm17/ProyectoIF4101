@@ -29,7 +29,8 @@
       
       <ul class="dropdown-menu" style="background-color:yellow; color:black">
         <li><a class="dropdown-it" href="AgregarUsuario.aspx">Agregar Usuario</a></li>
-        <li><a class="dropdown-it" href="#.aspx">Actualizar datos de Usuario</a></li>
+        <li><a class="dropdown-it" href="AdministrarUsuario.aspx">Actualizar Datos de Usuario</a></li>
+        <li><a class="dropdown-it" href="BloquearClientes.aspx">Modificar  Estado de Cuenta de Clientes</a></li>
       </ul>
 
     </div>

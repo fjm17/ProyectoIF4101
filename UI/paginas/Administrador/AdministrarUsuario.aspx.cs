@@ -18,6 +18,10 @@ namespace UI
             txtDireccion.Enabled = false;
             txtTipo.Enabled = false;
 
+            btnActualizar.Visible = false;
+            btnEliminar.Visible = false;
+
+
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
@@ -26,13 +30,18 @@ namespace UI
 
             if (usuarioEncontrado)
             {
-                txtNombre.Enabled = true;
-                txtDireccion.Enabled = true;
+                if (!manejador.Usuario.Equals("Cliente"))
+                {
+                    txtNombre.Enabled = true;
+                    txtDireccion.Enabled = true;
 
-                txtNombre.Text = manejador.Usuario.Nombre_Completo;
-                txtDireccion.Text = manejador.Usuario.Direccion;
-                txtTipo.Text = manejador.Usuario.Tipo;
-                
+                    txtNombre.Text = manejador.Usuario.Nombre_Completo;
+                    txtDireccion.Text = manejador.Usuario.Direccion;
+                    txtTipo.Text = manejador.Usuario.Tipo;
+
+                    btnEliminar.Visible = true;
+                    btnActualizar.Visible = true;
+                } 
 
             }
             else {
@@ -63,6 +72,9 @@ namespace UI
                 mostrarMensaje("Ocurrio un error al actualizar el usuario");
             }
 
+            btnActualizar.Visible = false;
+            btnEliminar.Visible = false;
+
         }
 
         protected void btnEliminar_Click(object sender, EventArgs e)
@@ -82,6 +94,11 @@ namespace UI
             txtNombre.Text = "";
             txtDireccion.Text = "";
             txtTipo.Text = "";
+        }
+
+        protected void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MenuAdministrador.aspx");
         }
     }
 }
